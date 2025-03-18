@@ -1,0 +1,102 @@
+/* Modern Best Practices Section Styles */
+
+.best-practices-section {
+    background-color: var(--white);
+    position: relative;
+    padding: 0px 0 150px;
+    overflow: hidden;
+  }
+  
+  .modern-practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .modern-practice-card {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .card-left {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .practice-icon {
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .modern-practice-card:hover .practice-icon {
+    transform: scale(1.2);
+  }
+  
+  .card-right {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .modern-practice-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  
+  .modern-practice-card p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  .bestprac-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    bottom: -100px;
+    line-height: 0;
+    z-index: 1;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 991.98px) {
+    .modern-practices-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .modern-practices-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .card-left {
+      width: 70px;
+    }
+    
+    .practice-icon {
+      font-size: 1.5rem;
+    }
+    
+    .card-right {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .modern-practices-grid {
+      grid-template-columns: 1fr;
+    }
+  }

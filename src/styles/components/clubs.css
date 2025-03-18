@@ -1,0 +1,131 @@
+/* Clubs Section Styles */
+
+.clubs-section {
+  background-color: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 150px; /* Increase bottom padding to accommodate the shifted wave */
+}
+
+.clubs-row {
+  position: relative;
+  z-index: 2; /* Ensure the clubs are above the wave */
+}
+
+.club-card {
+  background-color: var(--white);
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.club-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.club-card .card-body {
+  padding: 30px;
+}
+
+.club-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 1.8rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.club-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.club-card p {
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.club-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.members {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.join-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.join-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  transition: all 0.3s ease;
+}
+
+.join-link:hover {
+  color: var(--secondary-color);
+}
+
+.join-link:hover::after {
+  width: 100%;
+}
+
+.clubs-shape {
+  position: absolute;
+  bottom: -130px; /* Shift the wave down by 50px */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 1;
+}
+
+/* Responsive Clubs */
+@media (max-width: 991.98px) {
+  .club-card {
+    margin-bottom: 30px;
+  }
+  
+  .clubs-section {
+    padding-bottom: 120px; /* Adjust for smaller screens */
+  }
+  
+  .clubs-shape {
+    bottom: -40px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .clubs-section {
+    padding-bottom: 100px; /* Adjust for mobile */
+  }
+  
+  .clubs-shape {
+    bottom: -30px; /* Adjust for mobile */
+  }
+}
