@@ -1,15 +1,15 @@
-/* Clubs Section Styles */
+/* 
 
 .clubs-section {
   background-color: var(--light-bg);
   position: relative;
   overflow: hidden;
-  padding-bottom: 150px; /* Increase bottom padding to accommodate the shifted wave */
+  padding-bottom: 150px;
 }
 
 .clubs-row {
   position: relative;
-  z-index: 2; /* Ensure the clubs are above the wave */
+  z-index: 2;
 }
 
 .club-card {
@@ -98,34 +98,34 @@
 
 .clubs-shape {
   position: absolute;
-  bottom: -130px; /* Shift the wave down by 50px */
+  bottom: -130px;
   left: 0;
   width: 100%;
   line-height: 0;
   z-index: 1;
 }
 
-/* Responsive Clubs */
+
 @media (max-width: 991.98px) {
   .club-card {
     margin-bottom: 30px;
   }
   
   .clubs-section {
-    padding-bottom: 120px; /* Adjust for smaller screens */
+    padding-bottom: 120px;
   }
   
   .clubs-shape {
-    bottom: -40px; /* Adjust for smaller screens */
+    bottom: -40px;
   }
 }
 
 @media (max-width: 767.98px) {
   .clubs-section {
-    padding-bottom: 100px; /* Adjust for mobile */
+    padding-bottom: 100px;
   }
   
   .clubs-shape {
-    bottom: -30px; /* Adjust for mobile */
+    bottom: -30px;
   }
-}
+} */

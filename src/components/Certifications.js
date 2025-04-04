@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Badge, Modal, Button } from 'react-bootstrap';
-import '../styles/components/certifications.css';
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Certifications = () => {
   const [showModal, setShowModal] = useState(false);
@@ -74,96 +75,151 @@ const Certifications = () => {
     setShowModal(true);
   };
 
+  const getBadgeColor = (level) => {
+    switch(level) {
+      case 'Beginner':
+        return 'bg-green-500';
+      case 'Intermediate':
+        return 'bg-blue-500';
+      case 'Advanced':
+        return 'bg-purple-600';
+      default:
+        return 'bg-indigo-600';
+    }
+  };
+
   return (
-    <section id="certifications" className="certifications-section">
-      <Container>
-        <div className="section-title" data-aos="fade-up">
-          <h2>Industry Recognized Certifications</h2>
-          <div className="title-underline"></div>
-          <p>Enhance your skills and employability with our industry-partnered certification programs</p>
+    <section id="certifications" className="bg-white py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Industry Recognized Certifications</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Enhance your skills and employability with our industry-partnered certification programs</p>
         </div>
         
-        <Row>
-          {certifications.map((cert) => (
-            <Col lg={4} md={6} className="mb-4" key={cert.id} data-aos="fade-up" data-aos-delay={cert.id * 100}>
-              <Card className="cert-card">
-                <div className="cert-logo">
-                  <img src={cert.logo} alt={cert.provider} />
-                </div>
-                <Card.Body>
-                  <Badge bg="primary" className="level-badge">{cert.level}</Badge>
-                  <h3>{cert.name}</h3>
-                  <p className="provider">by {cert.provider}</p>
-                  <p className="description">{cert.description.substring(0, 100)}...</p>
-                  <div className="cert-footer">
-                    <span className="duration"><i className="far fa-clock"></i> {cert.duration}</span>
-                    <Button 
-                      variant="outline-primary" 
-                      className="details-btn"
-                      onClick={() => handleShowDetails(cert)}
-                    >
-                      View Details
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3, ease: "easeOut" } // Faster hover with 0.15s duration
+              }}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl h-full group"
+              
+            >
+              <div className="h-[120px] flex items-center justify-center p-5 bg-gray-50 overflow-hidden">
+                <img 
+                  src={cert.logo} 
+                  alt={cert.provider} 
+                  className="max-h-[80px] max-w-full transition-transform duration-200 group-hover:scale-110" // Faster image scaling
+                />
+              </div>
+              <div className="p-6 relative">
+                <span className={`absolute -top-4 right-6 ${getBadgeColor(cert.level)} text-white text-xs font-medium px-4 py-1 rounded-full`}>
+                  {cert.level}
+                </span>
+                <h3 className="text-xl font-semibold text-gray-800 mt-2 mb-1">{cert.name}</h3>
+                <p className="text-gray-500 text-sm mb-4">by {cert.provider}</p>
+                <p className="text-gray-600 mb-6 min-h-[80px]">{cert.description}</p>
+              </div>
+            </motion.div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
 
       {/* Certification Details Modal */}
-      <Modal 
-        show={showModal} 
-        onHide={() => setShowModal(false)}
-        centered
-        className="cert-modal"
-        size="lg"
-      >
-        {selectedCert && (
-          <>
-            <Modal.Header closeButton>
-              <Modal.Title>{selectedCert.name}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="modal-cert-header d-flex align-items-center mb-4">
-                <img src={selectedCert.logo} alt={selectedCert.provider} className="modal-logo" />
-                <div>
-                  <h5>{selectedCert.provider}</h5>
-                  <Badge bg="primary">{selectedCert.level}</Badge>
-                  <span className="ms-2"><i className="far fa-clock"></i> {selectedCert.duration}</span>
-                </div>
-              </div>
-              
-              <h5>Description</h5>
-              <p>{selectedCert.description}</p>
-              
-              <h5>Skills You'll Gain</h5>
-              <div className="skills-container">
-                {selectedCert.skills.map((skill, index) => (
-                  <Badge bg="secondary" key={index} className="skill-badge">{skill}</Badge>
-                ))}
-              </div>
-              
-              <h5 className="mt-4">Certification Process</h5>
-              <ul className="process-list">
-                <li>Complete the required coursework</li>
-                <li>Pass practice assessments</li>
-                <li>Schedule and take the certification exam</li>
-                <li>Receive digital badge upon successful completion</li>
-              </ul>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowModal(false)}>
-                Close
-              </Button>
-              <Button variant="primary">
-                Enroll Now
-              </Button>
-            </Modal.Footer>
-          </>
-        )}
-      </Modal>
+      {showModal && (
+        <div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            {/* Background overlay */}
+            <div 
+              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" 
+              aria-hidden="true"
+              onClick={() => setShowModal(false)}
+            ></div>
+
+            {/* Modal panel */}
+            {/* <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+              {selectedCert && (
+                <>
+                  <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
+                    <h3 className="text-xl font-semibold text-indigo-600">{selectedCert.name}</h3>
+                    <button 
+                      onClick={() => setShowModal(false)}
+                      className="text-gray-400 hover:text-gray-500"
+                    >
+                      <span className="sr-only">Close</span>
+                      <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                  </div>
+                  
+                  <div className="px-6 py-4">
+                    <div className="flex items-center mb-6">
+                      <img 
+                        src={selectedCert.logo} 
+                        alt={selectedCert.provider} 
+                        className="h-16 mr-5"
+                      />
+                      <div>
+                        <h5 className="text-lg font-medium text-gray-800 mb-1">{selectedCert.provider}</h5>
+                        <div className="flex items-center">
+                          <span className={`${getBadgeColor(selectedCert.level)} text-white text-xs font-medium px-3 py-1 rounded-full`}>
+                            {selectedCert.level}
+                          </span>
+                          <span className="ml-3 text-gray-500 text-sm">
+                            <FontAwesomeIcon icon={faClock} className="mr-1" /> 
+                            {selectedCert.duration}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h5 className="text-lg font-medium text-gray-800 mb-2">Description</h5>
+                    <p className="text-gray-600 mb-6">{selectedCert.description}</p>
+                    
+                    <h5 className="text-lg font-medium text-gray-800 mb-3">Skills You'll Gain</h5>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {selectedCert.skills.map((skill, index) => (
+                        <span 
+                          key={index} 
+                          className="bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <h5 className="text-lg font-medium text-gray-800 mb-3">Certification Process</h5>
+                    <ul className="list-disc pl-5 text-gray-600">
+                      <li className="mb-1">Complete the required coursework</li>
+                      <li className="mb-1">Pass practice assessments</li>
+                      <li className="mb-1">Schedule and take the certification exam</li>
+                      <li>Receive digital badge upon successful completion</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="px-6 py-4 bg-gray-50 flex justify-end space-x-3">
+                    <button 
+                      onClick={() => setShowModal(false)}
+                      className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+                    >
+                      Close
+                    </button>
+                    <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+                      Enroll Now
+                    </button>
+                  </div>
+                </>
+              )}
+            </div> */}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
