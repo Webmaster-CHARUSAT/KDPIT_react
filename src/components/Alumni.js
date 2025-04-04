@@ -1,9 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { motion } from 'framer-motion';
-import '../styles/components/alumni.css';
 
 const Alumni = () => {
   const alumni = [
@@ -76,55 +73,59 @@ const Alumni = () => {
   ];
 
   return (
-    <section id="alumni" className="alumni-section">
-      <Container>
-        <div className="section-title" data-aos="fade-up">
-          <h2>Notable Alumni</h2>
-          <div className="title-underline"></div>
-          <p>Our graduates have gone on to achieve remarkable success in their careers</p>
+    <section id="alumni" className="relative bg-white py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Notable Alumni</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Our graduates have gone on to achieve remarkable success in their careers</p>
         </div>
         
-        <Row>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {alumni.map((alum) => (
-            <Col lg={4} md={6} className="mb-4" key={alum.id} data-aos="fade-up" data-aos-delay={alum.id * 100}>
-              <motion.div 
-                whileHover={{ 
-                  y: -10,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Card className="alumni-card">
-                  <div className="alumni-image">
-                    <img src={alum.image} alt={alum.name} />
-                    <div className="alumni-social">
-                      <a href={alum.linkedin} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faLinkedin} />
-                      </a>
-                      <a href={alum.twitter} target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitter} />
-                      </a>
-                    </div>
+            <div key={alum.id} className="h-full">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
+                <div className="h-[250px] relative overflow-hidden">
+                  <img 
+                    src={alum.image} 
+                    alt={alum.name} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-5 right-5 flex flex-col gap-2.5">
+                    <a 
+                      href={alum.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 bg-white/80 rounded-full flex items-center justify-center text-indigo-600"
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                    <a 
+                      href={alum.twitter} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 bg-white/80 rounded-full flex items-center justify-center text-indigo-600"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </a>
                   </div>
-                  <Card.Body>
-                    <h3>{alum.name}</h3>
-                    <p className="position">{alum.position} at {alum.company}</p>
-                    <p className="batch">Batch of {alum.batch}</p>
-                    <div className="quote">
-                      <p>"{alum.quote}"</p>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-1">{alum.name}</h3>
+                  <p className="text-indigo-600 font-medium mb-1">{alum.position} at {alum.company}</p>
+                  <p className="text-gray-500 text-sm mb-4">Batch of {alum.batch}</p>
+                  <div className="bg-gray-50 p-4 rounded-lg relative">
+                    <span className="absolute top-0 left-2.5 text-5xl leading-none text-indigo-600/20 font-serif">"</span>
+                    <p className="text-gray-600 italic pl-5 relative z-10">{alum.quote}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </Row>
-        
-        {/* <div className="text-center mt-5" data-aos="fade-up">
-          <a href="#alumni-network" className="alumni-network-btn">Join Our Alumni Network</a>
-        </div> */}
-      </Container>
+        </div>
+      </div>
       
-      <div className="alumni-shape">
+      <div className="absolute bottom-0 -bottom-[30px] left-0 w-full leading-[0] z-10">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path fill="#dbdada" fillOpacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import '../styles/components/studentchapters.css';
 
 const StudentChapters = () => {
   const chapters = [
@@ -35,61 +33,75 @@ const StudentChapters = () => {
   ];
 
   return (
-    <section id="chapters" className="chapters-section">
-      <Container>
-        <div className="section-title" data-aos="fade-up">
-          <h2>Student Chapters</h2>
-          <div className="title-underline"></div>
-          <p>Be part of prestigious professional organizations to expand your knowledge and network</p>
+    <section id="chapters" className="bg-gray-50 py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Student Chapters</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Be part of prestigious professional organizations to expand your knowledge and network</p>
         </div>
         
-        <Row className="justify-content-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
           {chapters.map((chapter, index) => (
-            <Col lg={4} md={6} className="mb-4" key={chapter.id} data-aos="fade-up" data-aos-delay={chapter.id * 100}>
-              <Card className="chapter-card">
-                <div className="chapter-header" style={{ backgroundColor: chapter.color }}>
-                  <motion.div 
-                    className="chapter-logo"
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
-                    <img src={chapter.logo} alt={chapter.name} />
-                  </motion.div>
+            <motion.div
+              key={chapter.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.2, ease: "easeOut" } // Faster hover with 0.15s duration
+              }}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl h-full overflow-hidden"
+            >
+              <div 
+                className="h-[120px] flex items-center justify-center relative"
+                style={{ backgroundColor: chapter.color }}
+              >
+                <motion.div 
+                  className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center p-4 shadow-md absolute top-[70px] z-10"
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: 5,
+                    transition: { duration: 0.15, type: "spring", stiffness: 400 } // Faster logo hover with spring physics
+                  }}
+                >
+                  <img src={chapter.logo} alt={chapter.name} className="max-w-[80%] max-h-[80%]" />
+                </motion.div>
+              </div>
+              
+              <div className="pt-[70px] px-6 pb-6 text-center">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{chapter.name}</h3>
+                <p className="text-gray-600 mb-5">{chapter.description}</p>
+                
+                <div className="flex justify-center gap-8 mb-6">
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-indigo-600 mb-1">{chapter.members}</h4>
+                    <p className="text-gray-500 text-sm">Members</p>
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-indigo-600 mb-1">{chapter.activities.length}</h4>
+                    <p className="text-gray-500 text-sm">Activities</p>
+                  </div>
                 </div>
-                <Card.Body>
-                  <h3>{chapter.name}</h3>
-                  <p>{chapter.description}</p>
-                  <div className="chapter-stats">
-                    <div className="stat">
-                      <h4>{chapter.members}</h4>
-                      <p>Members</p>
-                    </div>
-                    <div className="stat">
-                      <h4>{chapter.activities.length}</h4>
-                      <p>Activities</p>
-                    </div>
-                  </div>
-                  <div className="chapter-activities">
-                    <h5>Key Activities</h5>
-                    <ul>
-                      {chapter.activities.map((activity, idx) => (
-                        <li key={idx}>{activity}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="chapter-footer">
-                    <a href="#join" className="join-btn">Join Chapter</a>
-                    <a href="#learn" className="learn-more-btn">Learn More</a>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
+                
+                <div className="text-left mb-6">
+                  <h5 className="text-lg font-medium text-gray-800 mb-3 pb-2 border-b border-gray-100 relative">
+                    Key Activities
+                    <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600"></span>
+                  </h5>
+                  <ul className="list-disc pl-5">
+                    {chapter.activities.map((activity, idx) => (
+                      <li key={idx} className="text-gray-600 mb-1">{activity}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 };
