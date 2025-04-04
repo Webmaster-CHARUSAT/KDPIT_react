@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy, faMedal, faCertificate, faAward, faGraduationCap, 
-         faLaptopCode, faFlask, faUsers, faChalkboardTeacher, faNewspaper } from '@fortawesome/free-solid-svg-icons';
-import '../styles/components/achievements.css';
-import Wave from './wave';
+         faLaptopCode, faFlask, faUsers, faChalkboardTeacher, faNewspaper, faSearch, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const AchievementsSection = () => {
   const [filter, setFilter] = useState('all');
@@ -120,97 +117,6 @@ const AchievementsSection = () => {
       participants: ["Prof. Ramesh Kumar", "Aditya Sharma", "Ishita Patel"],
       details: "The patented system uses low-cost sensors and machine learning algorithms to detect water contaminants in real-time. The technology has been adopted by the local municipal corporation for monitoring water quality in three districts."
     },
-    {
-      id: 9,
-      title: "Microsoft Imagine Cup National Winners",
-      description: "Team 'TechNova' won the national round of Microsoft Imagine Cup and will represent India in the world finals.",
-      date: "March 30, 2023",
-      category: "student",
-      type: "competition",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faTrophy,
-      iconColor: "#2196F3",
-      participants: ["Shreya Desai", "Varun Kapoor", "Zoya Khan", "Dhruv Patel"],
-      details: "Their project 'EcoScan' is an AI-powered mobile app that identifies plant diseases and suggests organic remedies. The team will now compete in the world finals in Seattle with a chance to win $100,000."
-    },
-    {
-      id: 10,
-      title: "National Teaching Innovation Award",
-      description: "Dr. Meenakshi Singh received the National Award for Innovation in Teaching Methodology.",
-      date: "October 5, 2022",
-      category: "faculty",
-      type: "award",
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faAward,
-      iconColor: "#FFC107",
-      participants: ["Dr. Meenakshi Singh"],
-      details: "Dr. Singh was recognized for developing the 'Flip-Blend-Assess' teaching model that combines flipped classroom, blended learning, and continuous assessment techniques. The model has been adopted by several universities across the country."
-    },
-    {
-      id: 11,
-      title: "International Robotics Competition Winners",
-      description: "Robotics team won first place at the International Robotics Challenge held in Singapore.",
-      date: "May 18, 2023",
-      category: "student",
-      type: "competition",
-      image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faTrophy,
-      iconColor: "#FFD700",
-      participants: ["Robotics Club Team"],
-      details: "The team designed an autonomous rescue robot that can navigate disaster zones and identify survivors. Their innovation stood out for its advanced sensor integration and efficient path-finding algorithms."
-    },
-    {
-      id: 12,
-      title: "Fulbright Scholarship",
-      description: "Prof. Anand Sharma awarded prestigious Fulbright Scholarship for research at MIT.",
-      date: "April 3, 2023",
-      category: "faculty",
-      type: "scholarship",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faGraduationCap,
-      iconColor: "#3F51B5",
-      participants: ["Prof. Anand Sharma"],
-      details: "The scholarship will allow Prof. Sharma to conduct research on advanced neural networks at MIT for six months. This collaboration is expected to establish long-term research partnerships between our institution and MIT."
-    },
-    {
-      id: 13,
-      title: "Gold Medal at International Olympiad",
-      description: "Riya Patel won gold medal at International Informatics Olympiad.",
-      date: "August 22, 2022",
-      category: "student",
-      type: "competition",
-      image: "https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faMedal,
-      iconColor: "#FFD700",
-      participants: ["Riya Patel"],
-      details: "Riya competed against participants from 89 countries and secured the top position with a perfect score in the algorithmic round. She is the first student from our college to achieve this distinction."
-    },
-    {
-      id: 14,
-      title: "Industry Collaboration Grant",
-      description: "Department secured ₹75 Lakhs industry collaboration grant with Infosys for AI research.",
-      date: "February 10, 2023",
-      category: "faculty",
-      type: "grant",
-      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faUsers,
-      iconColor: "#607D8B",
-      participants: ["Dr. Ramesh Kumar", "Dr. Sunita Verma", "Infosys Research Team"],
-      details: "The collaboration focuses on developing AI solutions for healthcare diagnostics. The project will provide internship and research opportunities for 15 students annually over the next three years."
-    },
-    {
-      id: 15,
-      title: "NASA Space Apps Challenge Global Finalists",
-      description: "Team 'Cosmic Coders' selected as global finalists in NASA Space Apps Challenge.",
-      date: "October 15, 2022",
-      category: "student",
-      type: "competition",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      icon: faLaptopCode,
-      iconColor: "#1565C0",
-      participants: ["Aryan Mehta", "Nisha Sharma", "Karthik Iyer", "Leela Menon"],
-      details: "The team developed a mobile application that uses NASA satellite data to predict and visualize climate change impacts on local ecosystems. They were among the top 10 teams selected globally from over 2,000 submissions."
-    }
   ];
 
   // Filter achievements based on category and search term
@@ -268,200 +174,277 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className="achievements-section">
-      <Container>
-        <div className="section-title" data-aos="fade-up">
-          <h2>Achievements</h2>
-          <div className="title-underline"></div>
-          <p>Celebrating excellence and innovation in our academic community</p>
+    <section id="achievements" className="relative py-20 pb-64 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Section Title */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Achievements</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
+          <p className="text-gray-600">Celebrating excellence and innovation in our academic community</p>
         </div>
 
-        <div className="achievements-filter" data-aos="fade-up">
-          <div className="filter-buttons">
-            <Button 
-              variant={filter === 'all' ? 'primary' : 'outline-primary'} 
+        {/* Filters */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+          <div className="flex flex-wrap gap-2">
+            <button 
               onClick={() => setFilter('all')}
-              className="filter-btn"
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                filter === 'all' 
+                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md hover:shadow-lg' 
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-indigo-400 hover:text-indigo-600'
+              }`}
             >
               All
-            </Button>
-            <Button 
-              variant={filter === 'student' ? 'primary' : 'outline-primary'} 
+            </button>
+            <button 
               onClick={() => setFilter('student')}
-              className="filter-btn"
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                filter === 'student' 
+                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md hover:shadow-lg' 
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-indigo-400 hover:text-indigo-600'
+              }`}
             >
               Student Achievements
-            </Button>
-            <Button 
-              variant={filter === 'faculty' ? 'primary' : 'outline-primary'} 
+            </button>
+            <button 
               onClick={() => setFilter('faculty')}
-              className="filter-btn"
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                filter === 'faculty' 
+                ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md hover:shadow-lg' 
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-indigo-400 hover:text-indigo-600'
+              }`}
             >
               Faculty Achievements
-            </Button>
+            </button>
           </div>
           
-          <div className="search-container">
+          <div className="relative w-full md:w-64">
             <input 
               type="text" 
               placeholder="Search achievements..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
+              className="w-full px-4 py-2 pl-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
             />
+            <FontAwesomeIcon 
+              icon={faSearch} 
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            />
+            {searchTerm && (
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            )}
           </div>
         </div>
 
-        <Row className="achievements-container">
+        {/* Achievements Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {visibleAchievements.length > 0 ? (
-            visibleAchievements.map((achievement) => (
-              <Col lg={3} md={6} className="mb-4" key={achievement.id}>
-                <motion.div 
-                  className="achievement-card"
-                  whileHover={{ 
-                    y: -10,
-                    transition: { duration: 0.3 }
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay={(achievement.id % 3) * 100}
-                  onClick={() => handleCardClick(achievement)}
-                >
+            visibleAchievements.map((achievement, index) => (
+              <motion.div 
+                key={achievement.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl"
+                onClick={() => handleCardClick(achievement)}
+              >
+                {/* Card Image */}
+                <div className="relative h-48">
                   <div 
-                    className="achievement-image" 
+                    className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${achievement.image})` }}
                   >
-                    <div className="achievement-overlay"></div>
-                    <div className="achievement-icon" style={{ backgroundColor: achievement.iconColor }}>
-                      <FontAwesomeIcon icon={achievement.icon} />
-                    </div>
-                    <Badge 
-                      bg={achievement.category === 'student' ? 'info' : 'success'} 
-                      className="category-badge"
-                    >
-                      {achievement.category === 'student' ? 'Student' : 'Faculty'}
-                    </Badge>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60"></div>
                   </div>
-                  <div className="achievement-content">
-                    <Badge bg="secondary" className="type-badge">
-                      <FontAwesomeIcon icon={getTypeIcon(achievement.type)} className="me-1" />
-                      {achievement.type.charAt(0).toUpperCase() + achievement.type.slice(1)}
-                    </Badge>
-                    <h3>{achievement.title}</h3>
-                    <p>{achievement.description}</p>
-                    <div className="achievement-footer">
-                      <span className="date">{achievement.date}</span>
-                      <span className="view-details">View Details</span>
-                    </div>
-                  </div>
-                </motion.div>
-              </Col>
-            ))
-          ) : (
-            <div className="no-results">
-              <FontAwesomeIcon icon={faAward} size="3x" className="mb-3" />
-              <h3>No achievements found</h3>
-              <p>Try adjusting your search or filter criteria</p>
-            </div>
-          )}
-        </Row>
-
-        {visibleCount < filteredAchievements.length && (
-          <div className="text-center mt-4" data-aos="fade-up">
-            <Button 
-              variant="outline-primary" 
-              className="view-more-btn"
-              onClick={handleViewMore}
-            >
-              View More <i className="fas fa-chevron-down ms-2"></i>
-            </Button>
-          </div>
-        )}
-
-        {/* Achievement Detail Modal */}
-        <Modal 
-          show={showModal} 
-          onHide={() => setShowModal(false)} 
-          size="lg" 
-          centered
-          className="achievement-modal"
-        >
-          {selectedAchievement && (
-            <>
-              <Modal.Header closeButton>
-                <Modal.Title>
-                  <FontAwesomeIcon 
-                    icon={selectedAchievement.icon} 
-                    style={{ color: selectedAchievement.iconColor }}
-                    className="me-2" 
-                  />
-                  {selectedAchievement.title}
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <div className="modal-image-container">
-                  <img 
-                    src={selectedAchievement.image} 
-                    alt={selectedAchievement.title} 
-                    className="modal-image" 
-                  />
-                  <Badge 
-                    bg={selectedAchievement.category === 'student' ? 'info' : 'success'} 
-                    className="modal-category-badge"
+                  
+                  {/* Category Badge */}
+                  <span className={`absolute top-3 right-3 text-xs font-medium px-3 py-1 rounded-full ${
+                    achievement.category === 'student' 
+                    ? 'bg-blue-500 text-white' 
+                    : 'bg-green-500 text-white'
+                  }`}>
+                    {achievement.category === 'student' ? 'Student' : 'Faculty'}
+                  </span>
+                  
+                  {/* Icon */}
+                  <div 
+                    className="absolute -bottom-5 left-5 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md z-10"
+                    style={{ backgroundColor: achievement.iconColor }}
                   >
-                    {selectedAchievement.category === 'student' ? 'Student Achievement' : 'Faculty Achievement'}
-                  </Badge>
+                    <FontAwesomeIcon icon={achievement.icon} className="text-lg" />
+                  </div>
                 </div>
                 
-                <div className="achievement-details">
-                  <div className="detail-row">
-                    <h5>Date:</h5>
-                    <p>{selectedAchievement.date}</p>
-                  </div>
+                {/* Card Content */}
+                <div className="p-5 pt-8">
+                  {/* Type Badge */}
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-3">
+                    <FontAwesomeIcon icon={getTypeIcon(achievement.type)} className="mr-1" />
+                    {achievement.type.charAt(0).toUpperCase() + achievement.type.slice(1)}
+                  </span>
                   
-                  <div className="detail-row">
-                    <h5>Category:</h5>
-                    <Badge bg="secondary">
-                      {selectedAchievement.type.charAt(0).toUpperCase() + selectedAchievement.type.slice(1)}
-                    </Badge>
-                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
+                    {achievement.title}
+                  </h3>
                   
-                  <div className="detail-row">
-                    <h5>Participants:</h5>
-                    <div className="participants-list">
-                      {selectedAchievement.participants.map((participant, index) => (
-                        <Badge bg="light" text="dark" key={index} className="participant-badge">
-                          {participant}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {achievement.description}
+                  </p>
                   
-                  <div className="detail-row description-row">
-                    <h5>Description:</h5>
-                    <p>{selectedAchievement.details || selectedAchievement.description}</p>
+                  <div className="flex justify-between items-center pt-3 border-t border-gray-100">
+                    <span className="text-gray-500 text-xs">{achievement.date}</span>
+                    <span className="text-indigo-600 text-sm font-medium group-hover:underline">
+                      View Details
+                    </span>
                   </div>
                 </div>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={() => setShowModal(false)}>
-                  Close
-                </Button>
-                <Button variant="primary">
-                  Share Achievement
-                </Button>
-              </Modal.Footer>
-            </>
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full py-16 text-center">
+              <FontAwesomeIcon icon={faAward} className="text-gray-300 text-5xl mb-4" />
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">No achievements found</h3>
+              <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+            </div>
           )}
-        </Modal>
-      </Container>
-      {/* <Wave/>  */}
+        </div>
 
-      <div className="achievements-shape">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        {/* View More Button */}
+        {visibleCount < filteredAchievements.length && (
+          <div className="text-center mt-12 z-50">
+            <button 
+              onClick={handleViewMore}
+              className="px-8 py-3 rounded-full bg-white text-indigo-600 border border-indigo-200 font-medium transition-all duration-300 hover:bg-indigo-50 hover:border-indigo-300 hover:-translate-y-1 hover:shadow-md"
+            >
+              View More
+              <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-xs" />
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Wave Shape */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
           <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,218.7C672,203,768,149,864,117.3C960,85,1056,75,1152,90.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
+
+      {/* Achievement Detail Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            {/* Background overlay */}
+            <div 
+              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" 
+              aria-hidden="true"
+              onClick={() => setShowModal(false)}
+            ></div>
+
+            {/* Modal panel */}
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+              {selectedAchievement && (
+                <>
+                  {/* Modal Header */}
+                  <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                    <h3 className="text-lg leading-6 font-semibold text-indigo-600 flex items-center">
+                      <FontAwesomeIcon 
+                        icon={selectedAchievement.icon} 
+                        style={{ color: selectedAchievement.iconColor }}
+                        className="mr-2" 
+                      />
+                      {selectedAchievement.title}
+                    </h3>
+                    <button 
+                      onClick={() => setShowModal(false)}
+                      className="text-gray-400 hover:text-gray-500"
+                    >
+                      <span className="sr-only">Close</span>
+                      <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                  </div>
+                  
+                  {/* Modal Body */}
+                  <div className="px-6 py-4">
+                    {/* Image */}
+                    <div className="relative mb-6">
+                      <img 
+                        src={selectedAchievement.image} 
+                        alt={selectedAchievement.title} 
+                        className="w-full h-64 object-cover rounded-lg" 
+                      />
+                      <span className={`absolute top-4 right-4 text-xs font-medium px-4 py-1 rounded-full ${
+                        selectedAchievement.category === 'student' 
+                        ? 'bg-blue-500 text-white' 
+                        : 'bg-green-500 text-white'
+                      }`}>
+                        {selectedAchievement.category === 'student' ? 'Student Achievement' : 'Faculty Achievement'}
+                      </span>
+                    </div>
+                    
+                    {/* Details */}
+                    <div className="space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center border-b border-gray-100 pb-4">
+                        <h4 className="w-32 text-sm font-semibold text-indigo-600 mb-1 sm:mb-0">Date:</h4>
+                        <p className="text-gray-700">{selectedAchievement.date}</p>
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row sm:items-center border-b border-gray-100 pb-4">
+                        <h4 className="w-32 text-sm font-semibold text-indigo-600 mb-1 sm:mb-0">Category:</h4>
+                        <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                          {selectedAchievement.type.charAt(0).toUpperCase() + selectedAchievement.type.slice(1)}
+                        </span>
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row border-b border-gray-100 pb-4">
+                        <h4 className="w-32 text-sm font-semibold text-indigo-600 mb-1 sm:mb-0">Participants:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedAchievement.participants.map((participant, index) => (
+                            <span 
+                              key={index} 
+                              className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                            >
+                              {participant}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div className="pt-2">
+                        <h4 className="text-sm font-semibold text-indigo-600 mb-2">Description:</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {selectedAchievement.details || selectedAchievement.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Modal Footer */}
+                  <div className="px-6 py-4 bg-gray-50 flex justify-end gap-3">
+                    <button 
+                      onClick={() => setShowModal(false)}
+                      className="px-4 py-2 rounded-md text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
+                    >
+                      Close
+                    </button>
+                    <button className="px-4 py-2 rounded-md text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-colors">
+                      Share Achievement
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
+
 export default AchievementsSection;

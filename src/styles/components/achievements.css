@@ -1,4 +1,4 @@
-/* Achievements Section Styles */
+/* 
 
 .achievements-section {
     background-color: var(--light-bg);
@@ -222,7 +222,7 @@
     opacity: 0.5;
   }
   
-  /* Modal Styles */
+ 
   .achievement-modal .modal-title {
     color: var(--primary-color);
     font-weight: 600;
@@ -307,7 +307,7 @@
     z-index: 1;
   }
   
-  /* Animation for cards */
+ 
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -323,7 +323,7 @@
     animation: fadeInUp 0.5s ease forwards;
   }
   
-  /* Responsive styles */
+ 
   @media (max-width: 991.98px) {
     .achievements-filter {
       flex-direction: column;
@@ -369,4 +369,4 @@
       padding: 8px 10px;
       font-size: 0.9rem;
     }
-  }
+  } */
