@@ -36,6 +36,7 @@ function App() {
       <About />
       <AchievementsSection/>
       <BestPracticesSection/>
+      {/* <Wave /> */}
       <Clubs />
       <Certifications />
       <StudentChapters />
