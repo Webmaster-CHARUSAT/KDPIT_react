@@ -1,4 +1,4 @@
-/* Hero Section Styles */
+/* 
 
 .hero-section {
     height: 100vh;
@@ -134,7 +134,7 @@
     z-index: 2;
   }
   
-  /* Responsive Hero */
+ 
   @media (max-width: 991.98px) {
     .carousel-caption h1 {
       font-size: 2.5rem;
@@ -162,4 +162,4 @@
     .carousel-control-prev, .carousel-control-next {
       display: none;
     }
-  }
+  } */

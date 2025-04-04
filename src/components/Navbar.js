@@ -18,9 +18,9 @@ const NavBar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 w-full z-10 transition-all duration-300 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 
       ${scrolled ? 'py-2 shadow-lg' : 'py-3'} 
-      bg-white/95 text-gray-800 ${scrolled ? 'bg-white/98' : ''}`}
+      bg-white/95 text-gray-800 ${scrolled ? 'bg-white/95' : ''}`}
     >
       <div className="container mx-auto px-2 lg:px-8">
         <div className="flex justify-between items-center">
