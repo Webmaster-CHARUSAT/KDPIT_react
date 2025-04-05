@@ -1,19 +1,19 @@
-/* Testimonials Section Styles */
+/* 
 
 .testimonials-section {
   background-color: var(--light-bg);
   position: relative;
-  padding-bottom: 150px; /* Add more padding at the bottom */
+  padding-bottom: 150px;
 }
 
 .testimonials-container {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 30px 0 70px; /* Increase bottom padding */
+  padding: 30px 0 70px;
 }
 
-/* New control button styles */
+
 .control-btn {
   width: 50px;
   height: 50px;
@@ -130,7 +130,7 @@
   gap: 10px;
   margin-top: 30px;
   position: relative;
-  z-index: 5; /* Add z-index to ensure dots are above the wave */
+  z-index: 5;
 }
 
 .dot {
@@ -157,7 +157,7 @@
 
 }
 
-/* Responsive Testimonials */
+
 @media (max-width: 1199.98px) {
   .prev-btn {
     left: 10px;
@@ -209,6 +209,6 @@
   }
   
   .testimonials-section {
-    padding-bottom: 120px; /* Adjust for mobile */
+    padding-bottom: 120px;
   }
-}
+} */
