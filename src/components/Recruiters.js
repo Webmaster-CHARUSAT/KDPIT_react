@@ -1,8 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';
-import '../styles/components/recruiters.css';
 
 const Recruiters = () => {
   const recruiters = [
@@ -61,7 +59,6 @@ const Recruiters = () => {
       name: 'Cisco', 
       logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1200px-Cisco_logo_blue_2016.svg.png'
     },
-    
   ];
 
   const placementStats = [
@@ -72,49 +69,59 @@ const Recruiters = () => {
   ];
 
   return (
-    <section id="recruiters" className="recruiters-section">
-      <Container>
-        <div className="section-title" data-aos="fade-up">
-          <h2>Major Recruiters</h2>
-          <div className="title-underline"></div>
-          <p>Our students are placed in top companies across the globe</p>
+    <section id="recruiters" className="bg-white py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Major Recruiters</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Our students are placed in top companies across the globe</p>
         </div>
         
-        <div className="recruiters-container" data-aos="fade-up">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 my-12" data-aos="fade-up">
           {recruiters.map((recruiter) => (
             <motion.div 
-              className="recruiter-logo" 
               key={recruiter.id}
               whileHover={{ 
-                scale: 1.1,
-                transition: { duration: 0.3 }
+                scale: 1.05,
+                transition: { duration: 0.2 }
               }}
+              className="h-[100px] w-[150px] sm:w-[calc(33.333%-32px)] md:w-[calc(25%-32px)] lg:w-[calc(20%-32px)] xl:w-[calc(16.666%-32px)] bg-gray-50 rounded-lg shadow-md flex items-center justify-center p-3 overflow-hidden"
             >
-              <img src={recruiter.logo} alt={recruiter.name} />
+              <img 
+                src={recruiter.logo} 
+                alt={recruiter.name} 
+                className="max-w-[80%] max-h-[80px] object-contain transition-opacity duration-300"
+              />
             </motion.div>
           ))}
         </div>
         
-        <Row className="placement-stats">
-          {placementStats.map((stat) => (
-            <Col md={6} lg={3} key={stat.id}>
-              <Card className="stat-card" data-aos="zoom-in" data-aos-delay={stat.id * 100}>
-                <Card.Body>
-                  <h3>
-                    <CountUp 
-                      end={stat.value} 
-                      duration={2.5} 
-                      decimals={stat.value % 1 !== 0 ? 1 : 0}
-                    />
-                    <span>{stat.suffix}</span>
-                  </h3>
-                  <p>{stat.title}</p>
-                </Card.Body>
-              </Card>
-            </Col>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {placementStats.map((stat, index) => (
+            <motion.div 
+              key={stat.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-xl shadow-md p-8 text-center transition-all duration-300 hover:shadow-xl"
+              data-aos="zoom-in"
+              data-aos-delay={stat.id * 100}
+            >
+              <h3 className="text-4xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <CountUp 
+                  end={stat.value} 
+                  duration={2.5} 
+                  decimals={stat.value % 1 !== 0 ? 1 : 0}
+                />
+                <span className="text-3xl">{stat.suffix}</span>
+              </h3>
+              <p className="text-gray-600">{stat.title}</p>
+            </motion.div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 };
