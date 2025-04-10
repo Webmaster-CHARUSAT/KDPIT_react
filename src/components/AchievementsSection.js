@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrophy, faMedal, faCertificate, faAward, faGraduationCap, 
-         faLaptopCode, faFlask, faUsers, faChalkboardTeacher, faNewspaper, faSearch, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTrophy, faMedal, faCertificate, faAward, faGraduationCap, faLaptopCode, faFlask, faUsers, faChalkboardTeacher, faNewspaper, faSearch, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const AchievementsSection = () => {
   const [filter, setFilter] = useState('all');
@@ -174,8 +173,8 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className="relative py-20 pb-64 bg-gray-200 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="achievements" className="relative py-20 pb-64 bg-gray-200 overflow-hidden z-10">
+      <div className="container mx-auto px-4 z-20 relative">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Achievements</h2>
@@ -317,10 +316,10 @@ const AchievementsSection = () => {
 
         {/* View More Button */}
         {visibleCount < filteredAchievements.length && (
-          <div className="text-center mt-12 z-50">
+          <div className="text-center mt-12 z-20 relative">
             <button 
               onClick={handleViewMore}
-              className="px-8 py-3 rounded-full bg-white text-indigo-600 border border-indigo-200 font-medium transition-all duration-300 hover:bg-indigo-50 hover:border-indigo-300 hover:-translate-y-1 hover:shadow-md"
+              className="px-8 py-3 rounded-full bg-white text-indigo-600 border border-indigo-200 font-medium transition-all duration-300 hover:bg-indigo-500 hover:border-indigo-300 hover:-translate-y-1 hover:shadow-md"
             >
               View More
               <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-xs" />
@@ -330,7 +329,7 @@ const AchievementsSection = () => {
       </div>
 
       {/* Wave Shape */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-1">
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
           <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,218.7C672,203,768,149,864,117.3C960,85,1056,75,1152,90.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>

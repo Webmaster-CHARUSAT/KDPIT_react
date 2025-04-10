@@ -84,7 +84,7 @@ const BestPracticesSection = () => {
 
   return (
     <section id="best-practices" className="relative bg-white overflow-hidden">
-      <div className="container mx-auto px-4 py-20 pb-40">
+      <div className="container mx-auto px-4 pb-40">
         {/* Section Title */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Best Practices</h2>
