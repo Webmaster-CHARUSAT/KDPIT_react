@@ -274,7 +274,7 @@ const Testimonials = () => {
       name: "Raj Patel",
       position: "Senior Developer at Microsoft",
       batch: "Batch of 2019",
-      thumbnail: "/images/testimonials/video-thumbnail1.jpg"
+      thumbnail: "/images/testimonials/testimonial-1.webp"
     },
   ];
 
