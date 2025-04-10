@@ -4,61 +4,25 @@ import { motion } from 'framer-motion';
 
 const Recruiters = () => {
   const recruiters = [
-    { 
-      id: 1, 
-      name: 'Google', 
-      logo: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-    },
-    { 
-      id: 2, 
-      name: 'Microsoft', 
-      logo: 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31'
-    },
-    { 
-      id: 3, 
-      name: 'Amazon', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png'
-    },
-    { 
-      id: 4, 
-      name: 'IBM', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png'
-    },
-    { 
-      id: 5, 
-      name: 'TCS', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/2560px-Tata_Consultancy_Services_Logo.svg.png'
-    },
-    { 
-      id: 6, 
-      name: 'Infosys', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1280px-Infosys_logo.svg.png'
-    },
-    { 
-      id: 7, 
-      name: 'Wipro', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/1200px-Wipro_Primary_Logo_Color_RGB.svg.png'
-    },
-    { 
-      id: 8, 
-      name: 'Accenture', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png'
-    },
-    { 
-      id: 9, 
-      name: 'Oracle', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png'
-    },
-    { 
-      id: 10, 
-      name: 'Adobe', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png'
-    },
-    { 
-      id: 11, 
-      name: 'Cisco', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1200px-Cisco_logo_blue_2016.svg.png'
-    },
+    { id: 1, name: 'Recruiter 1', logo: '/images/recruiters/1.webp' },
+    { id: 2, name: 'Recruiter 2', logo: '/images/recruiters/2.webp' },
+    { id: 3, name: 'Recruiter 3', logo: '/images/recruiters/3.webp' },
+    { id: 4, name: 'Recruiter 4', logo: '/images/recruiters/4.webp' },
+    { id: 5, name: 'Recruiter 5', logo: '/images/recruiters/5.webp' },
+    { id: 6, name: 'Recruiter 6', logo: '/images/recruiters/6.webp' },
+    { id: 7, name: 'Recruiter 7', logo: '/images/recruiters/7.webp' },
+    { id: 8, name: 'Recruiter 8', logo: '/images/recruiters/8.webp' },
+    { id: 9, name: 'Recruiter 9', logo: '/images/recruiters/9.webp' },
+    { id: 10, name: 'Recruiter 10', logo: '/images/recruiters/10.webp' },
+    { id: 11, name: 'Recruiter 11', logo: '/images/recruiters/11.webp' },
+    { id: 12, name: 'Recruiter 12', logo: '/images/recruiters/12.webp' },
+    { id: 13, name: 'Recruiter 13', logo: '/images/recruiters/13.webp' },
+    { id: 14, name: 'Recruiter 14', logo: '/images/recruiters/14.webp' },
+    { id: 15, name: 'Recruiter 15', logo: '/images/recruiters/15.webp' },
+    { id: 16, name: 'Recruiter 16', logo: '/images/recruiters/16.webp' },
+    { id: 17, name: 'Recruiter 17', logo: '/images/recruiters/17.webp' },
+    { id: 18, name: 'Recruiter 18', logo: '/images/recruiters/18.webp' },
+    { id: 19, name: 'Recruiter 19', logo: '/images/recruiters/19.webp' }
   ];
 
   const placementStats = [
@@ -90,7 +54,7 @@ const Recruiters = () => {
               <img 
                 src={recruiter.logo} 
                 alt={recruiter.name} 
-                className="max-w-[80%] max-h-[80px] object-contain transition-opacity duration-300"
+                className="max-w-[100%] max-h-[80px] object-contain transition-opacity duration-300"
               />
             </motion.div>
           ))}
