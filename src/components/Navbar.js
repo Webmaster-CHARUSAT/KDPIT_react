@@ -27,6 +27,7 @@ const NavBar = () => {
     alumni: { id: '#alumni', label: 'Alumni' },
     gallery: { id: '#gallery', label: 'Gallery' },
     recruiters: { id: '#recruiters', label: 'Recruiters' },
+    testimonials: { id: '#testimonials', label: 'Testimonials' },
     contact: { id: '#contact', label: 'Contact Us' },
   };
 
