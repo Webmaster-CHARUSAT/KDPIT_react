@@ -174,7 +174,7 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className="relative py-20 pb-64 bg-gray-50 overflow-hidden">
+    <section id="achievements" className="relative py-20 pb-64 bg-gray-200 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-12">
