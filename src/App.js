@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.css';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,6 +19,7 @@ import Footer from './components/Footer';
 import AchievementsSection from './components/AchievementsSection';
 import Wave from './components/wave';
 import BestPracticesSection from './components/BestPracticesSection';
+import FacultyDirectory from './components/Faculty';
 
 function App() {
   useEffect(() => {
@@ -30,23 +31,39 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <NavBar />
-      <Hero />
-      <About />
-      <AchievementsSection/>
-      <BestPracticesSection/>
-      {/* <Wave /> */}
-      <Clubs />
-      <Certifications />
-      <StudentChapters />
-      <Alumni />
-      <Gallery />
-      <Recruiters />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+        
+        <Routes>
+          {/* Home Page Route */}
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              <AchievementsSection/>
+              <BestPracticesSection/>
+              {/* <Wave /> */}
+              <Clubs />
+              <Certifications />
+              <StudentChapters />
+              <Alumni />
+              <Gallery />
+              <Recruiters />
+              <Testimonials />
+              <Contact />
+            </>
+          } />
+          
+          {/* Faculty Directory Page Route */}
+          <Route path="/faculty" element={<FacultyDirectory />} />
+          
+          {/* Add more routes for other standalone pages if needed */}
+        </Routes>
+        
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

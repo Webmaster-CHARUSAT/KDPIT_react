@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -17,18 +18,26 @@ const NavBar = () => {
   const [searchFocused, setSearchFocused] = useState(false);
   const searchRef = useRef(null);
   const inputRef = useRef(null);
+  
+  // React Router hooks
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/';
 
   const sections = {
-    home: { id: '#home', label: 'Home' },
-    about: { id: '#about', label: 'About' },
-    clubs: { id: '#clubs', label: 'Student Clubs' },
-    certifications: { id: '#certifications', label: 'Certifications' },
-    chapters: { id: '#chapters', label: 'Student Chapters' },
-    alumni: { id: '#alumni', label: 'Alumni' },
-    gallery: { id: '#gallery', label: 'Gallery' },
-    recruiters: { id: '#recruiters', label: 'Recruiters' },
-    testimonials: { id: '#testimonials', label: 'Testimonials' },
-    contact: { id: '#contact', label: 'Contact Us' },
+    home: { id: '#home', label: 'Home', path: '/' },
+    about: { id: '#about', label: 'About', path: '/#about' },
+    clubs: { id: '#clubs', label: 'Student Clubs', path: '/#clubs' },
+    certifications: { id: '#certifications', label: 'Certifications', path: '/#certifications' },
+    chapters: { id: '#chapters', label: 'Student Chapters', path: '/#chapters' },
+    alumni: { id: '#alumni', label: 'Alumni', path: '/#alumni' },
+    gallery: { id: '#gallery', label: 'Gallery', path: '/#gallery' },
+    recruiters: { id: '#recruiters', label: 'Recruiters', path: '/#recruiters' },
+    testimonials: { id: '#testimonials', label: 'Testimonials', path: '/#testimonials' },
+    contact: { id: '#contact', label: 'Contact Us', path: '/#contact' },
+    faculty: { id: '/faculty', label: 'Faculty & Staff', path: '/faculty' }
   };
 
   useEffect(() => {
@@ -79,20 +88,43 @@ const NavBar = () => {
     
     if (searchResults.length > 0) {
       const firstResult = searchResults[0];
-      navigateToSection(firstResult.id);
+      navigateToSection(firstResult.path, firstResult.id);
     } else if (searchQuery.trim() !== '') {
       alert(`No matching section found for: ${searchQuery}`);
     }
   };
 
-  const navigateToSection = (sectionId) => {
-    const sectionElement = document.querySelector(sectionId);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
-      setSearchQuery('');
-      setShowSearchResults(false);
-      setSearchFocused(false);
-      setMobileMenuOpen(false);
+  // Updated navigation function to handle both page and section navigation
+  const navigateToSection = (path, sectionId) => {
+    // Close UI elements
+    setSearchQuery('');
+    setShowSearchResults(false);
+    setSearchFocused(false);
+    setMobileMenuOpen(false);
+    
+    // Handle navigation based on path type
+    if (path.startsWith('/') && !path.includes('#')) {
+      // This is a page route (like /faculty)
+      navigate(path);
+    } else if (path.startsWith('/#')) {
+      // This is a section on the home page
+      if (!isHomePage) {
+        // If we're not on the home page, navigate to home first
+        navigate('/');
+        // After navigation, scroll to the section (with a slight delay to ensure page loads)
+        setTimeout(() => {
+          const sectionElement = document.querySelector(sectionId);
+          if (sectionElement) {
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // If we're already on the home page, just scroll
+        const sectionElement = document.querySelector(sectionId);
+        if (sectionElement) {
+          sectionElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -118,8 +150,8 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-2 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-4">
+          {/* Logo - updated to use Link */}
+          <Link to="/" className="flex items-center gap-4">
             <motion.img
               src="/images/logo.webp"
               alt="Department Logo"
@@ -128,7 +160,7 @@ const NavBar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             />
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
@@ -183,7 +215,7 @@ const NavBar = () => {
                           <button
                             key={result.key}
                             type="button"
-                            onClick={() => navigateToSection(result.id)}
+                            onClick={() => navigateToSection(result.path, result.id)}
                             className="w-full text-left px-4 py-3 hover:bg-indigo-50 flex items-center justify-between text-gray-700 text-sm transition-colors border-b border-gray-50 last:border-0"
                           >
                             <span>{result.label}</span>
@@ -226,10 +258,25 @@ const NavBar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
-            <NavLink href="#home" label="Home" />
-            <NavLink href="#about" label="About" />
+            {/* Home link - updated to use React Router */}
+            <NavLink 
+              to="/" 
+              label="Home" 
+              isActive={location.pathname === '/'} 
+            />
+            
+            {/* About link - updated for section navigation */}
+            <NavLink 
+              to="/#about" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToSection('/#about', '#about');
+              }}
+              label="About" 
+              isActive={false} 
+            />
 
-            {/* Dropdown */}
+            {/* Dropdown - updated for section navigation */}
             <div className="relative group">
               <button className="flex items-center px-4 py-2 text-gray-700 font-medium text-sm hover:text-indigo-600 transition-colors group">
                 <span>Academics</span>
@@ -237,16 +284,71 @@ const NavBar = () => {
               </button>
               <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
                 <div className="py-2 rounded-md bg-white shadow-xs">
-                  <DropdownItem href="#clubs" label="Student Clubs" />
-                  <DropdownItem href="#certifications" label="Certifications" />
-                  <DropdownItem href="#chapters" label="Student Chapters" />
+                  <DropdownItem 
+                    to="/#clubs" 
+                    label="Student Clubs" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToSection('/#clubs', '#clubs');
+                    }}
+                  />
+                  <DropdownItem 
+                    to="/#certifications" 
+                    label="Certifications" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToSection('/#certifications', '#certifications');
+                    }}
+                  />
+                  <DropdownItem 
+                    to="/#chapters" 
+                    label="Student Chapters" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToSection('/#chapters', '#chapters');
+                    }}
+                  />
                 </div>
               </div>
             </div>
 
-            <NavLink href="#alumni" label="Alumni" />
-            <NavLink href="#gallery" label="Gallery" />
-            <NavLink href="#recruiters" label="Recruiters" />
+            {/* Other section links - updated for section navigation */}
+            <NavLink 
+              to="/#alumni" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToSection('/#alumni', '#alumni');
+              }}
+              label="Alumni" 
+              isActive={false} 
+            />
+            
+            <NavLink 
+              to="/#gallery" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToSection('/#gallery', '#gallery');
+              }}
+              label="Gallery" 
+              isActive={false} 
+            />
+            
+            <NavLink 
+              to="/#recruiters" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToSection('/#recruiters', '#recruiters');
+              }}
+              label="Recruiters" 
+              isActive={false} 
+            />
+            
+            {/* Faculty & Staff page link - new page route */}
+            <NavLink 
+              to="/faculty" 
+              label="Faculty & Staff" 
+              isActive={location.pathname === '/faculty'} 
+            />
 
             {/* Enhanced Search Bar */}
             <div className="relative" ref={searchRef}>
@@ -299,7 +401,7 @@ const NavBar = () => {
                           <button
                             key={result.key}
                             type="button"
-                            onClick={() => navigateToSection(result.id)}
+                            onClick={() => navigateToSection(result.path, result.id)}
                             className="w-full text-left px-4 py-2.5 hover:bg-indigo-50 flex items-center justify-between group"
                           >
                             <span className="text-gray-700 text-sm group-hover:text-indigo-600 transition-colors">{result.label}</span>
@@ -320,16 +422,17 @@ const NavBar = () => {
               </AnimatePresence>
             </div>
 
-            <a 
-              href="#contact" 
+            {/* Contact Us button - updated for section navigation */}
+            <button 
+              onClick={() => navigateToSection('/#contact', '#contact')}
               className="ml-4 px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30"
             >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - updated for both page and section navigation */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
@@ -383,7 +486,7 @@ const NavBar = () => {
                           <button
                             key={result.key}
                             type="button"
-                            onClick={() => navigateToSection(result.id)}
+                            onClick={() => navigateToSection(result.path, result.id)}
                             className="w-full text-left px-4 py-3 hover:bg-indigo-50 flex items-center justify-between text-gray-700 text-sm transition-colors border-b border-gray-100 last:border-0"
                           >
                             <span>{result.label}</span>
@@ -395,10 +498,21 @@ const NavBar = () => {
                   </AnimatePresence>
                 </div>
                 
-                <MobileNavLink href="#home" label="Home" onClick={() => navigateToSection('#home')} />
-                <MobileNavLink href="#about" label="About" onClick={() => navigateToSection('#about')} />
+                {/* Home - updated to use React Router */}
+                <MobileNavLink 
+                  to="/" 
+                  label="Home" 
+                  onClick={() => navigate('/')}
+                />
                 
-                {/* Mobile Dropdown */}
+                {/* About - updated for section navigation */}
+                <MobileNavLink 
+                  to="/#about" 
+                  label="About" 
+                  onClick={() => navigateToSection('/#about', '#about')}
+                />
+                
+                {/* Mobile Dropdown - updated for section navigation */}
                 <div className="py-2">
                   <div 
                     className="flex justify-between items-center px-3 py-2 rounded hover:bg-indigo-50 cursor-pointer"
@@ -409,50 +523,54 @@ const NavBar = () => {
                   </div>
                   <div id="mobile-dropdown" className="hidden pl-4 mt-1">
                     <MobileNavLink 
-                      href="#clubs" 
+                      to="/#clubs" 
                       label="Student Clubs" 
-                      onClick={() => navigateToSection('#clubs')}
+                      onClick={() => navigateToSection('/#clubs', '#clubs')}
                     />
                     <MobileNavLink 
-                      href="#certifications" 
+                      to="/#certifications" 
                       label="Certifications" 
-                      onClick={() => navigateToSection('#certifications')}
+                      onClick={() => navigateToSection('/#certifications', '#certifications')}
                     />
                     <MobileNavLink 
-                      href="#chapters" 
+                      to="/#chapters" 
                       label="Student Chapters" 
-                      onClick={() => navigateToSection('#chapters')}
+                      onClick={() => navigateToSection('/#chapters', '#chapters')}
                     />
                   </div>
                 </div>
                 
+                {/* Other section links - updated for section navigation */}
                 <MobileNavLink 
-                  href="#alumni" 
+                  to="/#alumni" 
                   label="Alumni" 
-                  onClick={() => navigateToSection('#alumni')}
+                  onClick={() => navigateToSection('/#alumni', '#alumni')}
                 />
                 <MobileNavLink 
-                  href="#gallery" 
+                  to="/#gallery" 
                   label="Gallery" 
-                  onClick={() => navigateToSection('#gallery')}
+                  onClick={() => navigateToSection('/#gallery', '#gallery')}
                 />
                 <MobileNavLink 
-                  href="#recruiters" 
+                  to="/#recruiters" 
                   label="Recruiters" 
-                  onClick={() => navigateToSection('#recruiters')}
+                  onClick={() => navigateToSection('/#recruiters', '#recruiters')}
+                />
+                
+                {/* Faculty & Staff - new page route */}
+                <MobileNavLink 
+                  to="/faculty" 
+                  label="Faculty & Staff" 
+                  onClick={() => navigate('/faculty')}
                 />
                 
                 <div className="mt-4 flex flex-col space-y-3">
-                  <a 
-                    href="#contact" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToSection('#contact');
-                    }}
+                  <button 
+                    onClick={() => navigateToSection('/#contact', '#contact')}
                     className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium text-center text-sm transition-all duration-300"
                   >
                     Contact Us
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -463,39 +581,52 @@ const NavBar = () => {
   );
 };
 
-// Desktop Navigation Link
-const NavLink = ({ href, label }) => (
-  <a 
-    href={href} 
-    className="relative px-4 py-2 text-gray-700 font-medium text-sm hover:text-indigo-600 transition-colors group"
-  >
-    {label}
-    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
-  </a>
-);
+// Updated Desktop Navigation Link to use React Router when needed
+const NavLink = ({ to, label, onClick, isActive }) => {
+  const Component = onClick ? 'button' : Link;
+  
+  return (
+    <Component 
+      to={onClick ? undefined : to} 
+      onClick={onClick}
+      className={`relative px-4 py-2 font-medium text-sm transition-colors group
+        ${isActive ? 'text-indigo-600' : 'text-gray-700 hover:text-indigo-600'}`}
+    >
+      {label}
+      <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transition-all duration-300
+        ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+    </Component>
+  );
+};
 
-// Dropdown Item
-const DropdownItem = ({ href, label }) => (
-  <a 
-    href={href} 
-    className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-200 hover:pl-6"
-  >
-    {label}
-  </a>
-);
+// Updated Dropdown Item to use React Router when needed
+const DropdownItem = ({ to, label, onClick }) => {
+  const Component = onClick ? 'button' : Link;
+  
+  return (
+    <Component 
+      to={onClick ? undefined : to} 
+      onClick={onClick}
+      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-200 hover:pl-6"
+    >
+      {label}
+    </Component>
+  );
+};
 
-// Mobile Navigation Link
-const MobileNavLink = ({ href, label, onClick }) => (
-  <a 
-    href={href} 
-    onClick={(e) => {
-      e.preventDefault();
-      if (onClick) onClick();
-    }}
-    className="block px-3 py-2 rounded text-gray-800 font-medium hover:bg-indigo-50 transition-colors"
-  >
-    {label}
-  </a>
-);
+// Updated Mobile Navigation Link to use React Router when needed
+const MobileNavLink = ({ to, label, onClick }) => {
+  const Component = onClick ? 'button' : Link;
+  
+  return (
+    <Component 
+      to={onClick ? undefined : to} 
+      onClick={onClick}
+      className="block w-full text-left px-3 py-2 rounded text-gray-800 font-medium hover:bg-indigo-50 transition-colors"
+    >
+      {label}
+    </Component>
+  );
+};
 
 export default NavBar;
