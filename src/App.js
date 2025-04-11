@@ -20,6 +20,7 @@ import AchievementsSection from './components/AchievementsSection';
 import Wave from './components/wave';
 import BestPracticesSection from './components/BestPracticesSection';
 import FacultyDirectory from './components/Faculty';
+import ProjectsPage from './components/projects';
 
 function App() {
   useEffect(() => {
@@ -57,7 +58,7 @@ function App() {
           
           {/* Faculty Directory Page Route */}
           <Route path="/faculty" element={<FacultyDirectory />} />
-          
+          <Route path="/projects" element={<ProjectsPage />} />
           {/* Add more routes for other standalone pages if needed */}
         </Routes>
         

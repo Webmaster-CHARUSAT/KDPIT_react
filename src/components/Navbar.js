@@ -342,7 +342,11 @@ const NavBar = () => {
               label="Recruiters" 
               isActive={false} 
             />
-            
+            <NavLink 
+              to="/projects" 
+              label="Projects" 
+              isActive={location.pathname === '/projects'} 
+            />
             {/* Faculty & Staff page link - new page route */}
             <NavLink 
               to="/faculty" 
@@ -555,6 +559,11 @@ const NavBar = () => {
                   to="/#recruiters" 
                   label="Recruiters" 
                   onClick={() => navigateToSection('/#recruiters', '#recruiters')}
+                />
+                <MobileNavLink 
+                  to="/projects" 
+                  label="Projects" 
+                  onClick={() => navigate('/projects')}
                 />
                 
                 {/* Faculty & Staff - new page route */}
