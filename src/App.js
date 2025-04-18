@@ -21,6 +21,7 @@ import Wave from './components/wave';
 import BestPracticesSection from './components/BestPracticesSection';
 import FacultyDirectory from './components/Faculty';
 import ProjectsPage from './components/projects';
+import MessageSection from './components/Message';
 
 function App() {
   useEffect(() => {
@@ -51,6 +52,7 @@ function App() {
               <Alumni />
               <Gallery />
               <Recruiters />
+              <MessageSection />
               <Testimonials />
               <Contact />
             </>
