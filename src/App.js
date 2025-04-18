@@ -22,6 +22,7 @@ import BestPracticesSection from './components/BestPracticesSection';
 import FacultyDirectory from './components/Faculty';
 import ProjectsPage from './components/projects';
 import MessageSection from './components/Message';
+import AnnouncementBar from './components/Annoucement';
 
 function App() {
   useEffect(() => {
@@ -55,6 +56,7 @@ function App() {
               <MessageSection />
               <Testimonials />
               <Contact />
+              <AnnouncementBar/>
             </>
           } />
           
