@@ -23,6 +23,7 @@ import FacultyDirectory from './components/Faculty';
 import ProjectsPage from './components/projects';
 import MessageSection from './components/Message';
 import AnnouncementBar from './components/Annoucement';
+import ApplyNowButton from './components/ApplyNowButton';
 
 function App() {
   useEffect(() => {
@@ -37,15 +38,15 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
-        
+
         <Routes>
           {/* Home Page Route */}
           <Route path="/" element={
             <>
               <Hero />
               <About />
-              <AchievementsSection/>
-              <BestPracticesSection/>
+              <AchievementsSection />
+              <BestPracticesSection />
               {/* <Wave /> */}
               <Clubs />
               <Certifications />
@@ -56,16 +57,17 @@ function App() {
               <MessageSection />
               <Testimonials />
               <Contact />
-              <AnnouncementBar/>
+              <AnnouncementBar />
+              <ApplyNowButton />
             </>
           } />
-          
+
           {/* Faculty Directory Page Route */}
           <Route path="/faculty" element={<FacultyDirectory />} />
           <Route path="/projects" element={<ProjectsPage />} />
           {/* Add more routes for other standalone pages if needed */}
         </Routes>
-        
+
         <Footer />
       </div>
     </Router>
