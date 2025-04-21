@@ -87,7 +87,7 @@ const AnnouncementBar = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg border-t border-blue-900">
-      <div className="py-3 flex items-center overflow-hidden relative">
+      <div className="py-1 flex items-center overflow-hidden relative">
         {/* Announcement Icon */}
         <div className="hidden sm:flex h-8 w-8 rounded-full bg-white/20 items-center justify-center flex-shrink-0 ml-4 mr-3 z-10">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

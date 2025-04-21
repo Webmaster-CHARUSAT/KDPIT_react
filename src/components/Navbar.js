@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faChevronDown, 
-  faSearch, 
+import {
+  faChevronDown,
+  faSearch,
   faTimes,
-  faAngleRight
+  faAngleRight,
+  faBars,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
@@ -16,15 +18,84 @@ const NavBar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [academicsDropdownOpen, setAcademicsDropdownOpen] = useState(false);
   const searchRef = useRef(null);
   const inputRef = useRef(null);
-  
+  const academicsDropdownRef = useRef(null);
+
   // React Router hooks
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   // Check if we're on the home page
   const isHomePage = location.pathname === '/';
+
+  // Common navigation function for both mobile and desktop
+  const handleNavigation = (path, sectionId) => {
+    // Close UI elements
+    setSearchQuery('');
+    setShowSearchResults(false);
+    setSearchFocused(false);
+    setMobileMenuOpen(false);
+    setAcademicsDropdownOpen(false);
+
+    if (path.startsWith('/#')) {
+      // For section navigation
+      if (!isHomePage) {
+        // If not on home page, navigate to home first
+        navigate('/', { replace: true });
+        // Wait for the page to load before scrolling
+        const scrollToSection = () => {
+          const sectionElement = document.querySelector(sectionId);
+          if (sectionElement) {
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+            return true;
+          }
+          return false;
+        };
+
+        // Try scrolling immediately
+        if (!scrollToSection()) {
+          // If section not found, try again after a short delay
+          const interval = setInterval(() => {
+            if (scrollToSection()) {
+              clearInterval(interval);
+            }
+          }, 100);
+
+          // Clear interval after 2 seconds if section still not found
+          setTimeout(() => clearInterval(interval), 2000);
+        }
+      } else {
+        // If already on home page, just scroll
+        const sectionElement = document.querySelector(sectionId);
+        if (sectionElement) {
+          sectionElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      // For page navigation
+      navigate(path, { replace: true });
+    }
+  };
+
+  // Handle scroll position when location changes
+  useEffect(() => {
+    // Only scroll to top if it's a new page (not a hash change)
+    if (!location.hash) {
+      document.documentElement.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+    } else {
+      // If there's a hash, scroll to the section
+      const sectionId = location.hash;
+      const sectionElement = document.querySelector(sectionId);
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location.pathname, location.hash]);
 
   const sections = {
     home: { id: '#home', label: 'Home', path: '/' },
@@ -36,7 +107,6 @@ const NavBar = () => {
     gallery: { id: '#gallery', label: 'Gallery', path: '/#gallery' },
     recruiters: { id: '#recruiters', label: 'Recruiters', path: '/#recruiters' },
     testimonials: { id: '#testimonials', label: 'Testimonials', path: '/#testimonials' },
-    contact: { id: '#contact', label: 'Contact Us', path: '/#contact' },
     faculty: { id: '/faculty', label: 'Faculty & Staff', path: '/faculty' }
   };
 
@@ -50,11 +120,14 @@ const NavBar = () => {
         setShowSearchResults(false);
         setSearchFocused(false);
       }
+      if (academicsDropdownRef.current && !academicsDropdownRef.current.contains(event.target)) {
+        setAcademicsDropdownOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
@@ -68,10 +141,10 @@ const NavBar = () => {
     }
 
     const query = searchQuery.toLowerCase().trim();
-    
+
     const filteredResults = Object.entries(sections)
-      .filter(([key, section]) => 
-        key.includes(query) || 
+      .filter(([key, section]) =>
+        key.includes(query) ||
         section.label.toLowerCase().includes(query)
       )
       .map(([key, section]) => ({
@@ -85,47 +158,23 @@ const NavBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    
+
     if (searchResults.length > 0) {
       const firstResult = searchResults[0];
-      navigateToSection(firstResult.path, firstResult.id);
+      handleNavigation(firstResult.path, firstResult.id);
     } else if (searchQuery.trim() !== '') {
       alert(`No matching section found for: ${searchQuery}`);
     }
   };
 
-  // Updated navigation function to handle both page and section navigation
-  const navigateToSection = (path, sectionId) => {
-    // Close UI elements
-    setSearchQuery('');
-    setShowSearchResults(false);
-    setSearchFocused(false);
-    setMobileMenuOpen(false);
-    
-    // Handle navigation based on path type
-    if (path.startsWith('/') && !path.includes('#')) {
-      // This is a page route (like /faculty)
-      navigate(path);
-    } else if (path.startsWith('/#')) {
-      // This is a section on the home page
-      if (!isHomePage) {
-        // If we're not on the home page, navigate to home first
-        navigate('/');
-        // After navigation, scroll to the section (with a slight delay to ensure page loads)
-        setTimeout(() => {
-          const sectionElement = document.querySelector(sectionId);
-          if (sectionElement) {
-            sectionElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } else {
-        // If we're already on the home page, just scroll
-        const sectionElement = document.querySelector(sectionId);
-        if (sectionElement) {
-          sectionElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
+  // Mobile menu navigation handler
+  const handleMobileNavClick = (path, sectionId) => {
+    handleNavigation(path, sectionId);
+  };
+
+  // Mobile academics dropdown handler
+  const handleAcademicsClick = () => {
+    setAcademicsDropdownOpen(!academicsDropdownOpen);
   };
 
   const clearSearch = () => {
@@ -143,14 +192,14 @@ const NavBar = () => {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 
       ${scrolled ? 'py-2 shadow-lg' : 'py-3'} 
       bg-white/95 backdrop-blur-sm text-gray-800`}
     >
-      <div className="container mx-auto px-2 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - updated to use Link */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-4">
             <motion.img
               src="/images/logo.webp"
@@ -163,8 +212,8 @@ const NavBar = () => {
           </Link>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center">
-            <div className="relative mr-2" ref={searchRef}>
+          <div className="lg:hidden flex items-center space-x-4">
+            <div className="relative" ref={searchRef}>
               <button
                 onClick={() => setShowSearchResults(!showSearchResults)}
                 className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
@@ -172,10 +221,10 @@ const NavBar = () => {
               >
                 <FontAwesomeIcon icon={faSearch} className="h-5 w-5" />
               </button>
-              
+
               <AnimatePresence>
                 {showSearchResults && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -184,7 +233,7 @@ const NavBar = () => {
                   >
                     <form onSubmit={handleSearch} className="p-3">
                       <div className="relative">
-                        <input 
+                        <input
                           ref={inputRef}
                           type="text"
                           placeholder="Search sections..."
@@ -193,13 +242,13 @@ const NavBar = () => {
                           className="w-full px-4 py-2.5 pl-10 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                           autoFocus
                         />
-                        <FontAwesomeIcon 
-                          icon={faSearch} 
+                        <FontAwesomeIcon
+                          icon={faSearch}
                           className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-gray-400"
                         />
                         {searchQuery && (
-                          <button 
-                            type="button" 
+                          <button
+                            type="button"
                             onClick={clearSearch}
                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                           >
@@ -208,14 +257,14 @@ const NavBar = () => {
                         )}
                       </div>
                     </form>
-                    
+
                     {searchResults.length > 0 && (
                       <div className="max-h-60 overflow-y-auto border-t border-gray-100">
                         {searchResults.map((result) => (
                           <button
                             key={result.key}
                             type="button"
-                            onClick={() => navigateToSection(result.path, result.id)}
+                            onClick={() => handleNavigation(result.path, result.id)}
                             className="w-full text-left px-4 py-3 hover:bg-indigo-50 flex items-center justify-between text-gray-700 text-sm transition-colors border-b border-gray-50 last:border-0"
                           >
                             <span>{result.label}</span>
@@ -224,150 +273,149 @@ const NavBar = () => {
                         ))}
                       </div>
                     )}
-                    
-                    {searchQuery.trim() !== '' && searchResults.length === 0 && (
-                      <div className="p-4 text-center text-gray-500 text-sm border-t border-gray-100">
-                        No matching sections found
-                      </div>
-                    )}
-                    
-                    {searchQuery.trim() === '' && (
-                      <div className="p-4 text-center text-gray-500 text-sm border-t border-gray-100">
-                        Type to search for sections
-                      </div>
-                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex items-center px-3 py-2 rounded text-gray-700 hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
+              aria-label="Menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                />
-              </svg>
+              <FontAwesomeIcon
+                icon={mobileMenuOpen ? faXmark : faBars}
+                className="h-6 w-6"
+              />
             </button>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
-            {/* Home link - updated to use React Router */}
-            <NavLink 
-              to="/" 
-              label="Home" 
-              isActive={location.pathname === '/'} 
-            />
-            
-            {/* About link - updated for section navigation */}
-            <NavLink 
-              to="/#about" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateToSection('/#about', '#about');
-              }}
-              label="About" 
-              isActive={false} 
+            <NavLink
+              to="/"
+              label="Home"
+              isActive={location.pathname === '/'}
+              onClick={() => handleNavigation('/', null)}
             />
 
-            {/* Dropdown - updated for section navigation */}
-            <div className="relative group">
-              <button className="flex items-center px-4 py-2 text-gray-700 font-medium text-sm hover:text-indigo-600 transition-colors group">
+            <NavLink
+              to="/#about"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/#about', '#about');
+              }}
+              label="About"
+              isActive={false}
+            />
+
+            <div className="relative group" ref={academicsDropdownRef}>
+              <button
+                className="flex items-center px-4 py-2 text-gray-700 font-medium text-sm hover:text-indigo-600 transition-colors group"
+                onClick={() => setAcademicsDropdownOpen(!academicsDropdownOpen)}
+              >
                 <span>Academics</span>
-                <FontAwesomeIcon icon={faChevronDown} className="ml-1 h-3 w-3 group-hover:rotate-180 transition-transform duration-300" />
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={`ml-1 h-3 w-3 transition-transform duration-300 ${academicsDropdownOpen ? 'rotate-180' : ''}`}
+                />
               </button>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
-                <div className="py-2 rounded-md bg-white shadow-xs">
-                  <DropdownItem 
-                    to="/#clubs" 
-                    label="Student Clubs" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToSection('/#clubs', '#clubs');
-                    }}
-                  />
-                  <DropdownItem 
-                    to="/#certifications" 
-                    label="Certifications" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToSection('/#certifications', '#certifications');
-                    }}
-                  />
-                  <DropdownItem 
-                    to="/#chapters" 
-                    label="Student Chapters" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToSection('/#chapters', '#chapters');
-                    }}
-                  />
-                </div>
-              </div>
+              <AnimatePresence>
+                {academicsDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+                  >
+                    <div className="py-2 rounded-md bg-white shadow-xs">
+                      <DropdownItem
+                        to="/#clubs"
+                        label="Student Clubs"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavigation('/#clubs', '#clubs');
+                        }}
+                      />
+                      <DropdownItem
+                        to="/#certifications"
+                        label="Certifications"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavigation('/#certifications', '#certifications');
+                        }}
+                      />
+                      <DropdownItem
+                        to="/#chapters"
+                        label="Student Chapters"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavigation('/#chapters', '#chapters');
+                        }}
+                      />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Other section links - updated for section navigation */}
-            <NavLink 
-              to="/#alumni" 
+            <NavLink
+              to="/#alumni"
               onClick={(e) => {
                 e.preventDefault();
-                navigateToSection('/#alumni', '#alumni');
+                handleNavigation('/#alumni', '#alumni');
               }}
-              label="Alumni" 
-              isActive={false} 
-            />
-            
-            <NavLink 
-              to="/#gallery" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateToSection('/#gallery', '#gallery');
-              }}
-              label="Gallery" 
-              isActive={false} 
-            />
-            
-            <NavLink 
-              to="/#recruiters" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateToSection('/#recruiters', '#recruiters');
-              }}
-              label="Recruiters" 
-              isActive={false} 
-            />
-            <NavLink 
-              to="/projects" 
-              label="Projects" 
-              isActive={location.pathname === '/projects'} 
-            />
-            {/* Faculty & Staff page link - new page route */}
-            <NavLink 
-              to="/faculty" 
-              label="Faculty & Staff" 
-              isActive={location.pathname === '/faculty'} 
+              label="Alumni"
+              isActive={false}
             />
 
-            {/* Enhanced Search Bar */}
+            <NavLink
+              to="/#gallery"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/#gallery', '#gallery');
+              }}
+              label="Gallery"
+              isActive={false}
+            />
+
+            <NavLink
+              to="/#recruiters"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/#recruiters', '#recruiters');
+              }}
+              label="Recruiters"
+              isActive={false}
+            />
+
+            <NavLink
+              to="/projects"
+              label="Projects"
+              isActive={location.pathname === '/projects'}
+              onClick={() => handleNavigation('/projects', null)}
+            />
+
+            <NavLink
+              to="/faculty"
+              label="Faculty & Staff"
+              isActive={location.pathname === '/faculty'}
+              onClick={() => handleNavigation('/faculty', null)}
+            />
+
             <div className="relative" ref={searchRef}>
-              <div 
-                className={`flex items-center transition-all duration-300 rounded-full overflow-hidden border ${
-                  searchFocused 
-                    ? 'bg-white border-indigo-500 shadow-md w-56' 
-                    : 'bg-gray-100 border-transparent w-40 hover:bg-gray-200'
-                }`}
+              <div
+                className={`flex items-center transition-all duration-300 rounded-full overflow-hidden border ${searchFocused
+                  ? 'bg-white border-indigo-500 shadow-md w-56'
+                  : 'bg-gray-100 border-transparent w-40 hover:bg-gray-200'
+                  }`}
               >
-                <FontAwesomeIcon 
-                  icon={faSearch} 
+                <FontAwesomeIcon
+                  icon={faSearch}
                   className={`${searchFocused ? 'text-indigo-500' : 'text-gray-500'} ml-3 transition-colors`}
                 />
-                <input 
+                <input
                   ref={inputRef}
                   type="text"
                   placeholder="Search..."
@@ -380,8 +428,8 @@ const NavBar = () => {
                   className={`w-full px-3 py-2 text-sm bg-transparent border-none focus:outline-none`}
                 />
                 {searchQuery && searchFocused && (
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={clearSearch}
                     className="px-3 text-gray-400 hover:text-gray-600 transition-colors"
                   >
@@ -389,10 +437,10 @@ const NavBar = () => {
                   </button>
                 )}
               </div>
-              
+
               <AnimatePresence>
                 {showSearchResults && (searchResults.length > 0 || searchQuery.trim() !== '') && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -405,13 +453,13 @@ const NavBar = () => {
                           <button
                             key={result.key}
                             type="button"
-                            onClick={() => navigateToSection(result.path, result.id)}
+                            onClick={() => handleNavigation(result.path, result.id)}
                             className="w-full text-left px-4 py-2.5 hover:bg-indigo-50 flex items-center justify-between group"
                           >
                             <span className="text-gray-700 text-sm group-hover:text-indigo-600 transition-colors">{result.label}</span>
-                            <FontAwesomeIcon 
-                              icon={faAngleRight} 
-                              className="h-3 w-3 text-gray-400 group-hover:text-indigo-500 transition-colors transform group-hover:translate-x-1 duration-200" 
+                            <FontAwesomeIcon
+                              icon={faAngleRight}
+                              className="h-3 w-3 text-gray-400 group-hover:text-indigo-500 transition-colors transform group-hover:translate-x-1 duration-200"
                             />
                           </button>
                         ))}
@@ -425,21 +473,13 @@ const NavBar = () => {
                 )}
               </AnimatePresence>
             </div>
-
-            {/* Contact Us button - updated for section navigation */}
-            <button 
-              onClick={() => navigateToSection('/#contact', '#contact')}
-              className="ml-4 px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30"
-            >
-              Contact Us
-            </button>
           </div>
         </div>
 
-        {/* Mobile Menu - updated for both page and section navigation */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -447,139 +487,84 @@ const NavBar = () => {
               className="lg:hidden overflow-hidden mt-4"
             >
               <div className="p-4 rounded-lg shadow-lg bg-white">
-                {/* Mobile Search Bar */}
-                <div className="mb-4">
-                  <div 
-                    onClick={focusSearch}
-                    className="flex items-center bg-gray-100 rounded-lg border border-gray-300 overflow-hidden cursor-text"
-                  >
-                    <FontAwesomeIcon 
-                      icon={faSearch} 
-                      className="text-gray-500 ml-3"
-                    />
-                    <input 
-                      type="text"
-                      placeholder="Search sections..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      onFocus={() => setShowSearchResults(true)}
-                      className="w-full px-3 py-2.5 text-sm bg-transparent border-none focus:outline-none"
-                    />
-                    {searchQuery && (
-                      <button 
-                        type="button" 
-                        onClick={clearSearch}
-                        className="px-3 text-gray-400 hover:text-gray-600 transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faTimes} className="h-4 w-4" />
-                      </button>
-                    )}
+                <div className="space-y-2">
+                  <MobileNavLink
+                    to="/"
+                    label="Home"
+                    onClick={() => handleNavigation('/', null)}
+                  />
+
+                  <MobileNavLink
+                    to="/#about"
+                    label="About"
+                    onClick={() => handleNavigation('/#about', '#about')}
+                  />
+
+                  <div className="py-2">
+                    <div
+                      className="flex justify-between items-center px-3 py-2 rounded hover:bg-indigo-50 cursor-pointer"
+                      onClick={handleAcademicsClick}
+                    >
+                      <span className="text-gray-800 font-medium">Academics</span>
+                      <FontAwesomeIcon
+                        icon={faChevronDown}
+                        className={`h-3 w-3 text-gray-500 transition-transform duration-300 ${academicsDropdownOpen ? 'rotate-180' : ''}`}
+                      />
+                    </div>
+                    <AnimatePresence>
+                      {academicsDropdownOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="pl-4 mt-1 space-y-1"
+                        >
+                          <MobileNavLink
+                            to="/#clubs"
+                            label="Student Clubs"
+                            onClick={() => handleNavigation('/#clubs', '#clubs')}
+                          />
+                          <MobileNavLink
+                            to="/#certifications"
+                            label="Certifications"
+                            onClick={() => handleNavigation('/#certifications', '#certifications')}
+                          />
+                          <MobileNavLink
+                            to="/#chapters"
+                            label="Student Chapters"
+                            onClick={() => handleNavigation('/#chapters', '#chapters')}
+                          />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                  
-                  {/* Mobile Search Results */}
-                  <AnimatePresence>
-                    {showSearchResults && searchResults.length > 0 && (
-                      <motion.div 
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="mt-2 bg-white rounded-lg shadow-md overflow-hidden border border-gray-200"
-                      >
-                        {searchResults.map((result) => (
-                          <button
-                            key={result.key}
-                            type="button"
-                            onClick={() => navigateToSection(result.path, result.id)}
-                            className="w-full text-left px-4 py-3 hover:bg-indigo-50 flex items-center justify-between text-gray-700 text-sm transition-colors border-b border-gray-100 last:border-0"
-                          >
-                            <span>{result.label}</span>
-                            <FontAwesomeIcon icon={faAngleRight} className="h-3 w-3 text-indigo-500" />
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-                
-                {/* Home - updated to use React Router */}
-                <MobileNavLink 
-                  to="/" 
-                  label="Home" 
-                  onClick={() => navigate('/')}
-                />
-                
-                {/* About - updated for section navigation */}
-                <MobileNavLink 
-                  to="/#about" 
-                  label="About" 
-                  onClick={() => navigateToSection('/#about', '#about')}
-                />
-                
-                {/* Mobile Dropdown - updated for section navigation */}
-                <div className="py-2">
-                  <div 
-                    className="flex justify-between items-center px-3 py-2 rounded hover:bg-indigo-50 cursor-pointer"
-                    onClick={() => document.getElementById('mobile-dropdown').classList.toggle('hidden')}
-                  >
-                    <span className="text-gray-800 font-medium">Academics</span>
-                    <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <div id="mobile-dropdown" className="hidden pl-4 mt-1">
-                    <MobileNavLink 
-                      to="/#clubs" 
-                      label="Student Clubs" 
-                      onClick={() => navigateToSection('/#clubs', '#clubs')}
-                    />
-                    <MobileNavLink 
-                      to="/#certifications" 
-                      label="Certifications" 
-                      onClick={() => navigateToSection('/#certifications', '#certifications')}
-                    />
-                    <MobileNavLink 
-                      to="/#chapters" 
-                      label="Student Chapters" 
-                      onClick={() => navigateToSection('/#chapters', '#chapters')}
-                    />
-                  </div>
-                </div>
-                
-                {/* Other section links - updated for section navigation */}
-                <MobileNavLink 
-                  to="/#alumni" 
-                  label="Alumni" 
-                  onClick={() => navigateToSection('/#alumni', '#alumni')}
-                />
-                <MobileNavLink 
-                  to="/#gallery" 
-                  label="Gallery" 
-                  onClick={() => navigateToSection('/#gallery', '#gallery')}
-                />
-                <MobileNavLink 
-                  to="/#recruiters" 
-                  label="Recruiters" 
-                  onClick={() => navigateToSection('/#recruiters', '#recruiters')}
-                />
-                <MobileNavLink 
-                  to="/projects" 
-                  label="Projects" 
-                  onClick={() => navigate('/projects')}
-                />
-                
-                {/* Faculty & Staff - new page route */}
-                <MobileNavLink 
-                  to="/faculty" 
-                  label="Faculty & Staff" 
-                  onClick={() => navigate('/faculty')}
-                />
-                
-                <div className="mt-4 flex flex-col space-y-3">
-                  <button 
-                    onClick={() => navigateToSection('/#contact', '#contact')}
-                    className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium text-center text-sm transition-all duration-300"
-                  >
-                    Contact Us
-                  </button>
+
+                  <MobileNavLink
+                    to="/#alumni"
+                    label="Alumni"
+                    onClick={() => handleNavigation('/#alumni', '#alumni')}
+                  />
+                  <MobileNavLink
+                    to="/#gallery"
+                    label="Gallery"
+                    onClick={() => handleNavigation('/#gallery', '#gallery')}
+                  />
+                  <MobileNavLink
+                    to="/#recruiters"
+                    label="Recruiters"
+                    onClick={() => handleNavigation('/#recruiters', '#recruiters')}
+                  />
+                  <MobileNavLink
+                    to="/projects"
+                    label="Projects"
+                    onClick={() => handleNavigation('/projects', null)}
+                  />
+                  <MobileNavLink
+                    to="/faculty"
+                    label="Faculty & Staff"
+                    onClick={() => handleNavigation('/faculty', null)}
+                  />
                 </div>
               </div>
             </motion.div>
@@ -590,13 +575,13 @@ const NavBar = () => {
   );
 };
 
-// Updated Desktop Navigation Link to use React Router when needed
+// Updated Desktop Navigation Link
 const NavLink = ({ to, label, onClick, isActive }) => {
   const Component = onClick ? 'button' : Link;
-  
+
   return (
-    <Component 
-      to={onClick ? undefined : to} 
+    <Component
+      to={onClick ? undefined : to}
       onClick={onClick}
       className={`relative px-4 py-2 font-medium text-sm transition-colors group
         ${isActive ? 'text-indigo-600' : 'text-gray-700 hover:text-indigo-600'}`}
@@ -608,13 +593,13 @@ const NavLink = ({ to, label, onClick, isActive }) => {
   );
 };
 
-// Updated Dropdown Item to use React Router when needed
+// Updated Dropdown Item
 const DropdownItem = ({ to, label, onClick }) => {
   const Component = onClick ? 'button' : Link;
-  
+
   return (
-    <Component 
-      to={onClick ? undefined : to} 
+    <Component
+      to={onClick ? undefined : to}
       onClick={onClick}
       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-200 hover:pl-6"
     >
@@ -623,13 +608,13 @@ const DropdownItem = ({ to, label, onClick }) => {
   );
 };
 
-// Updated Mobile Navigation Link to use React Router when needed
+// Updated Mobile Navigation Link
 const MobileNavLink = ({ to, label, onClick }) => {
   const Component = onClick ? 'button' : Link;
-  
+
   return (
-    <Component 
-      to={onClick ? undefined : to} 
+    <Component
+      to={onClick ? undefined : to}
       onClick={onClick}
       className="block w-full text-left px-3 py-2 rounded text-gray-800 font-medium hover:bg-indigo-50 transition-colors"
     >
