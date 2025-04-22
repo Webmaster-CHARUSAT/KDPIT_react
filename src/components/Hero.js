@@ -8,7 +8,7 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      image: "/images/slides/slide1.jpg",
+      image: "/images/home.webp",
       title: "Welcome to Information Technology Department",
       subtitle: "Shaping the future through technology and innovation",
       btnText: "Explore Programs",
@@ -16,7 +16,7 @@ const Hero = () => {
     },
     {
       id: 2,
-      image: "/images/slides/slide2.jpg",
+      image: "/images/home.webp",
       title: "State-of-the-Art Facilities",
       subtitle: "Modern labs equipped with the latest technology",
       btnText: "View Facilities",
@@ -24,7 +24,7 @@ const Hero = () => {
     },
     {
       id: 3,
-      image: "/images/slides/slide3.jpg",
+      image: "/images/home.webp",
       title: "Building Successful Careers",
       subtitle: "Our graduates are working in top companies worldwide",
       btnText: "Our Recruiters",
