@@ -185,7 +185,7 @@ const MessageSection = () => {
               <div className="md:w-1/4 flex justify-center">
                 <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white/50 shadow-xl">
                   <img 
-                    src="/images/message/dean.Webp" 
+                    src="/images/message/dean.webp" 
                     alt="Dean" 
                     className="w-full h-full object-cover"
                     onError={(e) => {
