@@ -33,7 +33,8 @@ const StudentChapters = () => {
   ];
 
   return (
-    <section id="chapters" className="bg-gray-50 py-20">
+    <section id="chapters" className=" py-20"
+    style={{backgroundColor: '#e1e1e1'}}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Student Chapters</h2>

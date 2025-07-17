@@ -17,15 +17,15 @@ const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const galleryImages = [
-    { id: 1, src: '/images/gallery/gallery1.jpg', title: 'Campus Life', category: 'campus' },
-    { id: 2, src: '/images/gallery/gallery2.jpg', title: 'Technical Fest', category: 'events' },
-    { id: 3, src: '/images/gallery/gallery3.jpg', title: 'Workshop Session', category: 'workshops' },
-    { id: 4, src: '/images/gallery/gallery4.jpg', title: 'Hackathon', category: 'events' },
-    { id: 5, src: '/images/gallery/gallery5.jpg', title: 'Cultural Event', category: 'cultural' },
-    { id: 6, src: '/images/gallery/gallery6.jpg', title: 'Sports Day', category: 'sports' },
-    { id: 7, src: '/images/gallery/gallery7.jpg', title: 'Lab Session', category: 'academic' },
-    { id: 8, src: '/images/gallery/gallery8.jpg', title: 'Guest Lecture', category: 'academic' },
-    { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events' }
+    { id: 1, src: '/images/gallery/gallery1.jpg', title: 'Campus Life', category: 'campus', size: 'large' },
+    { id: 2, src: '/images/gallery/gallery2.jpg', title: 'Technical Fest', category: 'events', size: 'small' },
+    { id: 3, src: '/images/gallery/gallery3.jpg', title: 'Workshop Session', category: 'workshops', size: 'small' },
+    { id: 4, src: '/images/gallery/gallery4.jpg', title: 'Hackathon', category: 'events', size: 'medium' },
+    { id: 5, src: '/images/gallery/gallery5.jpg', title: 'Cultural Event', category: 'cultural', size: 'small' },
+    { id: 6, src: '/images/gallery/gallery6.jpg', title: 'Sports Day', category: 'sports', size: 'small' },
+    { id: 7, src: '/images/gallery/gallery7.jpg', title: 'Lab Session', category: 'academic', size: 'large' },
+    { id: 8, src: '/images/gallery/gallery8.jpg', title: 'Guest Lecture', category: 'academic', size: 'medium' },
+    { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events', size: 'small' }
   ];
 
   const upcomingEvents = [
@@ -101,9 +101,20 @@ const Gallery = () => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
+  const getImageClasses = (size) => {
+    switch (size) {
+      case 'large':
+        return 'md:col-span-2 md:row-span-2 aspect-square';
+      case 'medium':
+        return 'md:col-span-2 aspect-[2/1]';
+      case 'small':
+      default:
+        return 'aspect-square';
+    }
+  };
+
   return (
-    <section id="gallery" className="py-20 "
-    style={{backgroundColor: '#e1e1e1'}}>
+    <section id="gallery" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -157,8 +168,8 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* Gallery Grid - Masonry Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-max">
             <AnimatePresence>
               {filteredImages.map((image) => (
                 <motion.div
@@ -168,22 +179,31 @@ const Gallery = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
-                  className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className={`relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 ${getImageClasses(image.size)}`}
                   onClick={() => handleImageClick(image)}
                 >
-                  <div className="aspect-square">
-                    <img 
-                      src={image.src} 
-                      alt={image.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h4 className="text-white font-semibold text-lg">{image.title}</h4>
-                      <p className="text-white/80 text-sm capitalize">{image.category}</p>
+                  <img 
+                    src={image.src} 
+                    alt={image.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h4 className="text-white font-bold text-xl mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        {image.title}
+                      </h4>
+                      <p className="text-white/90 text-sm capitalize font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                        {image.category}
+                      </p>
                     </div>
                   </div>
+                  
+                  {/* Size indicator for large images */}
+                  {image.size === 'large' && (
+                    <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs font-medium">
+                      Featured
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -273,7 +293,6 @@ const Gallery = () => {
               className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={closeModal}
                 className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-300"
@@ -281,7 +300,6 @@ const Gallery = () => {
                 <FontAwesomeIcon icon={faTimes} className="w-5 h-5" />
               </button>
 
-              {/* Navigation Buttons */}
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full p-3 transition-all duration-300"
@@ -296,14 +314,12 @@ const Gallery = () => {
                 <FontAwesomeIcon icon={faChevronRight} className="w-5 h-5" />
               </button>
 
-              {/* Image */}
               <img
                 src={selectedImage.src}
                 alt={selectedImage.title}
                 className="w-full h-auto max-h-[70vh] object-contain"
               />
               
-              {/* Image Info */}
               <div className="p-6 bg-white">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
                   {selectedImage.title}
