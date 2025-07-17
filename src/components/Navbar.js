@@ -10,7 +10,7 @@ import {
   faBars,
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
-
+import SearchBar from './SearchBar';
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -404,75 +404,32 @@ const NavBar = () => {
               onClick={() => handleNavigation('/faculty', null)}
             />
 
-            <div className="relative" ref={searchRef}>
-              <div
-                className={`flex items-center transition-all duration-300 rounded-full overflow-hidden border ${searchFocused
-                  ? 'bg-white border-indigo-500 shadow-md w-56'
-                  : 'bg-gray-100 border-transparent w-40 hover:bg-gray-200'
-                  }`}
-              >
-                <FontAwesomeIcon
-                  icon={faSearch}
-                  className={`${searchFocused ? 'text-indigo-500' : 'text-gray-500'} ml-3 transition-colors`}
-                />
-                <input
-                  ref={inputRef}
-                  type="text"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onFocus={() => {
-                    setSearchFocused(true);
-                    setShowSearchResults(true);
-                  }}
-                  className={`w-full px-3 py-2 text-sm bg-transparent border-none focus:outline-none`}
-                />
-                {searchQuery && searchFocused && (
-                  <button
-                    type="button"
-                    onClick={clearSearch}
-                    className="px-3 text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="h-3.5 w-3.5" />
-                  </button>
-                )}
-              </div>
+           <SearchBar
+  searchQuery={searchQuery}
+  setSearchQuery={setSearchQuery}
+  searchResults={searchResults}
+  showSearchResults={showSearchResults}
+  setShowSearchResults={setShowSearchResults}
+  handleSearch={(e, path, id) => {
+    if (e) e.preventDefault();
 
-              <AnimatePresence>
-                {showSearchResults && (searchResults.length > 0 || searchQuery.trim() !== '') && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50"
-                  >
-                    {searchResults.length > 0 ? (
-                      <div className="max-h-60 overflow-y-auto py-2">
-                        {searchResults.map((result) => (
-                          <button
-                            key={result.key}
-                            type="button"
-                            onClick={() => handleNavigation(result.path, result.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-indigo-50 flex items-center justify-between group"
-                          >
-                            <span className="text-gray-700 text-sm group-hover:text-indigo-600 transition-colors">{result.label}</span>
-                            <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="h-3 w-3 text-gray-400 group-hover:text-indigo-500 transition-colors transform group-hover:translate-x-1 duration-200"
-                            />
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="p-4 text-center text-gray-500 text-sm">
-                        No matching sections found
-                      </div>
-                    )}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+    if (path && id) {
+      handleNavigation(path, id);
+    } else if (searchResults.length > 0) {
+      const firstResult = searchResults[0];
+      handleNavigation(firstResult.path, firstResult.id);
+    } else if (searchQuery.trim() !== '') {
+      alert(`No matching section found for: ${searchQuery}`);
+    }
+  }}
+  clearSearch={() => {
+    setSearchQuery('');
+    inputRef.current?.focus();
+  }}
+  inputRef={inputRef}
+  searchRef={searchRef}
+/>
+
           </div>
         </div>
 
