@@ -36,7 +36,7 @@ const FacultyDirectory = () => {
       name: "Dr. Emily Johnson",
       designation: "Professor & Head of Department",
       type: "faculty",
-      image: "/images/faculty/faculty1.jpg",
+      image: "/public/images/placeholder.jpg",
       specialization: ["Artificial Intelligence", "Machine Learning"],
       education: "Ph.D. in Computer Science, Stanford University",
       email: "emily.johnson@university.edu",
@@ -60,7 +60,7 @@ const FacultyDirectory = () => {
       name: "Prof. Michael Chen",
       designation: "Associate Professor",
       type: "faculty",
-      image: "/images/faculty/faculty2.jpg",
+      image: "/public/images/placeholder.jpg",
       specialization: ["Computer Networks", "Cybersecurity"],
       education: "Ph.D. in Computer Engineering, MIT",
       email: "michael.chen@university.edu",
@@ -84,7 +84,7 @@ const FacultyDirectory = () => {
       name: "Dr. Sarah Martinez",
       designation: "Assistant Professor",
       type: "faculty",
-      image: "/images/faculty/faculty3.jpg",
+      image: "/public/images/placeholder.jpg",
       specialization: ["Data Science", "Big Data Analytics"],
       education: "Ph.D. in Data Science, UC Berkeley",
       email: "sarah.martinez@university.edu",
@@ -108,7 +108,7 @@ const FacultyDirectory = () => {
       name: "Robert Williams",
       designation: "Lab Coordinator",
       type: "staff",
-      image: "/images/faculty/staff1.jpg",
+      image: "/public/images/placeholder.jpg",
       specialization: ["Lab Management", "Technical Support"],
       education: "M.S. in Computer Science, State University",
       email: "robert.williams@university.edu",
@@ -122,7 +122,7 @@ const FacultyDirectory = () => {
       name: "Jennifer Lee",
       designation: "Administrative Assistant",
       type: "staff",
-      image: "/images/faculty/staff2.jpg",
+      image: "/public/images/placeholder.jpg",
       specialization: ["Administration", "Student Affairs"],
       education: "B.A. in Business Administration, City College",
       email: "jennifer.lee@university.edu",
@@ -459,7 +459,7 @@ const FacultyDirectory = () => {
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             e.target.onerror = null;
-                            e.target.src = "https://via.placeholder.com/300x300?text=Photo";
+                            e.target.src = "/public/images/placeholder.jpg";
                           }}
                         />
                       ) : (
@@ -569,7 +569,7 @@ const FacultyDirectory = () => {
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             e.target.onerror = null;
-                            e.target.src = "https://via.placeholder.com/300x300?text=Photo";
+                            e.target.src = "/public/images/placeholder.jpg";
                           }}
                         />
                       ) : (

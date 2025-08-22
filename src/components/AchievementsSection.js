@@ -13,6 +13,8 @@ const AchievementsSection = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [popupImage, setPopupImage] = useState(null);
 
+// ------------- Achievement Section to showcase students and faculties achievements
+
   // Sample achievement data
   const achievements = [
     {

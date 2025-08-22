@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faQuoteLeft, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
+// ---------------- Testimonials Section with video and image testimonials -----------------
+
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);

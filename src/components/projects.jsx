@@ -16,6 +16,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
+// Updated Project page to showcase all the projects
+
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,7 +43,7 @@ const ProjectsPage = () => {
       id: 1,
       title: "AI-Powered Student Attendance System",
       category: "ai",
-      thumbnail: "/images/projects/project1.jpg",
+      thumbnail: "/public/images/logo.webp",
       year: 2023,
       semester: "Spring",
       students: ["Jane Smith", "John Doe", "Robert Johnson"],
@@ -62,16 +64,16 @@ const ProjectsPage = () => {
       },
       awards: ["Best AI Project Award 2023", "Innovation Challenge Finalist"],
       images: [
-        "/images/projects/project1-detail1.jpg",
-        "/images/projects/project1-detail2.jpg",
-        "/images/projects/project1-detail3.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 2,
       title: "Smart Campus Navigation App",
       category: "mobile",
-      thumbnail: "/images/projects/project2.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2023,
       semester: "Fall",
       students: ["Michael Chen", "Sarah Williams"],
@@ -92,15 +94,15 @@ const ProjectsPage = () => {
       },
       awards: ["Mobile Innovation Award"],
       images: [
-        "/images/projects/project2-detail1.jpg",
-        "/images/projects/project2-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 3,
       title: "Blockchain-based Academic Credential Verification",
       category: "research",
-      thumbnail: "/images/projects/project3.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2022,
       semester: "Spring",
       students: ["Alex Thompson", "Lisa Garcia", "Kevin Wong"],
@@ -121,15 +123,15 @@ const ProjectsPage = () => {
       },
       awards: ["Best Research Project 2022", "Blockchain Innovation Award"],
       images: [
-        "/images/projects/project3-detail1.jpg",
-        "/images/projects/project3-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 4,
       title: "Sustainable Energy Monitoring Dashboard",
       category: "iot",
-      thumbnail: "/images/projects/project4.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2023,
       semester: "Spring",
       students: ["Emma Davis", "Tyler Martinez"],
@@ -150,15 +152,15 @@ const ProjectsPage = () => {
       },
       awards: ["Sustainability Innovation Award"],
       images: [
-        "/images/projects/project4-detail1.jpg",
-        "/images/projects/project4-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 5,
       title: "Personalized Learning Recommendation System",
       category: "data",
-      thumbnail: "/images/projects/project5.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2022,
       semester: "Fall",
       students: ["Daniel Brown", "Olivia Wilson", "Ethan Miller"],
@@ -179,15 +181,15 @@ const ProjectsPage = () => {
       },
       awards: ["Educational Technology Award"],
       images: [
-        "/images/projects/project5-detail1.jpg",
-        "/images/projects/project5-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 6,
       title: "Virtual Laboratory for Remote Science Experiments",
       category: "web",
-      thumbnail: "/images/projects/project6.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2023,
       semester: "Fall",
       students: ["Sophia Clark", "Ryan Lewis"],
@@ -208,15 +210,15 @@ const ProjectsPage = () => {
       },
       awards: ["Educational Innovation Award", "Web Development Excellence"],
       images: [
-        "/images/projects/project6-detail1.jpg",
-        "/images/projects/project6-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 7,
       title: "Automated Essay Grading System",
       category: "ai",
-      thumbnail: "/images/projects/project7.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2022,
       semester: "Spring",
       students: ["Jason Kim", "Natalie Chen"],
@@ -237,15 +239,15 @@ const ProjectsPage = () => {
       },
       awards: ["AI Innovation in Education Award"],
       images: [
-        "/images/projects/project7-detail1.jpg",
-        "/images/projects/project7-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     },
     {
       id: 8,
       title: "Campus Safety Alert System",
       category: "software",
-      thumbnail: "/images/projects/project8.jpg",
+      thumbnail: "/public/images/placeholder.jpg",
       year: 2023,
       semester: "Spring",
       students: ["Andrew Jackson", "Maria Rodriguez", "David Lee"],
@@ -266,8 +268,8 @@ const ProjectsPage = () => {
       },
       awards: ["Campus Innovation Award", "Safety Technology Excellence"],
       images: [
-        "/images/projects/project8-detail1.jpg",
-        "/images/projects/project8-detail2.jpg"
+        "/public/images/placeholder.jpg",
+        "/public/images/placeholder.jpg"
       ]
     }
   ];
@@ -415,7 +417,7 @@ const ProjectsPage = () => {
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = 'https://via.placeholder.com/400x200?text=Project+Image';
+                        e.target.src = '/public/images/placeholder.jpg';
                       }}
                     />
                   ) : (
@@ -600,7 +602,7 @@ const ProjectsPage = () => {
                         className="rounded-lg shadow-md w-full h-48 object-cover"
                         onError={(e) => {
                           e.target.onerror = null;
-                          e.target.src = 'https://via.placeholder.com/400x200?text=Project+Image';
+                          e.target.src = '/public/images/placeholder.jpg';
                         }}
                       />
                     ))}

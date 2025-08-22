@@ -2,6 +2,8 @@ import React from 'react';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';
 
+// ---------------- Recruiters Section to showcase major recruiters and placement statistics -----------------
+
 const Recruiters = () => {
   const recruiters = [
     { id: 1, name: 'Recruiter 1', logo: '/images/recruiters/1.webp' },

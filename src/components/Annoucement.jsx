@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 const AnnouncementBar = () => {
   const [isVisible, setIsVisible] = useState(true);
 
+// -------------- Announcement Bar --------------------------
+
   // Sample announcements - replace with your actual data
   const announcements = [
     {
