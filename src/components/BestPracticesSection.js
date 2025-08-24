@@ -83,7 +83,7 @@ const BestPracticesSection = () => {
   ];
 
   return (
-    <section id="best-practices" className="relative bg-white overflow-hidden">
+  <section id="best-practices" className="relative bg-white/70 overflow-hidden">
       <div className="container mx-auto px-4 pb-40">
         {/* Section Title */}
         <div className="text-center mb-16">

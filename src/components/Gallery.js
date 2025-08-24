@@ -304,7 +304,7 @@ const Gallery = () => {
               />
               
               {/* Image Info */}
-              <div className="p-6 bg-white">
+              <div className="p-6 bg-white/70">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
                   {selectedImage.title}
                 </h3>

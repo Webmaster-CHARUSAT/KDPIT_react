@@ -267,7 +267,7 @@ const AchievementsSection = () => {
   return (
     <section
       id="achievements"
-      className="relative py-20  overflow-hidden z-10" style={{ backgroundColor: "#e1e1e1" }}
+  className="relative py-20  overflow-hidden z-10" style={{ backgroundColor: "var(--section-bg)" }}
     >
       <div className="container mx-auto px-4 z-20 relative">
         {/* Section Title */}

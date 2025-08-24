@@ -117,7 +117,7 @@ const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="bg-gradient-to-b from-white to-gray-50 py-20">
+    <section id="certifications" className="bg-white/70 py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Industry Recognized Certifications</h2>

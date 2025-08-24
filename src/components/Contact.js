@@ -6,7 +6,7 @@ import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/
 const Contact = () => {
   return (
     <section id="contact" className=" py-0"
-    style={{backgroundColor: '#e1e1e1'}}>
+  style={{backgroundColor: 'var(--section-bg)'}}>
       <div className="container mx-auto px-4 ">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Contact Us</h2>

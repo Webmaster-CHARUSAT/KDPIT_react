@@ -57,7 +57,7 @@ const Clubs = () => {
 
   return (
     <section id="clubs" className="relative  pt-20 pb-[150px] overflow-hidden"
-  style={{backgroundColor: '#e1e1e1'}}>
+  style={{backgroundColor: 'var(--section-bg)'}}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Student Clubs</h2>
