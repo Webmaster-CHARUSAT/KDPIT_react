@@ -267,10 +267,6 @@ const Recruiters = () => {
             transform: translateY(0);
           }
         }
-
-        .grid > div {
-          opacity: 0;
-        }
       `}</style>
     </section>
   );
