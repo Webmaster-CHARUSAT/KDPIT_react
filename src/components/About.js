@@ -211,7 +211,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
+    <section id="about" className="pb-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
       {/* Background Elements
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
