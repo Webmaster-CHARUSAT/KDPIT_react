@@ -5,7 +5,7 @@ import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/
 
 const Contact = () => {
   return (
-    <section id="contact" className=" py-0"
+    <section id="contact" className=" py-10"
   style={{backgroundColor: 'var(--section-bg)'}}>
       <div className="container mx-auto px-4 ">
         <div className="text-center mb-8">

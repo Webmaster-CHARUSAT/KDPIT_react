@@ -590,14 +590,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Example sections (replace with your actual)
 const sections = {
-  about: { id: "about", label: "About", path: "/#about" },
-  academics: { id: "academics", label: "Academics", path: "/#academics" },
-  research: { id: "research", label: "Research", path: "/#research" },
-  campus: { id: "campus", label: "Campus Life", path: "/#campus" },
-  contact: { id: "contact", label: "Contact", path: "/#contact" },
-  clubs: { id: "clubs", label: "Clubs", path: "/#clubs" },
-  certifications: { id: "certifications", label: "Certifications", path: "/#certifications" },
-  chapters: { id: "chapters", label: "Chapters", path: "/#chapters" },
+    // home: { id: '#home', label: 'Home', path: '/' },
+    about: { id: 'about', label: 'About', path: '/#about' },
+  clubs: { id: 'clubs', label: 'Student Clubs', path: '/#clubs' },
+  certifications: { id: 'certifications', label: 'Certifications', path: '/#certifications' },
+  chapters: { id: 'chapters', label: 'Student Chapters', path: '/#chapters' },
+  alumni: { id: 'alumni', label: 'Alumni', path: '/#alumni' },
+  gallery: { id: 'gallery', label: 'Gallery', path: '/#gallery' },
+  recruiters: { id: 'recruiters', label: 'Recruiters', path: '/#recruiters' },
+  testimonials: { id: 'testimonials', label: 'Testimonials', path: '/#testimonials' },
+  projects: { id: 'projects', label: 'Projects', path: '/projects' },
+  // faculty: { id: '/faculty', label: 'Faculty & Staff', path: '/faculty' }
 };
 
 const Navbar = () => {
@@ -676,7 +679,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-8 ml-10">
+        <div className="hidden lg:flex items-center space-x-2 ml-10">
           {Object.entries(sections).map(([key, s]) =>
             ["clubs", "certifications", "chapters"].includes(key) ? null : (
               <button
