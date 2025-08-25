@@ -1,16 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faQuoteLeft, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faQuoteLeft,
+  faPlay,
+  faPause,
+} from "@fortawesome/free-solid-svg-icons";
 
-// ---------------- Testimonials Section with video and image testimonials -----------------
+const MAX_WORDS = 40; // number of words shown before "Read More"
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [expanded, setExpanded] = useState(false); // toggle for read more
+  const [inView, setInView] = useState(false); // track if testimonials section is visible
   const videoRef = useRef(null);
   const autoAdvanceTimerRef = useRef(null);
-  
+  const sectionRef = useRef(null);
+
+  // ---------------- Sample Testimonials ----------------
   const testimonials = [
     {
       id: 1,
@@ -223,67 +233,86 @@ const Testimonials = () => {
     },
   ];
 
-  const currentTestimonial = testimonials[activeIndex];
-  const isVideo = currentTestimonial.type === 'video';
 
-  // Stop video and reset when testimonial changes
+  const currentTestimonial = testimonials[activeIndex];
+  const isVideo = currentTestimonial.type === "video";
+
+  // ---------------- Intersection Observer ----------------
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setInView(entry.isIntersecting));
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // ---------------- Auto Advance Logic ----------------
+  useEffect(() => {
+    if (!inView) return; // don’t auto-advance until in view
+
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
       setIsPlaying(false);
     }
-    
-    // Clear any existing timers
+
     if (autoAdvanceTimerRef.current) {
       clearTimeout(autoAdvanceTimerRef.current);
     }
-    
-    // Only set auto-advance timer for text testimonials
+
     if (!isVideo) {
       autoAdvanceTimerRef.current = setTimeout(() => {
         nextTestimonial();
       }, 6000);
     }
-    
+
     return () => {
       if (autoAdvanceTimerRef.current) {
         clearTimeout(autoAdvanceTimerRef.current);
       }
     };
-  }, [activeIndex]);
+  }, [activeIndex, inView]);
 
-  // Handle video end event
+  // ---------------- Video End Handler ----------------
   useEffect(() => {
     if (isVideo && videoRef.current) {
       const handleVideoEnd = () => {
         nextTestimonial();
       };
-      
-      videoRef.current.addEventListener('ended', handleVideoEnd);
-      
+
+      videoRef.current.addEventListener("ended", handleVideoEnd);
+
       return () => {
         if (videoRef.current) {
-          videoRef.current.removeEventListener('ended', handleVideoEnd);
+          videoRef.current.removeEventListener("ended", handleVideoEnd);
         }
       };
     }
   }, [activeIndex, isVideo]);
 
   const nextTestimonial = () => {
+    setExpanded(false);
     setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setExpanded(false);
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.muted = false; // Unmute when playing
-      videoRef.current.play()
+      videoRef.current.muted = false;
+      videoRef.current
+        .play()
         .then(() => setIsPlaying(true))
-        .catch(error => console.error("Video play failed:", error));
+        .catch((error) => console.error("Video play failed:", error));
     }
   };
 
@@ -294,32 +323,46 @@ const Testimonials = () => {
     }
   };
 
+  // ---------------- Utility: Clamp Words ----------------
+  const getClampedText = (text) => {
+    const words = text.split(" ");
+    if (words.length <= MAX_WORDS || expanded) return text;
+    return words.slice(0, MAX_WORDS).join(" ") + "...";
+  };
+
   return (
-    <section id="testimonials" className="relative bg-gray-50 py-20 pb-[150px]">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="relative bg-gray-50 py-20 "
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Testimonials</h2>
+        {/* Heading */}
+        <div className="text-center mb-0">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Testimonials
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">What our students and alumni say about us</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            What our students and alumni say about us
+          </p>
         </div>
-        
-        {/* Testimonials Container with Fixed Height */}
-        <div className="max-w-[1000px] mx-auto py-8 pb-[70px] relative">
-          {/* Left Arrow Button */}
-          <button 
-            className="w-[50px] h-[50px] rounded-full bg-white shadow-md flex items-center justify-center text-indigo-500 hover:bg-indigo-600 hover:text-indigo-800 hover:scale-110 transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 lg:-left-[25px] left-0 xl:-left-[25px]"
+
+        {/* Container */}
+        <div className="max-w-[1000px] mx-auto  relative">
+          {/* Left Arrow */}
+          <button
+            className="w-[50px] h-[50px] rounded-full  shadow-md flex items-center justify-center text-indigo-500 hover:bg-indigo-600 hover:text-white hover:scale-110 transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 lg:-left-[25px] left-0"
             onClick={prevTestimonial}
             aria-label="Previous testimonial"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="text-xl" />
           </button>
-          
-          {/* Fixed Height Container */}
-          <div className="min-h-[450px] md:min-h-[400px] lg:min-h-[350px] flex items-center justify-center">
-            {/* Conditional Rendering based on testimonial type */}
+
+          {/* Testimonial */}
+          <div className="min-h-[380px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               {isVideo ? (
-                // Video Testimonial
                 <motion.div
                   key={`video-${activeIndex}`}
                   className="bg-white p-6 rounded-[20px] shadow-lg overflow-hidden w-full"
@@ -332,18 +375,15 @@ const Testimonials = () => {
                     {/* Video */}
                     <div className="md:w-7/12">
                       <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-md group">
-                        {/* Always render video element but control visibility */}
                         <video
                           ref={videoRef}
                           src={currentTestimonial.videoUrl}
                           className={`absolute inset-0 w-full h-full object-cover ${
-                            isPlaying ? 'opacity-100' : 'opacity-0'
+                            isPlaying ? "opacity-100" : "opacity-0"
                           }`}
                           playsInline
                           muted={!isPlaying}
                         />
-                        
-                        {/* Thumbnail Image Background - only show when not playing */}
                         {!isPlaying && (
                           <img
                             src={currentTestimonial.thumbnail}
@@ -351,27 +391,23 @@ const Testimonials = () => {
                             className="absolute inset-0 w-full h-full object-cover"
                           />
                         )}
-                        
-                        {/* Video Controls Overlay - Play Button */}
-                        {!isPlaying && (
+                        {!isPlaying ? (
                           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                             <button
                               onClick={handlePlayVideo}
-                              className="w-20 h-20 rounded-full bg-indigo-600 bg-opacity-90 flex items-center justify-center text-white hover:bg-opacity-100 transition-all duration-300 transform hover:scale-110 shadow-lg"
-                              aria-label="Play video"
+                              className="w-20 h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center hover:scale-110 transition-all"
                             >
-                              <FontAwesomeIcon icon={faPlay} className="text-2xl ml-1" />
+                              <FontAwesomeIcon
+                                icon={faPlay}
+                                className="text-2xl ml-1"
+                              />
                             </button>
                           </div>
-                        )}
-                        
-                        {/* Pause button when playing - only visible on hover */}
-                        {isPlaying && (
-                          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        ) : (
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
                             <button
                               onClick={handlePauseVideo}
-                              className="w-20 h-20 rounded-full bg-black bg-opacity-70 flex items-center justify-center text-white hover:bg-opacity-90 transition-all duration-300 transform hover:scale-110 shadow-lg"
-                              aria-label="Pause video"
+                              className="w-20 h-20 rounded-full bg-black/70 text-white flex items-center justify-center hover:scale-110 transition-all"
                             >
                               <FontAwesomeIcon icon={faPause} className="text-2xl" />
                             </button>
@@ -379,23 +415,29 @@ const Testimonials = () => {
                         )}
                       </div>
                     </div>
-                    
-                    {/* Video Info */}
-                    <div className="md:w-5/12 flex flex-col justify-center">
+
+                    {/* Info */}
+                    <div className="md:w-5/12">
                       <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg border-l-4 border-indigo-500">
-                        <h4 className="text-xl font-semibold text-gray-800 mb-2">{currentTestimonial.name}</h4>
-                        <p className="text-indigo-600 font-medium mb-2">{currentTestimonial.position}</p>
-                        <p className="text-gray-500 text-sm mb-4">{currentTestimonial.batch}</p>
-                        <div className="text-sm text-gray-600">
-                          <p>Watch the video testimonial to learn about {currentTestimonial.name.split(' ')[0]}'s experience at our department.</p>
-                        </div>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                          {currentTestimonial.name}
+                        </h4>
+                        <p className="text-indigo-600 font-medium mb-2">
+                          {currentTestimonial.position}
+                        </p>
+                        <p className="text-gray-500 text-sm mb-4">
+                          {currentTestimonial.batch}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Watch {currentTestimonial.name.split(" ")[0]}'s video
+                          testimonial.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               ) : (
-                // Text+Image Testimonial
-                <motion.div 
+                <motion.div
                   key={`text-${activeIndex}`}
                   className="flex flex-col lg:flex-row items-center"
                   initial={{ opacity: 0 }}
@@ -403,89 +445,74 @@ const Testimonials = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Testimonial Image */}
+                  {/* Image */}
                   <div className="lg:w-5/12 mb-8 lg:mb-0">
-                    <motion.div 
-                      className="relative w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] mx-auto rounded-[20px] overflow-hidden shadow-lg"
-                      initial={{ opacity: 0, x: -50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <img 
-                        src={currentTestimonial.image} 
-                        alt={currentTestimonial.name} 
+                    <div className="relative w-[250px] h-[250px] md:w-[300px] md:h-[300px] mx-auto rounded-[20px] overflow-hidden shadow-lg">
+                      <img
+                        src={currentTestimonial.image}
+                        alt={currentTestimonial.name}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute -top-[20px] -left-[20px] w-[100px] h-[100px] rounded-[20px] bg-gradient-to-r from-indigo-600 to-purple-600 opacity-10 -z-10"></div>
-                    </motion.div>
+                    </div>
                   </div>
-                  
-                  {/* Testimonial Content */}
+
+                  {/* Text */}
                   <div className="lg:w-7/12">
-                    <motion.div 
-                      className="bg-white p-6 md:p-10 rounded-[20px] shadow-md relative"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="absolute top-5 left-5 text-5xl text-indigo-600 opacity-40">
+                    <div className="bg-white p-6 md:p-10 rounded-[20px] shadow-md relative min-h-[250px]">
+                      <div className="absolute top-5 left-5 text-5xl text-indigo-600 opacity-30">
                         <FontAwesomeIcon icon={faQuoteLeft} />
                       </div>
-                      <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-5 pl-8">
-                        {currentTestimonial.content}
+                      <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-8">
+                        {getClampedText(currentTestimonial.content)}
                       </p>
-                      <div>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-1">{currentTestimonial.name}</h4>
-                        <p className="text-indigo-600 font-medium mb-1">{currentTestimonial.position}</p>
-                        <p className="text-gray-500 text-sm">{currentTestimonial.batch}</p>
+                      {currentTestimonial.content.split(" ").length > MAX_WORDS && (
+                        <button
+                          className="text-indigo-600 text-sm font-medium hover:underline ml-8"
+                          onClick={() => setExpanded((prev) => !prev)}
+                        >
+                          {expanded ? "Read Less" : "Read More"}
+                        </button>
+                      )}
+                      <div className="mt-4">
+                        <h4 className="text-xl font-semibold text-gray-800">
+                          {currentTestimonial.name}
+                        </h4>
+                        <p className="text-indigo-600 font-medium">
+                          {currentTestimonial.position}
+                        </p>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-          
-          {/* Right Arrow Button */}
-          <button 
-            className="w-[50px] h-[50px] rounded-full bg-white shadow-md flex items-center justify-center text-indigo-500 hover:bg-indigo-600 hover:text-indigo-800 hover:scale-110 transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 lg:-right-[25px] right-0 xl:-right-[25px]"
+
+          {/* Right Arrow */}
+          <button
+            className="w-[50px] h-[50px] rounded-full shadow-md flex items-center justify-center text-indigo-500 hover:bg-indigo-600 hover:text-white hover:scale-110 transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 lg:-right-[25px] right-0"
             onClick={nextTestimonial}
             aria-label="Next testimonial"
           >
             <FontAwesomeIcon icon={faChevronRight} className="text-xl" />
           </button>
-          
-          {/* Dots/Indicators */}
+
+          {/* Dots */}
           <div className="flex justify-center gap-2.5 mt-8 relative z-10">
-            {testimonials.map((testimonial, index) => (
-              <button 
-                key={testimonial.id} 
+            {testimonials.map((t, index) => (
+              <button
+                key={t.id}
                 className={`transition-all duration-300 ${
-                  index === activeIndex 
-                    ? 'scale-125' 
-                    : 'hover:scale-110'
-                } ${
-                  testimonial.type === 'video'
-                    ? index === activeIndex 
-                      ? 'bg-indigo-600 w-8 h-3 rounded-full' 
-                      : 'bg-gray-400 hover:bg-indigo-400 w-3 h-3 rounded-full'
-                    : index === activeIndex 
-                      ? 'bg-indigo-600 w-3 h-3 rounded-full' 
-                      : 'bg-gray-400 hover:bg-indigo-400 w-3 h-3 rounded-full'
-                }`}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Go to testimonial ${index + 1}`}
+                  index === activeIndex ? "scale-125 bg-indigo-600" : "bg-gray-400"
+                } w-3 h-3 rounded-full`}
+                onClick={() => {
+                  setExpanded(false);
+                  setActiveIndex(index);
+                }}
               />
             ))}
           </div>
         </div>
-      </div>
-      
-      {/* Wave Shape */}
-      <div className="absolute -bottom-20 left-0 w-full leading-[0] z-[1]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#e1e1e1" fillOpacity="1" d="M0,160L48,170.7C96,181,192,203,288,202.7C384,203,480,181,576,165.3C672,149,768,139,864,154.7C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
       </div>
     </section>
   );
