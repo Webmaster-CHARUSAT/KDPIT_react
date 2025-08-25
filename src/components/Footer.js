@@ -184,7 +184,7 @@ const Footer = () => {
               <div className="mt-5 flex flex-col items-center">
                 <div className="mb-4 w-36 h-36 rounded-full overflow-hidden border-2 border-green-500">
                   <img 
-                    src="C:/Users/motat/Downloads/Kabir[22IT078]_Image.jpg" 
+                    src="images/kabir.jpg" 
                     alt="Lead Developer" 
                     className="w-full h-full object-cover"
                   />
