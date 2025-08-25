@@ -8,7 +8,7 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      image: "/images/home.webp",
+      image: "/images/extra/1.jpg",
       title: "Welcome to Information Technology Department",
       subtitle: "Shaping the future through technology and innovation",
       btnText: "Explore Programs",
@@ -16,19 +16,75 @@ const Hero = () => {
     },
     {
       id: 2,
-      image: "/images/home.webp",
-      title: "State-of-the-Art Facilities",
-      subtitle: "Modern labs equipped with the latest technology",
-      btnText: "View Facilities",
-      btnLink: "#about"
+      image: "/images/extra/2.jpg",
+      title: "Innovative Learning Environment",
+      subtitle: "Experience hands-on projects and real-world challenges",
+      btnText: "See Projects",
+      btnLink: "#projects"
     },
     {
       id: 3,
-      image: "/images/home.webp",
-      title: "Building Successful Careers",
-      subtitle: "Our graduates are working in top companies worldwide",
-      btnText: "Our Recruiters",
+      image: "/images/extra/3.jpg",
+      title: "Expert Faculty",
+      subtitle: "Learn from experienced professors and industry leaders",
+      btnText: "Meet Our Team",
+      btnLink: "#faculty"
+    },
+    {
+      id: 4,
+      image: "/images/extra/4.jpg",
+      title: "Cutting-Edge Research",
+      subtitle: "Join research groups and contribute to new discoveries",
+      btnText: "Research Labs",
+      btnLink: "#research"
+    },
+    {
+      id: 5,
+      image: "/images/extra/5.jpg",
+      title: "Vibrant Student Life",
+      subtitle: "Participate in clubs, events, and hackathons",
+      btnText: "Student Clubs",
+      btnLink: "#student-clubs"
+    },
+    {
+      id: 6,
+      image: "/images/extra/6.jpg",
+      title: "Global Opportunities",
+      subtitle: "Exchange programs and international collaborations",
+      btnText: "Go Global",
+      btnLink: "#global"
+    },
+    {
+      id: 7,
+      image: "/images/extra/7.jpg",
+      title: "Modern Infrastructure",
+      subtitle: "Smart classrooms, digital library, and more",
+      btnText: "Our Campus",
+      btnLink: "#infrastructure"
+    },
+    {
+      id: 8,
+      image: "/images/extra/8.jpg",
+      title: "Industry Partnerships",
+      subtitle: "Collaborate with top tech companies and startups",
+      btnText: "Our Partners",
       btnLink: "#recruiters"
+    },
+    {
+      id: 9,
+      image: "/images/extra/9.jpg",
+      title: "Alumni Success Stories",
+      subtitle: "Our graduates excel in leading organizations worldwide",
+      btnText: "Alumni Network",
+      btnLink: "#alumni"
+    },
+    {
+      id: 10,
+      image: "/images/extra/10.jpg",
+      title: "Join Us Today!",
+      subtitle: "Be a part of a thriving and innovative community",
+      btnText: "Apply Now",
+      btnLink: "#apply"
     }
   ];
 
