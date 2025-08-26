@@ -163,18 +163,18 @@ const Recruiters = () => {
         className={`flex gap-8 animate-marquee`}
         style={{
           animationDirection: direction === "right" ? "normal" : "reverse",
-          animationDuration: "40s", // slower + smoother
+          animationDuration: "20s", // slower + smoother
         }}
       >
         {[...recruiters, ...recruiters].map((recruiter, i) => (
           <div
             key={`${recruiter.id}-${i}`}
-            className="flex-shrink-0 w-40 h-24 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center p-4 group hover:scale-105"
+            className="flex-shrink-0 w-44 h-30 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center p-4 group hover:scale-110"
           >
             <img
               src={recruiter.logo}
               alt={recruiter.name}
-              className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="max-w-full max-h-20 object-contain filter grayscale group-hover:grayscale-0  group-hover:scale-110 transition-all duration-300"
               draggable="false"
             />
           </div>
