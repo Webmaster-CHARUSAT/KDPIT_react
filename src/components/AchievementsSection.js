@@ -7,244 +7,46 @@ import {
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
+import achievementsData from "../data/achievements.json";
+
 const AchievementsSection = () => {
   const [filter, setFilter] = useState("all");
   const [visibleCount, setVisibleCount] = useState(8);
   const [searchTerm, setSearchTerm] = useState("");
   const [popupImage, setPopupImage] = useState(null);
 
-// ------------- Achievement Section to showcase students and faculties achievements
+  // ------------- Achievement Section to showcase students and faculties achievements
 
-  // Sample achievement data
-  const achievements = [
-    {
-      id: 1,
-      title: "Achievement by Vachani Zeel",
-      category: "student",
-      image: "./images/achievements/VACHANI ZEEL_22IT149.webp",
-    },
-    {
-      id: 2,
-      title: "Achievement by Vyom Pandya",
-      category: "student",
-      image: "./images/achievements/VYOM_PANDYA.webp",
-    },
-    {
-      id: 3,
-      title: "NPTEL Toppers Jay Bordab 2024",
-      category: "student",
-      image: "./images/achievements/NPTEL toppers jay bordab2024.webp",
-    },
-    {
-      id: 4,
-      title: "NPTEL Toppers Engineering Nov 2024",
-      category: "student",
-      image: "./images/achievements/NPTEL_TOPPERS_EH_NOV 2024.webp",
-    },
-    {
-      id: 5,
-      title: "NPTEL Toppers Jan-Mar DAA 2025",
-      category: "student",
-      image: "./images/achievements/NPTEL_Toppers_JAN_MAR_DAA2025.webp",
-    },
-    {
-      id: 6,
-      title: "NPTEL Toppers Jul-Sep 2024 DBMS",
-      category: "student",
-      image: "./images/achievements/NPTEL_TOPPERS_JUL_SEP_2024_DBMS.webp",
-    },
-    {
-      id: 7,
-      title: "NPTEL Toppers OS Nov 2024 (Batch 1)",
-      category: "student",
-      image: "./images/achievements/NPTEL_TOPPERS_OS_NOV_2024_1.webp",
-    },
-    {
-      id: 8,
-      title: "NPTEL Toppers OS Nov 2024 (Batch 2)",
-      category: "student",
-      image: "./images/achievements/NPTEL_TOPPERS_OS_NOV_2024_2.webp",
-    },
-    {
-      id: 9,
-      title: "Achievement by Parthik Panchal",
-      category: "student",
-      image: "./images/achievements/Parthik_Panchal_21IT098.webp",
-    },
-    {
-      id: 10,
-      title: "Achievement by Rachit Devanshi Yash",
-      category: "student",
-      image: "./images/achievements/RACHIT_DEVANSHI_YASH.webp",
-    },
-    {
-      id: 11,
-      title: "Achievement by Rachit Shah",
-      category: "student",
-      image: "./images/achievements/RACHIT_SHAH.webp",
-    },
-    {
-      id: 12,
-      title: "Samarth Chauhan Internship",
-      category: "student",
-      image: "./images/achievements/Samarth Chauhan Internship.webp",
-    },
-    {
-      id: 13,
-      title: "Achievement by Shruti Tirth",
-      category: "student",
-      image: "./images/achievements/SHRUTI_TIRTH_PPP.webp",
-    },
-    {
-      id: 14,
-      title: "Jaitej Bhamra Project",
-      category: "student",
-      image: "./images/achievements/JAITEJ_BHAMRA PROJECT_21IT180.webp",
-    },
-    {
-      id: 15,
-      title: "Achievement by Jaitej Krisha",
-      category: "student",
-      image: "./images/achievements/JAITEJ_KRISHA.webp",
-    },
-    {
-      id: 16,
-      title: "Jaitej Krisha PPP",
-      category: "student",
-      image: "./images/achievements/JAITEJ_KRISHA_PPP.webp",
-    },
-    {
-      id: 17,
-      title: "Jay Anshuman PPP",
-      category: "student",
-      image: "./images/achievements/JAY_ANSHUMAN_PPP.webp",
-    },
-    {
-      id: 18,
-      title: "Achievement by Jugal Mehta",
-      category: "student",
-      image: "./images/achievements/JUGAL_MEHTA_21IT083.webp",
-    },
-    {
-      id: 19,
-      title: "Achievement by Jugal Mehta Yash Bhadaniya",
-      category: "student",
-      image: "./images/achievements/JUGAL_MEHTA_YASH_BHADANIYA.webp",
-    },
-    {
-      id: 20,
-      title: "Khunt Jaimin Internship",
-      category: "student",
-      image: "./images/achievements/Khunt Jaimin 22it045 Internship.webp",
-    },
-    {
-      id: 21,
-      title: "Krisha Zalaria Project",
-      category: "student",
-      image: "./images/achievements/KRISHA ZALARIA PROJECT_21IT178.webp",
-    },
-    {
-      id: 22,
-      title: "Manav Madhav PPP",
-      category: "student",
-      image: "./images/achievements/MANAV_MADHAV_PPP.webp",
-    },
-    {
-      id: 23,
-      title: "NPTEL Toppers DSA Nov 2024 (Batch 1)",
-      category: "student",
-      image: "./images/achievements/NPTEL TOPPERS DSA_NOV 2024_1.webp",
-    },
-    {
-      id: 24,
-      title: "NPTEL Toppers DSA Nov 2024 (Batch 2)",
-      category: "student",
-      image: "./images/achievements/NPTEL TOPPERS DSA_NOV 2024_2.webp",
-    },
-    {
-      id: 25,
-      title: "Anant PPP",
-      category: "student",
-      image: "./images/achievements/ANANT_PPP.webp",
-    },
-    {
-      id: 26,
-      title: "Ankit PPP",
-      category: "student",
-      image: "./images/achievements/ANKIT_PPP.webp",
-    },
-    {
-      id: 27,
-      title: "Anshuman Prajapati GATE",
-      category: "student",
-      image: "./images/achievements/Anshuman_Prajapati_22IT003_GATE.webp",
-    },
-    {
-      id: 28,
-      title: "Unique Achievement 1",
-      category: "student",
-      image: "./images/achievements/dd300bbb-37f7-45e5-a3d1-48c20fb91863.webp",
-    },
-    {
-      id: 29,
-      title: "Achievement by Dhvani Patel",
-      category: "student",
-      image: "./images/achievements/Dhvani Patel_21IT108.webp",
-    },
-    {
-      id: 30,
-      title: "Unique Achievement 2",
-      category: "student",
-      image: "./images/achievements/f3148567-5c62-40d8-bb31-5fa575351251.webp",
-    },
-    {
-      id: 31,
-      title: "Achievement by Harshvardhan Goplani",
-      category: "student",
-      image: "./images/achievements/Harshvardhan_Goplani_21IT041.webp",
-    },
-    {
-      id: 32,
-      title: "ICT4SD HNY",
-      category: "student",
-      image: "./images/achievements/ICT4SD_HNY.webp",
-    },
-    {
-      id: 33,
-      title: "ICT4SD Madhav Ajwalia",
-      category: "student",
-      image: "./images/achievements/ICT4SD_Madhav_Ajwalia.webp",
-    },
-    {
-      id: 34,
-      title: "ICT4SD Purvi Prajapati",
-      category: "student",
-      image: "./images/achievements/ICT4SD_Purvi_Prajapati.webp",
-    },
-    {
-      id: 35,
-      title: "ISBM AKP 2024",
-      category: "student",
-      image: "./images/achievements/ISBM_AKP_21it144_2024.webp",
-    },
-    {
-      id: 36,
-      title: "Achievement by Jaitej",
-      category: "student",
-      image: "./images/achievements/JAITEJ.webp",
-    },
-  ];
 
-  // Filter achievements based on category and search term
-  const filteredAchievements = achievements
-    .filter((achievement) => {
-      if (filter === "all") return true;
-      return achievement.category === filter;
-    })
-    .filter((achievement) => {
-      if (!searchTerm) return true;
-      return achievement.title.toLowerCase().includes(searchTerm.toLowerCase());
-    });
+  // Determine source arrays and apply search filtering
+  const studentsAll = achievementsData.students || [];
+  const facultyAll = achievementsData.faculty || [];
+
+  const studentsFiltered = studentsAll.filter((achievement) => {
+    if (!searchTerm) return true;
+    return achievement.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  const facultyFiltered = facultyAll.filter((achievement) => {
+    if (!searchTerm) return true;
+    return achievement.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  let filteredAchievements = [];
+  if (filter === "student") {
+    filteredAchievements = studentsFiltered;
+  } else if (filter === "faculty") {
+    filteredAchievements = facultyFiltered;
+  } else {
+    // For 'all' — interleave students and faculty so the grid shows variety (1 student, 1 faculty...)
+    const maxLen = Math.max(studentsFiltered.length, facultyFiltered.length);
+    const combined = [];
+    for (let i = 0; i < maxLen; i++) {
+      if (i < studentsFiltered.length) combined.push(studentsFiltered[i]);
+      if (i < facultyFiltered.length) combined.push(facultyFiltered[i]);
+    }
+    filteredAchievements = combined;
+  }
 
   // Visible achievements based on current count
   const visibleAchievements = filteredAchievements.slice(0, visibleCount);

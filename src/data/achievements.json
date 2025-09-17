@@ -1,0 +1,286 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "title": "Achievement by Vachani Zeel",
+      "image": "./images/achievements/VACHANI ZEEL_22IT149.webp"
+    },
+    {
+      "id": 2,
+      "title": "Achievement by Vyom Pandya",
+      "image": "./images/achievements/VYOM_PANDYA.webp"
+    },
+    {
+      "id": 3,
+      "title": "NPTEL Toppers Jay Bordab 2024",
+      "image": "./images/achievements/NPTEL toppers jay bordab2024.webp"
+    },
+    {
+      "id": 4,
+      "title": "NPTEL Toppers Engineering Nov 2024",
+      "image": "./images/achievements/NPTEL_TOPPERS_EH_NOV 2024.webp"
+    },
+    {
+      "id": 5,
+      "title": "NPTEL Toppers Jan-Mar DAA 2025",
+      "image": "./images/achievements/NPTEL_Toppers_JAN_MAR_DAA2025.webp"
+    },
+    {
+      "id": 6,
+      "title": "NPTEL Toppers Jul-Sep 2024 DBMS",
+      "image": "./images/achievements/NPTEL_TOPPERS_JUL_SEP_2024_DBMS.webp"
+    },
+    {
+      "id": 7,
+      "title": "NPTEL Toppers OS Nov 2024 (Batch 1)",
+      "image": "./images/achievements/NPTEL_TOPPERS_OS_NOV_2024_1.webp"
+    },
+    {
+      "id": 8,
+      "title": "NPTEL Toppers OS Nov 2024 (Batch 2)",
+      "image": "./images/achievements/NPTEL_TOPPERS_OS_NOV_2024_2.webp"
+    },
+    {
+      "id": 9,
+      "title": "Achievement by Parthik Panchal",
+      "image": "./images/achievements/Parthik_Panchal_21IT098.webp"
+    },
+    {
+      "id": 10,
+      "title": "Achievement by Rachit Devanshi Yash",
+      "image": "./images/achievements/RACHIT_DEVANSHI_YASH.webp"
+    },
+    {
+      "id": 11,
+      "title": "Achievement by Rachit Shah",
+      "image": "./images/achievements/RACHIT_SHAH.webp"
+    },
+    {
+      "id": 12,
+      "title": "Samarth Chauhan Internship",
+      "image": "./images/achievements/Samarth Chauhan Internship.webp"
+    },
+    {
+      "id": 13,
+      "title": "Achievement by Shruti Tirth",
+      "image": "./images/achievements/SHRUTI_TIRTH_PPP.webp"
+    },
+    {
+      "id": 14,
+      "title": "Jaitej Bhamra Project",
+      "image": "./images/achievements/JAITEJ_BHAMRA PROJECT_21IT180.webp"
+    },
+    {
+      "id": 15,
+      "title": "Achievement by Jaitej Krisha",
+      "image": "./images/achievements/JAITEJ_KRISHA.webp"
+    },
+    {
+      "id": 16,
+      "title": "Jaitej Krisha PPP",
+      "image": "./images/achievements/JAITEJ_KRISHA_PPP.webp"
+    },
+    {
+      "id": 17,
+      "title": "Jay Anshuman PPP",
+      "image": "./images/achievements/JAY_ANSHUMAN_PPP.webp"
+    },
+    {
+      "id": 18,
+      "title": "Achievement by Jugal Mehta",
+      "image": "./images/achievements/JUGAL_MEHTA_21IT083.webp"
+    },
+    {
+      "id": 19,
+      "title": "Achievement by Jugal Mehta Yash Bhadaniya",
+      "image": "./images/achievements/JUGAL_MEHTA_YASH_BHADANIYA.webp"
+    },
+    {
+      "id": 20,
+      "title": "Khunt Jaimin Internship",
+      "image": "./images/achievements/Khunt Jaimin 22it045 Internship.webp"
+    },
+    {
+      "id": 21,
+      "title": "Krisha Zalaria Project",
+      "image": "./images/achievements/KRISHA ZALARIA PROJECT_21IT178.webp"
+    },
+    {
+      "id": 22,
+      "title": "Manav Madhav PPP",
+      "image": "./images/achievements/MANAV_MADHAV_PPP.webp"
+    },
+    {
+      "id": 23,
+      "title": "NPTEL Toppers DSA Nov 2024 (Batch 1)",
+      "image": "./images/achievements/NPTEL TOPPERS DSA_NOV 2024_1.webp"
+    },
+    {
+      "id": 24,
+      "title": "NPTEL Toppers DSA Nov 2024 (Batch 2)",
+      "image": "./images/achievements/NPTEL TOPPERS DSA_NOV 2024_2.webp"
+    },
+    {
+      "id": 25,
+      "title": "Anant PPP",
+      "image": "./images/achievements/ANANT_PPP.webp"
+    },
+    {
+      "id": 26,
+      "title": "Ankit PPP",
+      "image": "./images/achievements/ANKIT_PPP.webp"
+    },
+    {
+      "id": 27,
+      "title": "Anshuman Prajapati GATE",
+      "image": "./images/achievements/Anshuman_Prajapati_22IT003_GATE.webp"
+    },
+    {
+      "id": 28,
+      "title": "Unique Achievement 1",
+      "image": "./images/achievements/dd300bbb-37f7-45e5-a3d1-48c20fb91863.webp"
+    },
+    {
+      "id": 29,
+      "title": "Achievement by Dhvani Patel",
+      "image": "./images/achievements/Dhvani Patel_21IT108.webp"
+    },
+    {
+      "id": 30,
+      "title": "Unique Achievement 2",
+      "image": "./images/achievements/f3148567-5c62-40d8-bb31-5fa575351251.webp"
+    },
+    {
+      "id": 31,
+      "title": "Achievement by Harshvardhan Goplani",
+      "image": "./images/achievements/Harshvardhan_Goplani_21IT041.webp"
+    },
+    {
+      "id": 32,
+      "title": "ICT4SD HNY",
+      "image": "./images/achievements/ICT4SD_HNY.webp"
+    },
+    {
+      "id": 33,
+      "title": "ICT4SD Madhav Ajwalia",
+      "image": "./images/achievements/ICT4SD_Madhav_Ajwalia.webp"
+    },
+    {
+      "id": 34,
+      "title": "ICT4SD Purvi Prajapati",
+      "image": "./images/achievements/ICT4SD_Purvi_Prajapati.webp"
+    },
+    {
+      "id": 35,
+      "title": "ISBM AKP 2024",
+      "image": "./images/achievements/ISBM_AKP_21it144_2024.webp"
+    },
+    {
+      "id": 36,
+      "title": "Achievement by Jaitej",
+      "image": "./images/achievements/JAITEJ.webp"
+    }
+  ],
+  "faculty": [
+    {
+      "id": 101,
+      "title": "Achievement by Dr Priteshkumar Prajapati",
+      "image": "./images/achievements/FacultyAchievements/fa1.webp"
+    },
+    {
+      "id": 102,
+      "title": "Paper presentation by Rajnik Katriya",
+      "image": "./images/achievements/FacultyAchievements/fa2.webp"
+    },
+    {
+      "id": 103,
+      "title": "Achievement by Dr Aneri Pandya for being session chair at 10th ICTCS",
+      "image": "./images/achievements/FacultyAchievements/fa3.webp"
+    },
+    {
+      "id": 104,
+      "title": "Achievement by Dr Priteshkumar Prajapati for being session chair at 10th ICTCS",
+      "image": "./images/achievements/FacultyAchievements/fa4.webp"
+    },
+    {
+      "id": 105,
+      "title": "NPTEL Elite certificate",
+      "image": "./images/achievements/FacultyAchievements/fa5.webp"
+    },
+    {
+      "id": 106,
+      "title": "Certified Network Defender certification by Dr Priteshkumar Prajapati",
+      "image": "./images/achievements/FacultyAchievements/fa6.webp"
+    },
+    {
+      "id": 107,
+      "title": "Red Hat Certified System Administration certification by Dr Priyanka Patel",
+      "image": "./images/achievements/FacultyAchievements/fa7.webp"
+    },
+    {
+      "id": 108,
+      "title": "NPTEL Certification by Dr Aneri Pandya",
+      "image": "./images/achievements/FacultyAchievements/fa8.webp"
+    },
+    {
+      "id": 109,
+      "title": "NPTEL Elite + silver top 5% certificate",
+      "image": "./images/achievements/FacultyAchievements/fa9.webp"
+    },
+    {
+      "id": 110,
+      "title": "NPTEL Elite + silver certificate",
+      "image": "./images/achievements/FacultyAchievements/fa10.webp"
+    },
+    {
+      "id": 111,
+      "title": "NPTEL top 5%",
+      "image": "./images/achievements/FacultyAchievements/fa11.webp"
+    },
+    {
+      "id": 112,
+      "title": "NPTEL Certification by Dr Purvi Prajapati",
+      "image": "./images/achievements/FacultyAchievements/fa12.webp"
+    },
+    {
+      "id": 113,
+      "title": "Achievement by Dr Aneri Pandya for being session chair ICTIS 2025",
+      "image": "./images/achievements/FacultyAchievements/fa13.webp"
+    },
+    {
+      "id": 114,
+      "title": "Achievement by Dr Priteshkumar Prajapati for being session chair ICTIS 2025",
+      "image": "./images/achievements/FacultyAchievements/fa14.webp"
+    },
+    {
+      "id": 115,
+      "title": "Paper presentation by Mr Madhav Ajwalia and Dr Parth Shah",
+      "image": "./images/achievements/FacultyAchievements/fa15.webp"
+    },
+    {
+      "id": 116,
+      "title": "Paper publication by Dr Bimal Patel, Mr Ravi Patel, Mr Jalpesh Vasa, Dr Martin Parmar, Mr Krunal Maheriya",
+      "image": "./images/achievements/FacultyAchievements/fa16.webp"
+    },
+    {
+      "id": 117,
+      "title": "Paper publication by Dr Bimal Patel, Mr Ravi Patel, Mr Jalpesh Vasa, Mr Mikin Patel",
+      "image": "./images/achievements/FacultyAchievements/fa17.webp"
+    },
+    {
+      "id": 118,
+      "title": "Completion of PhD by Dr Pritesh Prajapati",
+      "image": "./images/achievements/FacultyAchievements/fa18.webp"
+    },
+    {
+      "id": 119,
+      "title": "NPTEL Certification by Nishat Shaikh",
+      "image": "./images/achievements/FacultyAchievements/fa19.webp"
+    },
+    {
+      "id": 120,
+      "title": "NPTEL Certification by Rajnik Katriya",
+      "image": "./images/achievements/FacultyAchievements/fa20.webp"
+    }
+  ]
+}
