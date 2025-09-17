@@ -150,9 +150,22 @@ const AchievementsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-100 hover:shadow-xl"
+              className="relative bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-all duration-100 hover:shadow-xl"
               onClick={() => handleImageClick(achievement.image)}
             >
+              {/* Achievement Type Badge */}
+              <div className="absolute top-4 right-4 z-20">
+                {facultyAll.some(f => f.id === achievement.id) ? (
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    Faculty
+                  </span>
+                ) : (
+                  <span className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    Student
+                  </span>
+                )}
+              </div>
+
               {/* Card Image */}
               <div className="relative h-72">
                 <img
@@ -163,11 +176,11 @@ const AchievementsSection = () => {
                 <div className="absolute inset-0 "></div>
               </div>
               {/* Card Title */}
-              <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-800">
+              {/* <div className="p-6 bg-gradient-to-b from-white/90 to-white/70 backdrop-blur-sm">
+                <h4 className="text-gray-800 font-semibold text-base line-clamp-2 group-hover:text-indigo-600 transition-colors duration-300">
                   {achievement.title}
-                </h3>
-              </div>
+                </h4>
+              </div> */}
             </motion.div>
           ))}
         </div>
@@ -188,12 +201,12 @@ const AchievementsSection = () => {
       {/* Image Popup */}
       {popupImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={closePopup}
         >
           <div
-            className="relative bg-white rounded-lg overflow-hidden shadow-lg p-2"
-            style={{ maxWidth: "90vw", maxHeight: "90vh" }}
+            className="relative bg-white rounded-2xl overflow-hidden shadow-2xl p-2 max-w-4xl max-h-[90vh]"
+            // style={{ maxWidth: "90vw", maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image area
           >
             <button
