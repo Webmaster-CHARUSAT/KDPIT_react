@@ -24,7 +24,8 @@ import ProjectsPage from './components/projects';
 import MessageSection from './components/Message';
 import AnnouncementBar from './components/Annoucement';
 import ApplyNowButton from './components/ApplyNowButton';
-
+import LatestSection from './components/LatestSection';
+import Infosection from './components/infosection';
 function App() {
   useEffect(() => {
     AOS.init({
@@ -44,6 +45,8 @@ function App() {
             <>
               <Hero />
               <About />
+              {/* <Infosection /> */}
+              {/* <LatestSection /> */}
               <AchievementsSection />
               <BestPracticesSection />
               {/* <Wave /> */}
