@@ -26,6 +26,8 @@ import AnnouncementBar from './components/Annoucement';
 import ApplyNowButton from './components/ApplyNowButton';
 import LatestSection from './components/LatestSection';
 import Infosection from './components/infosection';
+import DriveContentViewer from './components/Drive';
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -67,6 +69,7 @@ function App() {
           {/* Faculty Directory Page Route */}
           <Route path="/faculty" element={<FacultyDirectory />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path='/drive' element={<DriveContentViewer />} />
           {/* Add more routes for other standalone pages if needed */}
         </Routes>
 

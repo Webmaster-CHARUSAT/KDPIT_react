@@ -8,7 +8,7 @@ const menuStructure = {
     label: "Academics",
     path: "/#academics",
     submenu: {
-      practicalList: { label: "Practical List", path: "https://drive.google.com/drive/folders/11324AezL2lsgh08r2FYHOAKPl8TJTAQ6", external: true },
+      practicalList: { label: "Practical List", path: "drive?folderId=11324AezL2lsgh08r2FYHOAKPl8TJTAQ6&heading=Practical%20List", external: true },
       courseModule: {
         label: "Course Module",
         path: "/#course-module",
@@ -17,7 +17,7 @@ const menuStructure = {
           semester6: { label: "Semester 6", path: "/#semester-6" },
         },
       },
-      syllabus: { label: "Syllabus", path: "https://drive.google.com/drive/folders/115HPgIpmlYlx29mFq3Bk6RyooQCljoyl", external: true },
+      syllabus: { label: "Syllabus", path:"/drive?folderId=115HPgIpmlYlx29mFq3Bk6RyooQCljoyl&heading=SYLLABUS", external: true },
     },
   },
   labEquipments: { label: "Lab Equipments", path: "https://charusat.edu.in/cspit/it/assets/files/it_equipments.pdf", external: true },
@@ -38,7 +38,7 @@ const menuStructure = {
       eGovernance: { label: "E-Governance", path: "https://charusat.edu.in:912/eGovernance/", external: true },
       examResult: { label: "Exam Result", path: "https://charusat.edu.in:912/UniExamResult/", external: true },
       studentAchievements: { label: "Student Achievements", path: "/#student-achievements" },
-      oldQuestionPaper: { label: "Old Question Paper", path: "https://drive.google.com/drive/u/1/folders/1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW", external: true },
+      oldQuestionPaper: { label: "Old Question Paper", path: "drive?folderId=1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW&heading=Old%20Question%20Paper", external: true },
       eMagazine: {
         label: "E-Magazine",
         path: "/#e-magazine",
