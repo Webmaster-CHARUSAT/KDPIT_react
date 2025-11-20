@@ -203,7 +203,7 @@ const Certifications = () => {
       logo: "images/certifications/AWS_Academy_logo.webp",
       description: "Cloud computing certifications from Amazon Web Services",
       officialLink: "https://aws.amazon.com/certification/",
-      contact: "faculty.aws@youruniversity.edu",
+      contact: "sanketsuthar.it@charusat.ac.in",
     },
     {
       id: 2,
@@ -212,7 +212,7 @@ const Certifications = () => {
       logo: "/images/certifications/ec-council.webp",
       description: "Ethical hacking and security certifications",
       officialLink: "https://www.eccouncil.org/programs/",
-      contact: "faculty.ec@youruniversity.edu",
+      contact: "priteshprajapati.it@charusat.ac.in",
     },
     {
       id: 3,
@@ -222,7 +222,7 @@ const Certifications = () => {
       description: "Networking and cybersecurity certifications",
       officialLink:
         "https://www.cisco.com/c/en/us/training-events/training-certifications.html",
-      contact: "faculty.cisco@youruniversity.edu",
+      contact: "bimalpatel.it@charusat.ac.in",
     },
     {
       id: 4,
@@ -231,7 +231,7 @@ const Certifications = () => {
       logo: "images/certifications/oracle.webp",
       description: "Database and enterprise software certifications",
       officialLink: "https://academy.oracle.com/",
-      contact: "faculty.oracle@youruniversity.edu",
+      contact: "",
     },
     {
       id: 5,
@@ -241,7 +241,7 @@ const Certifications = () => {
       description: "Linux and open source certifications",
       officialLink:
         "https://www.redhat.com/en/services/training/red-hat-academy",
-      contact: "faculty.redhat@youruniversity.edu",
+      contact: "priyankapatel.it@charusat.ac.in",
     },
     {
       id: 6,
@@ -250,7 +250,7 @@ const Certifications = () => {
       logo: "images/certifications/comptia_partner.webp",
       description: "Certifications in IT, security, and cloud.",
       officialLink: "https://www.comptia.org/certifications",
-      contact: "faculty.comptia@youruniversity.edu",
+      contact: "priteshprajapati.it@charusat.ac.in",
     },
     {
       id: 7,
@@ -259,7 +259,7 @@ const Certifications = () => {
       logo: "images/certifications/NPTEL-Logo.webp",
       description: "Online courses from IITs & IISc in engineering and science.",
       officialLink: "https://nptel.ac.in/",
-      contact: "faculty.nptel@youruniversity.edu",
+      contact: "niravbhatt.it@charusat.ac.in",
     },
   ];
 
@@ -334,6 +334,7 @@ const Certifications = () => {
               {/* Bottom Line */}
               <div className="bg-gray-50 text-gray-500 text-xs px-4 py-3 border-t border-gray-200 text-center">
                 Contact Faculty:{" "}
+                <br/>
                 <span className="font-medium text-gray-700">
                   {cert.contact}
                 </span>
