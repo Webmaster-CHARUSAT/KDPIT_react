@@ -10,107 +10,93 @@ const Alumni = () => {
   const alumni = [
     {
       id: 1,
-      name: 'Ashish Sharma',
-      image: '/images/alumni/ashish.jpg',
-      position: 'Deputy Manager (Audit & Assurance)',
-      company: 'Deloitte',
-      linkedin: 'https://linkedin.com/in/ashish-sharma'
+      name: 'Aaditya Khetan',
+      image: '/images/alumni/Aaditya_Khetan.webp',
+      position: '',
+      company: 'Swiggy',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Swiggy.jpeg'
     },
     {
       id: 2,
-      name: 'Yash Deshmukh',
-      image: '/images/alumni/yash.jpg',
-      position: 'Deputy Manager Application Engineering',
-      company: 'Schneider Electric',
-      linkedin: 'https://linkedin.com/in/yash-deshmukh'
+      name: 'Aradhi Sadrani',
+      image: '/images/alumni/Aradhi_Sadrani.webp',
+      position: '',
+      company: 'Amazon',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Amazon.png'
     },
     {
       id: 3,
-      name: 'Malay Tanna',
-      image: '/images/alumni/malay.jpg',
-      position: 'Business Manager',
-      company: 'Gateway Group',
-      linkedin: 'https://linkedin.com/in/malay-tanna'
+      name: 'Ayush Gadhiya',
+      image: '/images/alumni/Ayush_Gadhiya.webp',
+      position: '',
+      company: 'Sony',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Sony.png'
     },
     {
       id: 4,
-      name: 'Dhavat Dabhi',
-      image: '/images/alumni/dhavat.jpg',
-      position: 'Senior Engineer L&T',
-      company: 'Technology Services',
-      linkedin: 'https://linkedin.com/in/dhavat-dabhi'
+      name: 'Chirag Mehta',
+      image: '/images/alumni/Chirag_Mehta.webp',
+      position: '',
+      company: 'Microsoft',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Microsoft.jpg'
     },
     {
       id: 5,
-      name: 'Abhishek Singh',
-      image: '/images/alumni/abhishek.jpg',
-      position: 'Executive - Commissioning Engineer',
-      company: 'SIEMENS ENERGY',
-      linkedin: 'https://linkedin.com/in/abhishek-singh'
+      name: 'Megha Goriya',
+      image: '/images/alumni/Megha_Goriya.webp',
+      position: '',
+      company: 'IBM',
+      linkedin: '#',
+      logo: '/images/alumni/logo/IBM.png'
     },
     {
       id: 6,
-      name: 'Riya Patel',
-      image: '/images/alumni/riya.jpg',
-      position: 'Systems Engineer',
-      company: 'Tata Consultancy Services',
-      linkedin: 'https://linkedin.com/in/riya-patel'
+      name: 'Tanvi Desai',
+      image: '/images/alumni/Tanvi_Desai.webp',
+      position: '',
+      company: 'Google',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Google.png'
     },
     {
       id: 7,
-      name: 'Mayank Patel',
-      image: '/images/alumni/mayank.jpg',
-      position: 'Service Delivery Manager - DG Gujarat Region',
-      company: 'Tata Consultancy Services',
-      linkedin: 'https://linkedin.com/in/mayank-patel'
+      name: 'Varun Sonavni',
+      image: '/images/alumni/Varun_Sonavni.webp',
+      position: '',
+      company: 'Synder',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Synder.jpeg'
     },
     {
       id: 8,
-      name: 'Mr. Parthav Pankaj Vyas',
-      image: '/images/alumni/parthav.jpg',
-      position: 'Director of Engineering',
-      company: 'Scalebridge Technology, Ahmedabad',
-      linkedin: 'https://linkedin.com/in/parthav-vyas'
+      name: 'Arjun Rupavatia',
+      image: '/images/alumni/Arjun_Rupavatia.webp',
+      position: '',
+      company: 'Motorola',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Motorola.png'
     },
     {
       id: 9,
-      name: 'Nilesh Ranpura',
-      image: '/images/alumni/nilesh.jpg',
-      position: 'Director of Engineering',
-      company: 'eInfochips- An Arrow company',
-      linkedin: 'https://linkedin.com/in/nilesh-ranpura'
+      name: 'Jeel Soni',
+      image: '/images/alumni/Jeel_Soni.webp',
+      position: '',
+      company: 'Amazon',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Amazon.png'
     },
     {
       id: 10,
-      name: 'Harshita Joshi',
-      image: '/images/alumni/harshita.jpg',
-      position: 'Senior Staff Engineer',
-      company: 'Infineon Technologies AG, Munich-Germany',
-      linkedin: 'https://linkedin.com/in/harshita-joshi'
-    },
-    {
-      id: 11,
-      name: 'Kishankumar Patel',
-      image: '/images/alumni/kishan.jpg',
-      position: 'Senior UI Engineer',
-      company: 'NVIDIA Inc.',
-      linkedin: 'https://linkedin.com/in/kishan-patel'
-    },
-    {
-      id: 12,
-      name: 'Mr Sashin Patel',
-      image: '/images/alumni/sashin.jpg',
-      position: 'Sr. Manager Cloud Native Development',
-      company: 'Toyota, USA',
-      linkedin: 'https://linkedin.com/in/sashin-patel'
-    },
-    {
-      id: 13,
-      name: 'Priya Mehta',
-      image: '/images/alumni/priya.jpg',
-      position: 'Senior Data Scientist',
-      company: 'Microsoft',
-      linkedin: 'https://linkedin.com/in/priya-mehta'
+      name: 'Mann Mehta',
+      image: '/images/alumni/Mann_Mehta.webp',
+      position: '',
+      company: 'Google',
+      linkedin: '#',
+      logo: '/images/alumni/logo/Google.png'
     }
   ];
 
@@ -196,8 +182,20 @@ const Alumni = () => {
                       </a>
                     </div>
                     <h3 className="text-sm font-semibold text-gray-800 mb-1">{alum.name}</h3>
+                    {alum.logo && (
+                    <img
+                      src={alum.logo}
+                      alt={`${alum.company} logo`}
+                      className=" w-20 h-10 object-contain opacity-80 group-hover:opacity-100 transition duration-300"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    )}
                     <p className="text-xs text-indigo-600 mb-1">{alum.position}</p>
-                    <p className="text-xs text-gray-500">{alum.company}</p>
+                    {/* <p className="text-xs text-gray-500">{alum.company}</p> */}
+                    
+
                   </motion.div>
                 ))}
             </motion.div>
