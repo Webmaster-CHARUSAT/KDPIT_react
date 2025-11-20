@@ -125,7 +125,8 @@ const Recruiters = () => {
   const placementStats = [
     {
       id: 1,
-      value: 98,
+      // value: 98,
+      value: 56.1,
       suffix: "%",
       title: "Placement Rate",
       icon: TrendingUp,
@@ -133,7 +134,8 @@ const Recruiters = () => {
     },
     {
       id: 2,
-      value: 8.5,
+      // value: 8.5,
+      value: 5.3,
       suffix: " LPA",
       title: "Average Package",
       icon: Award,
@@ -141,7 +143,8 @@ const Recruiters = () => {
     },
     {
       id: 3,
-      value: 24,
+      // value: 24,
+      value: 12,
       suffix: " LPA",
       title: "Highest Package",
       icon: TrendingUp,
@@ -149,7 +152,8 @@ const Recruiters = () => {
     },
     {
       id: 4,
-      value: 120,
+      // value: 120,
+      value: 80,
       suffix: "+",
       title: "Companies Visited",
       icon: Building2,
