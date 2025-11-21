@@ -17,15 +17,15 @@ const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const galleryImages = [
-    { id: 1, src: '/images/gallery/gallery1.jpg', title: 'Campus Life', category: 'campus' },
-    { id: 2, src: '/images/gallery/gallery2.jpg', title: 'Technical Fest', category: 'events' },
-    { id: 3, src: '/images/gallery/gallery3.jpg', title: 'Workshop Session', category: 'workshops' },
-    { id: 4, src: '/images/gallery/gallery4.jpg', title: 'Hackathon', category: 'events' },
-    { id: 5, src: '/images/gallery/gallery5.jpg', title: 'Cultural Event', category: 'cultural' },
-    { id: 6, src: '/images/gallery/gallery6.jpg', title: 'Sports Day', category: 'sports' },
-    { id: 7, src: '/images/gallery/gallery7.jpg', title: 'Lab Session', category: 'academic' },
-    { id: 8, src: '/images/gallery/gallery8.jpg', title: 'Guest Lecture', category: 'academic' },
-    { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events' }
+    { id: 1, src: '/images/gallery/expo.jpg', title: 'Education Expo', category: 'campus' },
+    { id: 2, src: '/images/gallery/faculty.jpg', title: 'Spoural', category: 'events' },
+    { id: 3, src: '/images/gallery/sports.jpg', title: 'Boys Cricket Match', category: 'sports' },
+    { id: 4, src: '/images/gallery/paper.jpg', title: 'Paper Presentation Conference', category: 'events' },
+    { id: 5, src: '/images/gallery/spoural.jpg', title: 'Cultural Event', category: 'cultural' },
+    { id: 6, src: '/images/gallery/project.jpg', title: 'Project Presentation', category: 'academic' },
+    { id: 7, src: '/images/gallery/hackathon.webp', title: 'DoseHack Hackathon', category: 'academic' },
+    { id: 8, src: '/images/gallery/workshops.webp', title: 'AWS Workshop', category: 'workshops' },
+    // { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events' }
   ];
 
   const upcomingEvents = [
@@ -191,7 +191,7 @@ const Gallery = () => {
         </div>
 
         {/* Upcoming Events Section */}
-        <div>
+        {/* <div>
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               Upcoming Events
@@ -253,7 +253,7 @@ const Gallery = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Image Modal */}
@@ -300,7 +300,7 @@ const Gallery = () => {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.title}
-                className="w-full h-auto max-h-[70vh] object-contain"
+                className="w-full h-auto max-h-[60vh] object-contain"
               />
               
               {/* Image Info */}
