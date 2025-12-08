@@ -124,9 +124,9 @@ const Clubs = () => {
       events: "25+",
       members: "150+",
       description: "Cloud computing and AWS certification training",
-      color: "#FF9900", // AWS Orange
-      gradient: "from-orange-400 to-orange-600",
-      link: "https://acc.charusat.ac.in/"
+      color: "#9C27B0", // Purple
+      gradient: "from-purple-400 to-purple-600",
+      link: "https://asc.charusat.ac.in/"
     },
     {
       id: "DS",
@@ -135,8 +135,8 @@ const Clubs = () => {
       events: "30+",
       members: "120+",
       description: "Machine learning and data analytics projects",
-      color: "#4285F4", // Google Blue
-      gradient: "from-blue-400 to-blue-600",
+      color: "#34A853", // Google Green
+      gradient: "from-green-400 to-green-600",
       link: "https://datascienceclub.charusat.ac.in/"
     },
     {
@@ -146,8 +146,8 @@ const Clubs = () => {
       events: "40+",
       members: "200+",
       description: "Algorithmic problem solving and contests",
-      color: "#34A853", // Google Green
-      gradient: "from-green-400 to-green-600",
+      color: "#4285F4", // Google Blue
+      gradient: "from-blue-400 to-blue-600",
       link: ""
     },
     {
@@ -157,8 +157,8 @@ const Clubs = () => {
       events: "35+",
       members: "180+",
       description: "Public speaking and communication skills",
-      color: "#9C27B0", // Purple
-      gradient: "from-purple-400 to-purple-600",
+      color: "#FF9900", // Orange
+      gradient: "from-orange-400 to-orange-600",
       link: ""
     }
   ];

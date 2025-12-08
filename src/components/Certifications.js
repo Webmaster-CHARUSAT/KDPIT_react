@@ -192,6 +192,7 @@
 
 // export default Certifications;
 
+
 import React, { useEffect, useRef } from "react";
 
 const Certifications = () => {
@@ -315,14 +316,14 @@ const Certifications = () => {
               aria-label={`Learn more about ${cert.name}`}
             >
               {/* Card Header with Logo */}
-              <div className="flex items-center justify-center p-6 bg-gray-50 border-b border-gray-100">
+              <div className="flex items-center justify-center p-4 bg-gray-50 border-b border-gray-100 max-h-[200px]">
                 <img
                   src={cert.logo}
                   alt={cert.provider}
-                  className="max-h-[70px] transition-transform duration-300 group-hover:scale-105"
+                  className="max-h-[100%] transition-transform duration-300 group-hover:scale-105 object-contain"
                 />
               </div>
-
+            
               {/* Card Body */}
               <div className="p-4 pt-2 pb-2 flex-grow text-center">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
