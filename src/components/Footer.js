@@ -105,13 +105,17 @@ const Footer = () => {
                 <div className="flex gap-3">
                   <a
                     href="https://twitter.com/CSPIT_IT"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 bg-gray-800 hover:bg-green-500 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                     aria-label="Twitter"
                   >
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                   <a
-                    href="https://www.facebook.com/kdpit_charusat-102249558172679"
+                    href="https://www.facebook.com/kdpit/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 bg-gray-800 hover:bg-green-500 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                     aria-label="Facebook"
                   >
@@ -119,6 +123,8 @@ const Footer = () => {
                   </a>
                   <a
                     href="https://www.instagram.com/it_cspit_charusat"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 bg-gray-800 hover:bg-green-500 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                     aria-label="Instagram"
                   >
@@ -126,6 +132,8 @@ const Footer = () => {
                   </a>
                   <a
                     href="https://www.linkedin.com/in/cspit-it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 bg-gray-800 hover:bg-green-500 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                     aria-label="LinkedIn"
                   >
@@ -274,20 +282,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} CHARUSAT University. All Rights
                 Reserved.
-                <span className="mx-2">|</span>
-                <a
-                  href="/privacy-policy"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Privacy Policy
-                </a>
-                <span className="mx-2">|</span>
-                <a
-                  href="/terms-of-use"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Terms of Use
-                </a>
+                
               </p>
             </Col>
             <Col md={5} className="text-center text-md-end">

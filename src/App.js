@@ -61,8 +61,8 @@ function App() {
               <MessageSection />
               <Testimonials />
               <Contact />
-              <AnnouncementBar />
-              <ApplyNowButton />
+              {/* <AnnouncementBar /> */}
+              {/* <ApplyNowButton /> */}
             </>
           } />
 

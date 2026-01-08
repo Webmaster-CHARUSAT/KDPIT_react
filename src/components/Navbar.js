@@ -37,7 +37,7 @@ const menuStructure = {
       },
       eGovernance: { label: "E-Governance", path: "https://charusat.edu.in:912/eGovernance/", external: true },
       examResult: { label: "Exam Result", path: "https://charusat.edu.in:912/UniExamResult/", external: true },
-      studentAchievements: { label: "Student Achievements", path: "/#student-achievements" },
+      studentAchievements: { label: "Student Achievements", path: "/#achievements" },
       oldQuestionPaper: { label: "Old Question Paper", path: "drive?folderId=1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW&heading=Old%20Question%20Paper", external: true },
       eMagazine: {
         label: "E-Magazine",

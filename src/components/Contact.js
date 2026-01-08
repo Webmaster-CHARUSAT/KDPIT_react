@@ -61,7 +61,7 @@ const Contact = () => {
 
             <div className="flex gap-3 mt-8">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/kdpit/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white hover:-translate-y-1 transition-all duration-300"
@@ -69,7 +69,7 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://twitter.com/CSPIT_IT" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white hover:-translate-y-1 transition-all duration-300"
@@ -77,7 +77,7 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/cspit-it/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white hover:-translate-y-1 transition-all duration-300"
@@ -85,7 +85,7 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/it_cspit_charusat" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white hover:-translate-y-1 transition-all duration-300"

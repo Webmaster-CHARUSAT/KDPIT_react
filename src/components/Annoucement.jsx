@@ -7,31 +7,31 @@ const AnnouncementBar = () => {
 
   // Sample announcements - replace with your actual data
   const announcements = [
-    {
-      id: 1,
-      text: "Applications for 2025 academic year are now open! Last date to apply is December 15, 2024.",
-      link: "/admissions",
-    },
-    {
-      id: 2,
-      text: "Upcoming placement drive by Microsoft on November 10, 2024. Register now!",
-      link: "/placements",
-    },
-    {
-      id: 3,
-      text: "Annual tech fest 'Innovate 2025' registrations are open. Early bird discounts until October 30.",
-      link: "/events/techfest",
-    },
-    {
-      id: 4,
-      text: "New research collaboration with Stanford University. Research internship opportunities available.",
-      link: "/research",
-    },
-    {
-      id: 5,
-      text: "Department of IT organizing workshop on AI & Machine Learning on November 5-6, 2024.",
-      link: "/workshops",
-    },
+    // {
+    //   id: 1,
+    //   text: "Applications for 2025 academic year are now open! Last date to apply is December 15, 2024.",
+    //   link: "/admissions",
+    // },
+    // {
+    //   id: 2,
+    //   text: "Upcoming placement drive by Microsoft on November 10, 2024. Register now!",
+    //   link: "/placements",
+    // },
+    // {
+    //   id: 3,
+    //   text: "Annual tech fest 'Innovate 2025' registrations are open. Early bird discounts until October 30.",
+    //   link: "/events/techfest",
+    // },
+    // {
+    //   id: 4,
+    //   text: "New research collaboration with Stanford University. Research internship opportunities available.",
+    //   link: "/research",
+    // },
+    // {
+    //   id: 5,
+    //   text: "Department of IT organizing workshop on AI & Machine Learning on November 5-6, 2024.",
+    //   link: "/workshops",
+    // },
   ];
 
   // Check localStorage on component mount

@@ -206,7 +206,7 @@ const Recruiters = () => {
         <MarqueeRow recruiters={recruiters2} direction="left" />
 
         {/* Placement Statistics */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-10">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-10">
           {placementStats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
@@ -218,16 +218,8 @@ const Recruiters = () => {
                   animation: "fadeInUp 0.8s ease-out forwards",
                 }}
               >
-                {/* Icon */}
-                {/* <div className="flex justify-center mb-4">
-                  <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${stat.color} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                </div> */}
 
-                {/* Value */}
+
                 <div
                   className={`text-4xl font-bold mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
                 >
@@ -235,7 +227,7 @@ const Recruiters = () => {
                   <span className="text-3xl">{stat.suffix}</span>
                 </div>
 
-                {/* Title */}
+
                 <p className="text-gray-600 font-medium">{stat.title}</p>
 
                 <div
@@ -244,7 +236,7 @@ const Recruiters = () => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
