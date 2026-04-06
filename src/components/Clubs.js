@@ -148,7 +148,7 @@ const Clubs = () => {
       description: "Algorithmic problem solving and contests",
       color: "#4285F4", // Google Blue
       gradient: "from-blue-400 to-blue-600",
-      link: ""
+      link: "https://cpsquad.charusat.ac.in/"
     },
     {
       id: "Eloquence",
