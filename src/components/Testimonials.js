@@ -221,16 +221,16 @@ const Testimonials = () => {
       name: "Khushi Parikh",
       position: "Student",
       image: "/images/testimonials/testimonial-25.webp"
-    },
-    {
-      id: 26,
-      type: 'video',
-      videoUrl: "/videos/testimonial-video1.mp4", 
-      name: "Raj Patel",
-      position: "Senior Developer at Microsoft",
-      batch: "Batch of 2019",
-      thumbnail: "/images/testimonials/testimonial-1.webp"
-    },
+    }
+    // {
+    //   id: 26,
+    //   type: 'video',
+    //   videoUrl: "/videos/testimonial-video1.mp4", 
+    //   name: "Raj Patel",
+    //   position: "Senior Developer at Microsoft",
+    //   batch: "Batch of 2019",
+    //   thumbnail: "/images/testimonials/testimonial-1.webp"
+    // },
   ];
 
 
