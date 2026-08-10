@@ -8,7 +8,11 @@ const menuStructure = {
     label: "Academics",
     path: "/#academics",
     submenu: {
-      practicalList: { label: "Practical List", path: "drive?folderId=11324AezL2lsgh08r2FYHOAKPl8TJTAQ6&heading=Practical%20List", external: true },
+      practicalList: {
+        label: "Practical List",
+        path: "drive?folderId=11324AezL2lsgh08r2FYHOAKPl8TJTAQ6&heading=Practical%20List",
+        external: true,
+      },
       courseModule: {
         label: "Course Module",
         path: "/#course-module",
@@ -17,43 +21,115 @@ const menuStructure = {
           semester6: { label: "Semester 6", path: "/#semester-6" },
         },
       },
-      syllabus: { label: "Syllabus", path:"/drive?folderId=115HPgIpmlYlx29mFq3Bk6RyooQCljoyl&heading=SYLLABUS", external: true },
+      syllabus: {
+        label: "Syllabus",
+        path: "/drive?folderId=115HPgIpmlYlx29mFq3Bk6RyooQCljoyl&heading=SYLLABUS",
+        external: true,
+      },
     },
   },
-  labEquipments: { label: "Lab Equipments", path: "https://charusat.edu.in/cspit/it/assets/files/it_equipments.pdf", external: true },
+  labEquipments: {
+    label: "Lab Equipments",
+    path: "https://charusat.edu.in/cspit/it/assets/files/it_equipments.pdf",
+    external: true,
+  },
   studentCorner: {
     label: "Student Corner",
-    path: "https://drive.google.com/file/d/1R43bm9OBMy74JAz8SMx_-T4RMSyDhD0R/view?usp=drive_link", external: true,
+    path: "https://drive.google.com/file/d/1R43bm9OBMy74JAz8SMx_-T4RMSyDhD0R/view?usp=drive_link",
+    external: true,
     submenu: {
-      academicCalendar: { label: "Academic Calendar", path: "https://drive.google.com/file/d/1R43bm9OBMy74JAz8SMx_-T4RMSyDhD0R/view?usp=drive_link" },
+      academicCalendar: {
+        label: "Academic Calendar",
+        path: "https://drive.google.com/file/d/1R43bm9OBMy74JAz8SMx_-T4RMSyDhD0R/view?usp=drive_link",
+      },
       btechBooklet: {
         label: "B.Tech Booklet",
         path: "/#btech-booklet",
         submenu: {
-          secondYear: { label: "Second Year", path: "https://drive.google.com/file/d/1JoYmdOtqZLC7TGfWJUeRLWKY_XDE-WCr/view" , external: true },
-          thirdYear: { label: "Third Year", path: "https://drive.google.com/file/d/14Mn0s37G40oMda8drK2aD8fkPXgmJiae/view" , external: true },
-          fourthYear: { label: "Fourth Year", path: "https://drive.google.com/file/d/1-IS3INsaHgCNaVJ_kUuwGMn9LcRRGvKb/view" , external: true },
+          secondYear: {
+            label: "Second Year",
+            path: "https://drive.google.com/file/d/1JoYmdOtqZLC7TGfWJUeRLWKY_XDE-WCr/view",
+            external: true,
+          },
+          thirdYear: {
+            label: "Third Year",
+            path: "https://drive.google.com/file/d/14Mn0s37G40oMda8drK2aD8fkPXgmJiae/view",
+            external: true,
+          },
+          fourthYear: {
+            label: "Fourth Year",
+            path: "https://drive.google.com/file/d/1-IS3INsaHgCNaVJ_kUuwGMn9LcRRGvKb/view",
+            external: true,
+          },
         },
       },
-      eGovernance: { label: "E-Governance", path: "https://charusat.edu.in:912/eGovernance/", external: true },
-      examResult: { label: "Exam Result", path: "https://charusat.edu.in:912/UniExamResult/", external: true },
-      studentAchievements: { label: "Student Achievements", path: "/#achievements" },
-      oldQuestionPaper: { label: "Old Question Paper", path: "drive?folderId=1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW&heading=Old%20Question%20Paper", external: true },
+      eGovernance: {
+        label: "E-Governance",
+        path: "https://charusat.edu.in:912/eGovernance/",
+        external: true,
+      },
+      examResult: {
+        label: "Exam Result",
+        path: "https://charusat.edu.in:912/UniExamResult/",
+        external: true,
+      },
+      studentAchievements: {
+        label: "Student Achievements",
+        path: "/#achievements",
+      },
+      practicleList: {
+        label: "Practicle List",
+        path: "https://drive.google.com/drive/folders/1r8M9TINi3B19A9FJ5BUPmqBa3EgdfUZ9",
+        external: true,
+      },
+      oldQuestionPaper: {
+        label: "Old Question Paper",
+        path: "drive?folderId=1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW&heading=Old%20Question%20Paper",
+        external: true,
+      },
       eMagazine: {
         label: "E-Magazine",
         path: "/#e-magazine",
         submenu: {
-          eMagazine2025: { label: "E-Magazine 2025", path: "https://charusat.edu.in/cspit/it/e-magazine/2k25/", external: true },
-          eMagazine2024: { label: "E-Magazine 2024", path: "https://charusat.edu.in/cspit/it/e-magazine/2k24/", external: true },
-          eMagazine2023: { label: "E-Magazine 2023", path: "https://charusat.edu.in/cspit/it/e-magazine/2k23/", external: true },
-          eMagazine2022: { label: "E-Magazine 2022", path: "https://charusat.edu.in/cspit/it/e-magazine/2k22/", external: true },
+          eMagazine2025: {
+            label: "E-Magazine 2025",
+            path: "https://charusat.edu.in/cspit/it/e-magazine/2k25/",
+            external: true,
+          },
+          eMagazine2024: {
+            label: "E-Magazine 2024",
+            path: "https://charusat.edu.in/cspit/it/e-magazine/2k24/",
+            external: true,
+          },
+          eMagazine2023: {
+            label: "E-Magazine 2023",
+            path: "https://charusat.edu.in/cspit/it/e-magazine/2k23/",
+            external: true,
+          },
+          eMagazine2022: {
+            label: "E-Magazine 2022",
+            path: "https://charusat.edu.in/cspit/it/e-magazine/2k22/",
+            external: true,
+          },
         },
       },
-      researchLabs: { label: "Research Labs", path: "https://charusat.edu.in/cspit/it/lab.html", external: true },
+      researchLabs: {
+        label: "Research Labs",
+        path: "https://charusat.edu.in/cspit/it/lab.html",
+        external: true,
+      },
     },
   },
-  admission: { label: "Admission", path: "https://admission.charusat.ac.in/", external: true },
-  brochure: { label: "Brochure", path: "https://drive.google.com/file/d/1mjxkcuaVCC1i7KVPe_dcgIvu05bTDtz3/view?usp=drive_link", external: true },
+  admission: {
+    label: "Admission",
+    path: "https://admission.charusat.ac.in/",
+    external: true,
+  },
+  brochure: {
+    label: "Brochure",
+    path: "https://drive.google.com/file/d/1mjxkcuaVCC1i7KVPe_dcgIvu05bTDtz3/view?usp=drive_link",
+    external: true,
+  },
   contactUs: { label: "Contact Us", path: "/#contact" },
 };
 
@@ -73,14 +149,17 @@ const Navbar = () => {
     Object.entries(menu).forEach(([key, item]) => {
       items.push({ ...item, fullPath: [...path, key] });
       if (item.submenu) {
-        items = [...items, ...flattenMenuForSearch(item.submenu, [...path, key])];
+        items = [
+          ...items,
+          ...flattenMenuForSearch(item.submenu, [...path, key]),
+        ];
       }
     });
     return items;
   };
   const allMenuItems = flattenMenuForSearch(menuStructure);
   const searchResults = allMenuItems.filter((item) =>
-    item.label.toLowerCase().includes(searchQuery.toLowerCase())
+    item.label.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   // Scroll effect
@@ -155,7 +234,8 @@ const Navbar = () => {
                   <ChevronRight className="w-4 h-4 opacity-60" />
                   <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500 scale-y-0 group-hover:scale-y-100 transition-transform origin-top"></span>
                 </div>
-                {active && renderDesktopSubmenu(item.submenu, currentPath, level + 1)}
+                {active &&
+                  renderDesktopSubmenu(item.submenu, currentPath, level + 1)}
               </>
             ) : (
               <a
@@ -177,7 +257,10 @@ const Navbar = () => {
   // Mobile submenu toggle
   const toggleMobileMenu = (menuPath) => {
     const pathString = menuPath.join(".");
-    setOpenMobileMenus((prev) => ({ ...prev, [pathString]: !prev[pathString] }));
+    setOpenMobileMenus((prev) => ({
+      ...prev,
+      [pathString]: !prev[pathString],
+    }));
   };
 
   // Mobile submenu render
@@ -197,7 +280,9 @@ const Navbar = () => {
                 onClick={() => toggleMobileMenu(currentPath)}
                 className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors"
               >
-                <span className={`${level === 0 ? "font-medium" : "font-normal"} text-gray-700`}>
+                <span
+                  className={`${level === 0 ? "font-medium" : "font-normal"} text-gray-700`}
+                >
                   {item.label}
                 </span>
                 <ChevronDown
@@ -215,7 +300,13 @@ const Navbar = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="py-2">{renderMobileSubmenu(item.submenu, currentPath, level + 1)}</div>
+                    <div className="py-2">
+                      {renderMobileSubmenu(
+                        item.submenu,
+                        currentPath,
+                        level + 1,
+                      )}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -225,7 +316,11 @@ const Navbar = () => {
               onClick={() => handleNavigation(item.path, item.external)}
               className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-indigo-600 transition-colors"
             >
-              <span className={`${level === 0 ? "font-medium" : "font-normal"}`}>{item.label}</span>
+              <span
+                className={`${level === 0 ? "font-medium" : "font-normal"}`}
+              >
+                {item.label}
+              </span>
             </button>
           )}
         </div>
@@ -279,7 +374,8 @@ const Navbar = () => {
                           }`}
                         />
                       </button>
-                      {isPathActive([key]) && renderDesktopSubmenu(item.submenu, [key])}
+                      {isPathActive([key]) &&
+                        renderDesktopSubmenu(item.submenu, [key])}
                     </>
                   ) : (
                     <button
@@ -300,7 +396,9 @@ const Navbar = () => {
               <div className="relative ml-6" ref={searchRef}>
                 <div
                   className={`flex items-center rounded-full px-4 py-2 transition-all duration-200 ${
-                    scrolled ? "bg-gray-200 text-gray-700" : "bg-white/20 text-white backdrop-blur-sm"
+                    scrolled
+                      ? "bg-gray-200 text-gray-700"
+                      : "bg-white/20 text-white backdrop-blur-sm"
                   }`}
                 >
                   <Search className="w-4 h-4 mr-3 opacity-70" />
@@ -322,10 +420,14 @@ const Navbar = () => {
                     {searchResults.map((item, index) => (
                       <button
                         key={index}
-                        onClick={() => handleNavigation(item.path, item.external)}
+                        onClick={() =>
+                          handleNavigation(item.path, item.external)
+                        }
                         className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-indigo-600 transition-colors border-b border-gray-50 last:border-b-0"
                       >
-                        <span className="text-sm font-medium">{item.label}</span>
+                        <span className="text-sm font-medium">
+                          {item.label}
+                        </span>
                       </button>
                     ))}
                   </motion.div>
@@ -336,11 +438,17 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               className={`lg:hidden p-2 rounded-md transition-colors ${
-                scrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/20"
+                scrolled
+                  ? "text-gray-700 hover:bg-gray-100"
+                  : "text-white hover:bg-white/20"
               }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
@@ -374,10 +482,14 @@ const Navbar = () => {
                       {searchResults.map((item, index) => (
                         <button
                           key={index}
-                          onClick={() => handleNavigation(item.path, item.external)}
+                          onClick={() =>
+                            handleNavigation(item.path, item.external)
+                          }
                           className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-indigo-600 transition-colors border-b border-gray-100 last:border-b-0"
                         >
-                          <span className="text-sm font-medium">{item.label}</span>
+                          <span className="text-sm font-medium">
+                            {item.label}
+                          </span>
                         </button>
                       ))}
                     </div>
@@ -394,7 +506,9 @@ const Navbar = () => {
                             onClick={() => toggleMobileMenu([key])}
                             className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors"
                           >
-                            <span className="font-medium text-gray-700">{item.label}</span>
+                            <span className="font-medium text-gray-700">
+                              {item.label}
+                            </span>
                             <ChevronDown
                               className={`w-4 h-4 text-gray-400 transition-transform ${
                                 openMobileMenus[key] ? "rotate-180" : ""
@@ -410,14 +524,18 @@ const Navbar = () => {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden bg-gray-50"
                               >
-                                <div className="py-2">{renderMobileSubmenu(item.submenu, [key], 1)}</div>
+                                <div className="py-2">
+                                  {renderMobileSubmenu(item.submenu, [key], 1)}
+                                </div>
                               </motion.div>
                             )}
                           </AnimatePresence>
                         </>
                       ) : (
                         <button
-                          onClick={() => handleNavigation(item.path, item.external)}
+                          onClick={() =>
+                            handleNavigation(item.path, item.external)
+                          }
                           className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-indigo-600 transition-colors"
                         >
                           <span className="font-medium">{item.label}</span>
