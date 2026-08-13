@@ -10,7 +10,7 @@ const menuStructure = {
     submenu: {
       practicalList: {
         label: "Practical List",
-        path: "drive?folderId=11324AezL2lsgh08r2FYHOAKPl8TJTAQ6&heading=Practical%20List",
+        path: "/drive?folderId=1r8M9TINi3B19A9FJ5BUPmqBa3EgdfUZ9&heading=Practical%20List",
         external: true,
       },
       courseModule: {
@@ -76,11 +76,6 @@ const menuStructure = {
       studentAchievements: {
         label: "Student Achievements",
         path: "/#achievements",
-      },
-      practicleList: {
-        label: "Practicle List",
-        path: "https://drive.google.com/drive/folders/1r8M9TINi3B19A9FJ5BUPmqBa3EgdfUZ9",
-        external: true,
       },
       oldQuestionPaper: {
         label: "Old Question Paper",
