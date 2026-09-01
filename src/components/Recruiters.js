@@ -94,7 +94,6 @@
 
 // export default Recruiters;
 import React from "react";
-import { TrendingUp, Award, Building2 } from "lucide-react";
 
 const Recruiters = () => {
   const allRecruiters = [
@@ -122,44 +121,40 @@ const Recruiters = () => {
   const recruiters1 = allRecruiters.filter((_, i) => i % 2 === 0);
   const recruiters2 = allRecruiters.filter((_, i) => i % 2 === 1);
 
-  const placementStats = [
-    {
-      id: 1,
-      // value: 98,
-      value: 56.1,
-      suffix: "%",
-      title: "Placement Rate",
-      icon: TrendingUp,
-      color: "from-green-500 to-emerald-600",
-    },
-    {
-      id: 2,
-      // value: 8.5,
-      value: 5.3,
-      suffix: " LPA",
-      title: "Average Package",
-      icon: Award,
-      color: "from-blue-500 to-indigo-600",
-    },
-    {
-      id: 3,
-      // value: 24,
-      value: 12,
-      suffix: " LPA",
-      title: "Highest Package",
-      icon: TrendingUp,
-      color: "from-purple-500 to-violet-600",
-    },
-    {
-      id: 4,
-      // value: 120,
-      value: 80,
-      suffix: "+",
-      title: "Companies Visited",
-      icon: Building2,
-      color: "from-orange-500 to-red-600",
-    },
-  ];
+  // const placementStats = [
+  //   {
+  //     id: 1,
+  //     value: 56.1,
+  //     suffix: "%",
+  //     title: "Placement Rate",
+  //     icon: TrendingUp,
+  //     color: "from-green-500 to-emerald-600",
+  //   },
+  //   {
+  //     id: 2,
+  //     value: 5.3,
+  //     suffix: " LPA",
+  //     title: "Average Package",
+  //     icon: Award,
+  //     color: "from-blue-500 to-indigo-600",
+  //   },
+  //   {
+  //     id: 3,
+  //     value: 12,
+  //     suffix: " LPA",
+  //     title: "Highest Package",
+  //     icon: TrendingUp,
+  //     color: "from-purple-500 to-violet-600",
+  //   },
+  //   {
+  //     id: 4,
+  //     value: 80,
+  //     suffix: "+",
+  //     title: "Companies Visited",
+  //     icon: Building2,
+  //     color: "from-orange-500 to-red-600",
+  //   },
+  // ];
 
   const MarqueeRow = ({ recruiters, direction }) => (
     <div className="relative overflow-hidden py-4">

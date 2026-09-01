@@ -10,7 +10,6 @@ import {
   faLink, 
   faCalendarAlt,
   faUser,
-  faAward,
   faDownload,
   faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
@@ -296,11 +295,13 @@ const ProjectsPage = () => {
     }
     
     setFilteredProjects(filtered);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFilter, searchQuery]);
   
   // Initialize filtered projects on component mount
   useEffect(() => {
     setFilteredProjects(projects);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   // Function to get category label from ID
@@ -598,7 +599,7 @@ const ProjectsPage = () => {
                       <img 
                         key={index}
                         src={image} 
-                        alt={`${selectedProject.title} - Image ${index + 1}`}
+                        alt={`${selectedProject.title} - ${index + 1}`}
                         className="rounded-lg shadow-md w-full h-48 object-cover"
                         onError={(e) => {
                           e.target.onerror = null;

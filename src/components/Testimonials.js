@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -250,9 +250,14 @@ const Testimonials = () => {
     return () => observer.disconnect();
   }, []);
 
+  const nextTestimonial = useCallback(() => {
+    setExpanded(false);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  }, [testimonials.length]);
+
   // ---------------- Auto Advance Logic ----------------
   useEffect(() => {
-    if (!inView) return; // don’t auto-advance until in view
+    if (!inView) return; // don't auto-advance until in view
 
     if (videoRef.current) {
       videoRef.current.pause();
@@ -275,29 +280,23 @@ const Testimonials = () => {
         clearTimeout(autoAdvanceTimerRef.current);
       }
     };
-  }, [activeIndex, inView]);
+  }, [activeIndex, inView, isVideo, nextTestimonial]);
 
   // ---------------- Video End Handler ----------------
   useEffect(() => {
-    if (isVideo && videoRef.current) {
+    const currentVideo = videoRef.current;
+    if (isVideo && currentVideo) {
       const handleVideoEnd = () => {
         nextTestimonial();
       };
 
-      videoRef.current.addEventListener("ended", handleVideoEnd);
+      currentVideo.addEventListener("ended", handleVideoEnd);
 
       return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener("ended", handleVideoEnd);
-        }
+        currentVideo.removeEventListener("ended", handleVideoEnd);
       };
     }
-  }, [activeIndex, isVideo]);
-
-  const nextTestimonial = () => {
-    setExpanded(false);
-    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  }, [activeIndex, isVideo, nextTestimonial]);
 
   const prevTestimonial = () => {
     setExpanded(false);
