@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const AnnouncementBar = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [_isVisible, setIsVisible] = useState(true); // eslint-disable-line no-unused-vars
 
 // -------------- Announcement Bar --------------------------
 

@@ -94,6 +94,7 @@ const DriveContentViewer = () => {
     
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
   
   // Get file icon based on MIME type

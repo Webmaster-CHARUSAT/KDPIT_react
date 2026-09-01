@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -88,6 +88,12 @@ const Hero = () => {
     }
   ];
 
+  const goToNextSlide = useCallback(() => {
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setTimeout(() => setIsTransitioning(false), 500); // Match this with transition duration
+  }, [slides.length]);
+
   // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,13 +102,7 @@ const Hero = () => {
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, [currentSlide, isTransitioning]);
-
-  const goToNextSlide = () => {
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsTransitioning(false), 500); // Match this with transition duration
-  };
+  }, [currentSlide, isTransitioning, goToNextSlide]);
 
   const goToPrevSlide = () => {
     setIsTransitioning(true);

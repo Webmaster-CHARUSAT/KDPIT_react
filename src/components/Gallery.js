@@ -96,10 +96,10 @@ const Gallery = () => {
     setSelectedImage(galleryImages[prevIndex]);
   };
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-  };
+  // const formatDate = (dateString) => {
+  //   const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  //   return new Date(dateString).toLocaleDateString('en-US', options);
+  // };
 
   return (
     <section id="gallery" className="py-20 "

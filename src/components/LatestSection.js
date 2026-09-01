@@ -35,6 +35,7 @@ const LatestSection = () => {
     }, 5000);
 
     return () => clearInterval(eventsTimerRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
