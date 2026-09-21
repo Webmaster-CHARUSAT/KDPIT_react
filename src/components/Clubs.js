@@ -113,7 +113,6 @@
 
 // export default Clubs;
 import React from "react";
-import { Users, Calendar, Award, TrendingUp } from "lucide-react";
 
 const Clubs = () => {
   const clubs = [

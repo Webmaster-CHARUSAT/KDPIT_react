@@ -18,15 +18,10 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import AchievementsSection from "./components/AchievementsSection";
-import Wave from "./components/wave";
 import BestPracticesSection from "./components/BestPracticesSection";
 import FacultyDirectory from "./components/Faculty";
 import ProjectsPage from "./components/projects";
 import MessageSection from "./components/Message";
-import AnnouncementBar from "./components/Annoucement";
-import ApplyNowButton from "./components/ApplyNowButton";
-import LatestSection from "./components/LatestSection";
-import Infosection from "./components/infosection";
 import DriveContentViewer from "./components/Drive";
 
 function App() {

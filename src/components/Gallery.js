@@ -28,39 +28,6 @@ const Gallery = () => {
     // { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events' }
   ];
 
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: 'Annual Technical Symposium',
-      date: '2024-04-15',
-      time: '9:00 AM - 5:00 PM',
-      location: 'Main Auditorium',
-      description: 'A day-long event featuring technical paper presentations, project exhibitions, and expert talks.',
-      image: '/images/gallery/event1.jpg',
-      category: 'technical'
-    },
-    {
-      id: 2,
-      title: 'Hackathon 2024',
-      date: '2024-04-22',
-      time: '10:00 AM - 6:00 PM',
-      location: 'IT Labs',
-      description: '24-hour coding competition to solve real-world problems using technology.',
-      image: '/images/gallery/event2.jpg',
-      category: 'competition'
-    },
-    {
-      id: 3,
-      title: 'Industry Expert Talk Series',
-      date: '2024-05-05',
-      time: '2:00 PM - 4:00 PM',
-      location: 'Seminar Hall',
-      description: 'Leading industry experts share insights on emerging technologies and career opportunities.',
-      image: '/images/gallery/event3.jpg',
-      category: 'workshop'
-    }
-  ];
-
   const filters = [
     { key: 'all', label: 'All', icon: faFilter },
     { key: 'campus', label: 'Campus', icon: faMapMarkerAlt },

@@ -123,8 +123,6 @@ import { motion } from 'framer-motion';
 import { BookOpen, Users, Award, TrendingUp, Eye, Target, Lightbulb, Globe } from 'lucide-react';
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState('vision');
-  
   const stats = [
     { id: 1, number: 25, suffix: '+', text: 'Expert Faculty', icon: Users, color: 'from-blue-500 to-indigo-600' },
     { id: 2, number: 1200, suffix: '+', text: 'Active Students', icon: BookOpen, color: 'from-purple-500 to-violet-600' },
