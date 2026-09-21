@@ -24,215 +24,266 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      type: 'text',
-      content: "IT Department provides perfect platform for the students to scan, search and work over their ideas with the best support and guidance provided by the faculty members. Students are also acknowledged with all the upcoming technologies used and are also taught to use them which trains them for their challenging and bright future.",
+      type: "text",
+      content:
+        "IT Department provides perfect platform for the students to scan, search and work over their ideas with the best support and guidance provided by the faculty members. Students are also acknowledged with all the upcoming technologies used and are also taught to use them which trains them for their challenging and bright future.",
       name: "Meet Shah",
       position: "Student",
-      image: "/images/testimonials/testimonial-2.webp"
+      image: "/images/testimonials/testimonial-2.webp",
     },
     {
       id: 2,
-      type: 'text',
-      content: "It was a great experience interacting with faculty members. I have learned so much during my bachelor's studies at CSPIT that it was an honor for me to be able to contribute as an alumnus.",
+      type: "text",
+      content:
+        "It was a great experience interacting with faculty members. I have learned so much during my bachelor's studies at CSPIT that it was an honor for me to be able to contribute as an alumnus.",
       name: "Jimmy Dani",
       position: "Alumnus",
-      image: "/images/testimonials/testimonial-5.webp"
+      image: "/images/testimonials/testimonial-5.webp",
     },
     {
       id: 3,
-      type: 'text',
-      content: "Charusat by providing various facilities to the students has proved that it is not only being study oriented university. The counselling batches assigned to the respective faculties has been an initiative that has helped the students at various points in their college life. Along with the platforms that it provides to enhance the co-curricular skills is pretty good.",
+      type: "text",
+      content:
+        "Charusat by providing various facilities to the students has proved that it is not only being study oriented university. The counselling batches assigned to the respective faculties has been an initiative that has helped the students at various points in their college life. Along with the platforms that it provides to enhance the co-curricular skills is pretty good.",
       name: "Ila Poker",
       position: "Student",
-      image: "/images/testimonials/testimonial-1.webp"
+      image: "/images/testimonials/testimonial-1.webp",
     },
     {
       id: 4,
-      type: 'text',
-      content: "I had joined a very early batch of BEIT program in 2002, still in the nascent stage worrying about how this new institute will fare among all other older and experienced ones. Surprisingly, with well equipped Computer workshops and very young and dynamic teaching staff, we were at par and sometimes better than most of the well established institutions in Gujarat.",
+      type: "text",
+      content:
+        "I had joined a very early batch of BEIT program in 2002, still in the nascent stage worrying about how this new institute will fare among all other older and experienced ones. Surprisingly, with well equipped Computer workshops and very young and dynamic teaching staff, we were at par and sometimes better than most of the well established institutions in Gujarat.",
       name: "Thomas Mathews",
       position: "Alumnus",
-      image: "/images/testimonials/testimonial-4.webp"
+      image: "/images/testimonials/testimonial-4.webp",
     },
     {
       id: 5,
-      type: 'text',
-      content: "Parents always search for college that is capable of providing safe environment, first-rate academic experience as well as friendly environment in which their child can flourish in best possible way. The IT department has provided my child all the facilities that I want for her. As well as the faculties has also encouraged my child in every possible situation.",
+      type: "text",
+      content:
+        "Parents always search for college that is capable of providing safe environment, first-rate academic experience as well as friendly environment in which their child can flourish in best possible way. The IT department has provided my child all the facilities that I want for her. As well as the faculties has also encouraged my child in every possible situation.",
       name: "Chetna Patel",
       position: "Parent",
-      image: "/images/testimonials/testimonial-3.webp"
+      image: "/images/testimonials/testimonial-3.webp",
     },
     {
       id: 6,
-      type: 'text',
-      content: "I would say choosing the IT department was the best decision of my life. My bachelor in Information Technology provided me the platform to gain a plethora of knowledge and also groomed me for a better future as well as opportunities.",
+      type: "text",
+      content:
+        "I would say choosing the IT department was the best decision of my life. My bachelor in Information Technology provided me the platform to gain a plethora of knowledge and also groomed me for a better future as well as opportunities.",
       name: "Drupa Patel",
       position: "Student",
-      image: "/images/testimonials/testimonial-6.webp"
+      image: "/images/testimonials/testimonial-6.webp",
     },
     {
       id: 7,
-      type: 'text',
-      content: "The friendly environment of the IT department provides a great opportunity for the student to think and grow as an engineer. I especially like the flexibility of the department. As and when the department gets any of the suggestions from industry, alumni, and students, the implementation starts as soon as possible. Department of IT, CSPIT is one of the great choices to grow as a good engineer.",
+      type: "text",
+      content:
+        "The friendly environment of the IT department provides a great opportunity for the student to think and grow as an engineer. I especially like the flexibility of the department. As and when the department gets any of the suggestions from industry, alumni, and students, the implementation starts as soon as possible. Department of IT, CSPIT is one of the great choices to grow as a good engineer.",
       name: "Milan Sonagra",
       position: "Student",
-      image: "/images/testimonials/testimonial-7.webp"
+      image: "/images/testimonials/testimonial-7.webp",
     },
     {
       id: 8,
-      type: 'text',
-      content: "Being a part of the CSPIT-IT department has been an amazing experience of my life. The department faculties support me in every possible direction I tried to explore. Being a Data science enthusiast I got to work with cutting-edge state-of-the-art technologies like Nvidia Jetson TX2 and Nvidia Titan X at the department. I got exposure to nourish my management skills being a department representative for the Executive Central Council. I also got an opportunity to lead a project for preparing a video representation of the department. Department also supported for multiple cross-country hackathons. Apart from this, I got exposure to be part of amazing projects in terms of working with AWS cloud, Novel IoT hardware projects, Opportunities to host multiple events like debate, volunteer for workshops and more. All of these were possible by the guidance of the counselor assigned to small batches of students to micro monitor and guide every student.",
+      type: "text",
+      content:
+        "Being a part of the CSPIT-IT department has been an amazing experience of my life. The department faculties support me in every possible direction I tried to explore. Being a Data science enthusiast I got to work with cutting-edge state-of-the-art technologies like Nvidia Jetson TX2 and Nvidia Titan X at the department. I got exposure to nourish my management skills being a department representative for the Executive Central Council. I also got an opportunity to lead a project for preparing a video representation of the department. Department also supported for multiple cross-country hackathons. Apart from this, I got exposure to be part of amazing projects in terms of working with AWS cloud, Novel IoT hardware projects, Opportunities to host multiple events like debate, volunteer for workshops and more. All of these were possible by the guidance of the counselor assigned to small batches of students to micro monitor and guide every student.",
       name: "Sarthak Thakkar",
       position: "Student",
-      image: "/images/testimonials/testimonial-8.webp"
+      image: "/images/testimonials/testimonial-8.webp",
     },
     {
       id: 9,
-      type: 'text',
-      content: "Never thought my IT journey will be this much smooth at the beginning, all thanks to the faculties of the IT department who always come up with industry-level projects to work on, workshops for specific domains, so the students can decide in which sector they want to pursue their career. With all the required resources and skilled facilities, all you need to do is just follow their guidelines and you'll achieve more than you imagined.",
+      type: "text",
+      content:
+        "Never thought my IT journey will be this much smooth at the beginning, all thanks to the faculties of the IT department who always come up with industry-level projects to work on, workshops for specific domains, so the students can decide in which sector they want to pursue their career. With all the required resources and skilled facilities, all you need to do is just follow their guidelines and you'll achieve more than you imagined.",
       name: "Hitesh Dholakiya",
       position: "Student",
-      image: "/images/testimonials/testimonial-9.webp"
+      image: "/images/testimonials/testimonial-9.webp",
     },
-    {
-      id: 10,
-      type: 'text',
-      content: "Excellent academic curriculum and innovative departmental practices at our department have always impressed me. It instilled in me many new skills and provided me with opportunities to enhance my knowledge as well as to express it in a much efficient way, making me an excellent fit for the professional world and overall a better person. Here, I got ample time to explore, some being my academic explorations, research projects, leadership opportunities, management skills, event handling opportunities and above all the freedom to innovate and experiment my ideas under the guidance of expert faculty members. It always felt like home because of parentlike and always-available-to-help mentors. To all the new-comers, I would advise you to grab every opportunity you get and explore every innovative idea that crosses your way. Never to settle for second-best is what this department and university has taught me!",
-      name: "Arjun Rupavatiya",
-      position: "Alumnus",
-      image: "/images/testimonials/testimonial-18.webp"
-    },
-    {
-      id: 11,
-      type: 'text',
-      content: "Department is a family to me. Always backed me and guided me on the right paths, providing all the great opportunities. The perfect environment to learn and explore ourselves. Along with academics, a lot of different activities on campus allowed me to polish my talents and have an overall development. There are various committees that allow me the opportunity to connect with people and have good work experience. I have learnt not just to become a good engineer but a good person.",
-      name: "Manush Parikh",
-      position: "Student",
-      image: "/images/testimonials/testimonial-17.webp"
-    },
+    // {
+    //   id: 10,
+    //   type: "text",
+    //   content:
+    //     "Excellent academic curriculum and innovative departmental practices at our department have always impressed me. It instilled in me many new skills and provided me with opportunities to enhance my knowledge as well as to express it in a much efficient way, making me an excellent fit for the professional world and overall a better person. Here, I got ample time to explore, some being my academic explorations, research projects, leadership opportunities, management skills, event handling opportunities and above all the freedom to innovate and experiment my ideas under the guidance of expert faculty members. It always felt like home because of parentlike and always-available-to-help mentors. To all the new-comers, I would advise you to grab every opportunity you get and explore every innovative idea that crosses your way. Never to settle for second-best is what this department and university has taught me!",
+    //   name: "Arjun Rupavatiya",
+    //   position: "Alumnus",
+    //   image: "/images/testimonials/testimonial-18.webp",
+    // },
+    // {
+    //   id: 11,
+    //   type: "text",
+    //   content:
+    //     "Department is a family to me. Always backed me and guided me on the right paths, providing all the great opportunities. The perfect environment to learn and explore ourselves. Along with academics, a lot of different activities on campus allowed me to polish my talents and have an overall development. There are various committees that allow me the opportunity to connect with people and have good work experience. I have learnt not just to become a good engineer but a good person.",
+    //   name: "Manush Parikh",
+    //   position: "Student",
+    //   image: "/images/testimonials/testimonial-17.webp",
+    // },
     {
       id: 12,
-      type: 'text',
-      content: "Very Open environment in college, perfect for the overall holistic development of a student. Starting from academics through sports and extracurricular activities, all parts are readily conducted and managed efficiently. Faculties are very friendly and performance centered. Department constantly tries to enhance your current abilities by conducting necessary competitions and activities, making you get out of your comfort zone for good. Great learning environment and infrastructure to carry out the work desired by students. Festivals here are a blast and unforgettable. Overall this organization emphasizes the phrase 'In order to dive deep, one must leave the shore!'",
+      type: "text",
+      content:
+        "Very Open environment in college, perfect for the overall holistic development of a student. Starting from academics through sports and extracurricular activities, all parts are readily conducted and managed efficiently. Faculties are very friendly and performance centered. Department constantly tries to enhance your current abilities by conducting necessary competitions and activities, making you get out of your comfort zone for good. Great learning environment and infrastructure to carry out the work desired by students. Festivals here are a blast and unforgettable. Overall this organization emphasizes the phrase 'In order to dive deep, one must leave the shore!'",
       name: "Rohan Modi",
       position: "Student",
-      image: "/images/testimonials/testimonial-16.webp"
+      image: "/images/testimonials/testimonial-16.webp",
     },
     {
       id: 13,
-      type: 'text',
-      content: "Being a part of Charusat University was a brilliant experience. Aside from Charusat University, I'd like to point out that selecting the IT department was the finest option I made. Because the IT department's staff is incredibly helpful and treats all students equally. They also provided us with good advice on even small issues. I'd also want to point out that faculties offer assistance and guidance as part of the project or in the situation of any issues. The department provides knowledge of each new technology to its student in order to keep updated with new technologies. It was truly an honor for me to be able to contribute as an alumnus.",
+      type: "text",
+      content:
+        "Being a part of Charusat University was a brilliant experience. Aside from Charusat University, I'd like to point out that selecting the IT department was the finest option I made. Because the IT department's staff is incredibly helpful and treats all students equally. They also provided us with good advice on even small issues. I'd also want to point out that faculties offer assistance and guidance as part of the project or in the situation of any issues. The department provides knowledge of each new technology to its student in order to keep updated with new technologies. It was truly an honor for me to be able to contribute as an alumnus.",
       name: "Mr. Arpit Goth",
       position: "Alumnus",
-      image: "/images/testimonials/testimonial-10.webp"
+      image: "/images/testimonials/testimonial-10.webp",
     },
     {
       id: 14,
-      type: 'text',
-      content: "It was a great experience to study in the IT branch of Charusat University. The faculty member was also encouraged and help the student to implement their ideas in the projects. The advanced level of subjects and upcoming technology was also covered to guide the students for their further study. I'd like to say that if you want to study in the IT branch then study at Charusat University.",
+      type: "text",
+      content:
+        "It was a great experience to study in the IT branch of Charusat University. The faculty member was also encouraged and help the student to implement their ideas in the projects. The advanced level of subjects and upcoming technology was also covered to guide the students for their further study. I'd like to say that if you want to study in the IT branch then study at Charusat University.",
       name: "Akshar Gothi",
       position: "Student",
-      image: "/images/testimonials/testimonial-11.webp"
+      image: "/images/testimonials/testimonial-11.webp",
     },
     {
       id: 15,
-      type: 'text',
-      content: "A department that feels like a second home. Starting from being helpful, all the teachers have given priority to building our personalities as a whole. My experience with the IT department is and will be the most cheerful one, from academics to sports, co-curricular activities and events that helped us shape our tomorrow. I have not only been limited to college facilities, but the industrial visits and the number of internships offered gave me a better understanding of the real picture of the industry. Apart from the academics and the opportunities, I would love to highlight the strength of the department that stands up during tech and non-tech fests. The teachers, students, HoD sir, and everyone involved with us worked as a joint unit to make us feel home. College will always remain a home away from home. To all the freshers of this year, you are going to have the best roller coaster ride, some experiences might shine a light and others might not, but there is one thing that you have you remember, you are stronger than you think.",
+      type: "text",
+      content:
+        "A department that feels like a second home. Starting from being helpful, all the teachers have given priority to building our personalities as a whole. My experience with the IT department is and will be the most cheerful one, from academics to sports, co-curricular activities and events that helped us shape our tomorrow. I have not only been limited to college facilities, but the industrial visits and the number of internships offered gave me a better understanding of the real picture of the industry. Apart from the academics and the opportunities, I would love to highlight the strength of the department that stands up during tech and non-tech fests. The teachers, students, HoD sir, and everyone involved with us worked as a joint unit to make us feel home. College will always remain a home away from home. To all the freshers of this year, you are going to have the best roller coaster ride, some experiences might shine a light and others might not, but there is one thing that you have you remember, you are stronger than you think.",
       name: "Namrata",
       position: "Student",
-      image: "/images/testimonials/testimonial-15.webp"
+      image: "/images/testimonials/testimonial-15.webp",
     },
     {
       id: 16,
-      type: 'text',
-      content: "It was a great experience studying at Charusat University, a memory to cherish for a lifetime. My experience at the IT department was full of learning and grooming. Being a global University it gave me an opportunity to meet different kinds of people from around the world and learnt many things from them. I was always cheered to learn something new and experiment my ideas and innovations. Faculties were always available to help me out with any difficulties at academic or individual level. Department has provided all the resources which helped me grow professionally and personally. Apart from that the green peaceful environment at University always helped me think over my ideas and made me feel relaxed. I am thankful to all the faculties, mentors and entire department for providing us with quality education. I am also grateful to TNP cell for organizing placements in this pandemic and helping me get placed in a reputed organization. Overall it was a great experience to be a part of this wonderful department.",
+      type: "text",
+      content:
+        "It was a great experience studying at Charusat University, a memory to cherish for a lifetime. My experience at the IT department was full of learning and grooming. Being a global University it gave me an opportunity to meet different kinds of people from around the world and learnt many things from them. I was always cheered to learn something new and experiment my ideas and innovations. Faculties were always available to help me out with any difficulties at academic or individual level. Department has provided all the resources which helped me grow professionally and personally. Apart from that the green peaceful environment at University always helped me think over my ideas and made me feel relaxed. I am thankful to all the faculties, mentors and entire department for providing us with quality education. I am also grateful to TNP cell for organizing placements in this pandemic and helping me get placed in a reputed organization. Overall it was a great experience to be a part of this wonderful department.",
       name: "Anushree",
       position: "Student",
-      image: "/images/testimonials/testimonial-19.webp"
+      image: "/images/testimonials/testimonial-19.webp",
     },
     {
       id: 17,
-      type: 'text',
-      content: "I am having great experience with our department. All the faculties are very supportive and we are having great opportunities to explore our knowledge with your guidance. I have groomed myself in these 3 years so well by following all the academic and curriculum activities.",
+      type: "text",
+      content:
+        "I am having great experience with our department. All the faculties are very supportive and we are having great opportunities to explore our knowledge with your guidance. I have groomed myself in these 3 years so well by following all the academic and curriculum activities.",
       name: "Dhara",
       position: "Student",
-      image: "/images/testimonials/testimonial-20.webp"
+      image: "/images/testimonials/testimonial-20.webp",
     },
     {
       id: 18,
-      type: 'text',
-      content: "The KDPIT is a department where I found my dream, supportive faculties, an environment that motivated me to achieve my goals and the best quality of education. I have spent some amazing years of my life in this department that taught me almost everything that I will be facing ahead in my life. The faculty members are always there and they supported me as my backbone. The resources, courses, computer labs, classrooms are the best which is one of the major parts in students development and academics. During this pandemic, our faculties worked very hard and took care of each and every student that he/she is understanding topics that are taught in daily online classes. Though we were studying and attending lectures from our home, our teachers always taught the same as they normally teach in the classroom. It was a great chance for me to be part of this wonderful department and share the important years of my life with such people who have always helped me with my difficulties whether it's Teachers, students or seniors.",
+      type: "text",
+      content:
+        "The KDPIT is a department where I found my dream, supportive faculties, an environment that motivated me to achieve my goals and the best quality of education. I have spent some amazing years of my life in this department that taught me almost everything that I will be facing ahead in my life. The faculty members are always there and they supported me as my backbone. The resources, courses, computer labs, classrooms are the best which is one of the major parts in students development and academics. During this pandemic, our faculties worked very hard and took care of each and every student that he/she is understanding topics that are taught in daily online classes. Though we were studying and attending lectures from our home, our teachers always taught the same as they normally teach in the classroom. It was a great chance for me to be part of this wonderful department and share the important years of my life with such people who have always helped me with my difficulties whether it's Teachers, students or seniors.",
       name: "Parthiv",
       position: "Student",
-      image: "/images/testimonials/testimonial-21.webp"
+      image: "/images/testimonials/testimonial-21.webp",
     },
     {
       id: 19,
-      type: 'text',
-      content: "Charusat provides the students with ample opportunities both in terms of research and industry. A lot of effort has been put in by the authorities and the course curriculum has been structured very well. The curriculum coupled with the amazing faculty and infrastructure, provide a fantastic environment for the academic development of a student. The wide range of extra-curricular clubs also plays a huge role in shaping one's personality. In a nutshell, it indeed teaches us 'How to learn and develop sincerity in a holistic manner.'",
+      type: "text",
+      content:
+        "Charusat provides the students with ample opportunities both in terms of research and industry. A lot of effort has been put in by the authorities and the course curriculum has been structured very well. The curriculum coupled with the amazing faculty and infrastructure, provide a fantastic environment for the academic development of a student. The wide range of extra-curricular clubs also plays a huge role in shaping one's personality. In a nutshell, it indeed teaches us 'How to learn and develop sincerity in a holistic manner.'",
       name: "SHREYANSHI SHAH",
       position: "Student",
-      image: "/images/testimonials/testimonial-12.webp"
+      image: "/images/testimonials/testimonial-12.webp",
     },
     {
       id: 20,
-      type: 'text',
-      content: "IT department gives a friendly environment and also faculties are very friendly they are always ready to help. Department is not always focusing on theory learning they are giving practical knowledge as well. There is not the only study in the department there are so many activities as well from that students can learn so many things. Being a part of the IT department it's a very great experience.",
+      type: "text",
+      content:
+        "IT department gives a friendly environment and also faculties are very friendly they are always ready to help. Department is not always focusing on theory learning they are giving practical knowledge as well. There is not the only study in the department there are so many activities as well from that students can learn so many things. Being a part of the IT department it's a very great experience.",
       name: "Harsh Viradia",
       position: "Student",
-      image: "/images/testimonials/testimonial-14.webp"
+      image: "/images/testimonials/testimonial-14.webp",
     },
     {
       id: 21,
-      type: 'text',
-      content: "My Experience with CSPIT - IT Department is nice as faculty members are very supportive as well as collaborative, they help us to improve ourselves and guide us to enhance our academic skills. They also suggest ways to improve upon our drawbacks.",
+      type: "text",
+      content:
+        "My Experience with CSPIT - IT Department is nice as faculty members are very supportive as well as collaborative, they help us to improve ourselves and guide us to enhance our academic skills. They also suggest ways to improve upon our drawbacks.",
       name: "Dhruv Patel",
       position: "Student",
-      image: "/images/testimonials/testimonial-24.webp"
+      image: "/images/testimonials/testimonial-24.webp",
     },
     {
       id: 22,
-      type: 'text',
-      content: "It is a great experience that we are experiencing till today. To learn with our faculties of IT department is so good. Our faculty members are so supportive in every situation not only learning about the subjects but also in every manner. I'm honoured to be part of it.",
+      type: "text",
+      content:
+        "It is a great experience that we are experiencing till today. To learn with our faculties of IT department is so good. Our faculty members are so supportive in every situation not only learning about the subjects but also in every manner. I'm honoured to be part of it.",
       name: "Angle Parmar",
       position: "Student",
-      image: "/images/testimonials/testimonial-13.webp"
+      image: "/images/testimonials/testimonial-13.webp",
     },
     {
       id: 23,
-      type: 'text',
-      content: "My experience in the IT department is great and memorable. Faculty are very helpful and help me to improve my academic and interpersonal skills.",
+      type: "text",
+      content:
+        "My experience in the IT department is great and memorable. Faculty are very helpful and help me to improve my academic and interpersonal skills.",
       name: "Manan Patel",
       position: "Student",
-      image: "/images/testimonials/testimonial-22.webp"
+      image: "/images/testimonials/testimonial-22.webp",
     },
     {
       id: 24,
-      type: 'text',
-      content: "My experience with CSPIT (IT) Department is wonderful and all the faculty members are friendly and very helpful. Seniors are also helping out. Choosing this department is the best decision of my life.",
+      type: "text",
+      content:
+        "My experience with CSPIT (IT) Department is wonderful and all the faculty members are friendly and very helpful. Seniors are also helping out. Choosing this department is the best decision of my life.",
       name: "Charmi Patel",
       position: "Student",
-      image: "/images/testimonials/testimonial-23.webp"
+      image: "/images/testimonials/testimonial-23.webp",
     },
     {
       id: 25,
-      type: 'text',
-      content: "The IT department assuages the process of learning through their teaching methodologies and friendly behaviour. The faculties expose students to all the upcoming technologies, events and opportunities of the real world which enormously helps the students and keeps them aware. It is my sheer honour to be a part of this department and learn new skills everyday.",
+      type: "text",
+      content:
+        "The IT department assuages the process of learning through their teaching methodologies and friendly behaviour. The faculties expose students to all the upcoming technologies, events and opportunities of the real world which enormously helps the students and keeps them aware. It is my sheer honour to be a part of this department and learn new skills everyday.",
       name: "Khushi Parikh",
       position: "Student",
-      image: "/images/testimonials/testimonial-25.webp"
-    }
+      image: "/images/testimonials/testimonial-25.webp",
+    },
+    {
+      id: 26,
+      type: "text",
+      content:
+        "I did my undergrad in IT at CHARUSAT, and looking back, it's where a lot of the groundwork for my career actually got laid, even if I didn't realize it at the time. What stood out most was the access to professors who were genuinely invested in pushing us beyond the syllabus. That support gave me the room to start figuring out what I actually wanted to specialize in, and networking and cloud were the areas that pulled me in early. It wasn't a single \"aha\" moment as much as a steady process of professors backing our curiosity and giving us space to go deeper than the coursework required. That foundation carried through into my career. Today I work in cloud architecture and engineering leadership, focused on AWS, contact center technology, and cloud migrations, work that traces directly back to the interest CHARUSAT helped me build. I'm also involved in the AWS community here, co-organizing events for the AWS User Group in Toronto, which in some ways is a continuation of that same environment CHARUSAT gave me: people who show up to help others learn. If there's one thing I'd tell current students, it's to take the professors and mentors who are willing to invest in you seriously. That support shapes more of your trajectory than you'd expect at the time.",
+      name: "Manush Parikh",
+      position: "Engineering Leader at ScaleCapacity",
+      image: "/images/testimonials/testimonial-26.webp",
+    },
+    {
+      id: 27,
+      type: "text",
+      content:
+        "My time at CHARUSAT was truly amazing, I came as a student and graduated as a lifelong member of CHARUSAT family. The institution's commitment to personalized mentorship and continuous industry exposure laid a formidable technical foundation for my career. Beyond academics, my tenure on the student council provided invaluable leadership opportunities that honed my management skills. Today, I leverage this unique blend of technical acumen and people skills in my professional life, which continues to provide multiple opportunities to me. I am deeply thankful to my faculty, Department and entire CHARUSAT community for nurturing my potential, shaping my trajectory, and welcoming me in the family.",
+      name: "Arjun Rupavatia",
+      position: "Motorola Solutions Inc. Applied AI",
+      image: "/images/testimonials/testimonial-27.webp",
+    },
+    {
+      id: 28,
+      type: "text",
+      content: "My technology journey began at the Charotar Institute of Technology, Changa (CITC / CHARUSAT), where I earned my Bachelor's degree in Information Technology. During those formative years, CHARUSAT served as an incubator for practical education, analytical thinking, and innovation. Its rigorous curriculum, experienced faculty, and hands-on labs instilled in me a deep appreciation for core computer science fundamentals, structured problem-solving, and continuous learning—teaching me not just to write code, but to think like an engineer. That strong academic grounding and first-principles discipline paved the way for my Master of Science in Computer Science at California State University, Sacramento, and provided the momentum to build a transformative career across global industry leaders including Adobe, Amazon Web Services (AWS), and Google Cloud. Over a career spanning more than 15 years in digital transformation, I currently serve as a Senior Cloud Solutions Consultant at Google Cloud, where I architect mission-critical Data, High-Performance Computing (HPC), and Generative AI platforms for global enterprises in the strategic consumer platform, semiconductor, and cybersecurity industries. From designing resilient multi-cloud architectures to optimizing large-scale AI workloads, my work bridges cutting-edge research with high-impact business outcomes—helping enterprises scale complex, intelligent systems securely and reliably. Driven by the spirit of continuous learning nurtured during my undergraduate years at CHARUSAT, I remain deeply invested in academic contribution and global technical discourse. I co-authored the book The Algorithmic Fortress: Securing Our Future in the Age of Generative AI and Omnipresent Data, and have contributed to IEEE conferences as a keynote speaker, session chair, co-author of published articles, and peer reviewer across IEEE, BPB, and IGI Global publications on topics including AI, cloud computing, data, HPC, and cloud security. Technologies, frameworks, and AI models will continually evolve, but the core engineering principles, intellectual curiosity, and ethical values forged at CHARUSAT remain timeless. To the next generation of engineers walking the Changa campus: master your fundamentals, stay relentlessly adaptable in this era of AI transformation, and believe in the global weight of your preparation—CHARUSAT gives you the foundation to build, lead, and shape the future of technology on the world stage.",
+      name: "Tanvi Desai",
+      position:
+        "Senior Cloud Consultant, Google Cloud | Author & AI Infrastructure Strategist",
+      image: "/images/testimonials/testimonial-28.webp",
+    },
     // {
     //   id: 26,
     //   type: 'video',
-    //   videoUrl: "/videos/testimonial-video1.mp4", 
+    //   videoUrl: "/videos/testimonial-video1.mp4",
     //   name: "Raj Patel",
     //   position: "Senior Developer at Microsoft",
     //   batch: "Batch of 2019",
     //   thumbnail: "/images/testimonials/testimonial-1.webp"
     // },
   ];
-
 
   const currentTestimonial = testimonials[activeIndex];
   const isVideo = currentTestimonial.type === "video";
@@ -243,7 +294,7 @@ const Testimonials = () => {
       (entries) => {
         entries.forEach((entry) => setInView(entry.isIntersecting));
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -301,7 +352,8 @@ const Testimonials = () => {
   const prevTestimonial = () => {
     setExpanded(false);
     setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+      (prevIndex) =>
+        (prevIndex - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -408,7 +460,10 @@ const Testimonials = () => {
                               onClick={handlePauseVideo}
                               className="w-20 h-20 rounded-full bg-black/70 text-white flex items-center justify-center hover:scale-110 transition-all"
                             >
-                              <FontAwesomeIcon icon={faPause} className="text-2xl" />
+                              <FontAwesomeIcon
+                                icon={faPause}
+                                className="text-2xl"
+                              />
                             </button>
                           </div>
                         )}
@@ -464,7 +519,8 @@ const Testimonials = () => {
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-8">
                         {getClampedText(currentTestimonial.content)}
                       </p>
-                      {currentTestimonial.content.split(" ").length > MAX_WORDS && (
+                      {currentTestimonial.content.split(" ").length >
+                        MAX_WORDS && (
                         <button
                           className="text-indigo-600 text-sm font-medium hover:underline ml-8"
                           onClick={() => setExpanded((prev) => !prev)}
@@ -502,7 +558,9 @@ const Testimonials = () => {
               <button
                 key={t.id}
                 className={`transition-all duration-300 ${
-                  index === activeIndex ? "scale-125 bg-indigo-600" : "bg-gray-400"
+                  index === activeIndex
+                    ? "scale-125 bg-indigo-600"
+                    : "bg-gray-400"
                 } w-3 h-3 rounded-full`}
                 onClick={() => {
                   setExpanded(false);
