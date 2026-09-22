@@ -160,9 +160,6 @@ const PlacementDetails = () => (
             </h3>
             <p className="text-gray-600 mt-1">Highest package in LPA</p>
           </div>
-          <div className="text-sm text-amber-700 bg-amber-50 rounded-lg px-4 py-3">
-            Median package values are not available yet.
-          </div>
         </div>
 
         <div className="space-y-5">
@@ -186,11 +183,6 @@ const PlacementDetails = () => (
             </div>
           ))}
         </div>
-
-        <p className="text-sm text-gray-500 mt-6">
-          The median-package line will be added once the median values for these
-          five years are provided.
-        </p>
       </div>
     </div>
   </section>

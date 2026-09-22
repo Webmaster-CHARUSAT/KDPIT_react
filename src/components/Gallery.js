@@ -1,50 +1,91 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faCalendarAlt, 
-  faClock, 
-  faMapMarkerAlt, 
-  faTimes, 
-  faChevronLeft, 
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendarAlt,
+  faClock,
+  faMapMarkerAlt,
+  faTimes,
+  faChevronLeft,
   faChevronRight,
-  faFilter
-} from '@fortawesome/free-solid-svg-icons';
+  faFilter,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const galleryImages = [
-    { id: 1, src: '/images/gallery/expo.jpg', title: 'Education Expo', category: 'campus' },
-    { id: 2, src: '/images/gallery/faculty.jpg', title: 'Spoural', category: 'events' },
-    { id: 3, src: '/images/gallery/sports.jpg', title: 'Boys Cricket Match', category: 'sports' },
-    { id: 4, src: '/images/gallery/paper.jpg', title: 'Paper Presentation Conference', category: 'events' },
-    { id: 5, src: '/images/gallery/spoural.jpg', title: 'Cultural Event', category: 'cultural' },
-    { id: 6, src: '/images/gallery/project.jpg', title: 'Project Presentation', category: 'academic' },
-    { id: 7, src: '/images/gallery/hackathon.webp', title: 'DoseHack Hackathon', category: 'academic' },
-    { id: 8, src: '/images/gallery/workshops.webp', title: 'AWS Workshop', category: 'workshops' },
+    {
+      id: 1,
+      src: "/images/gallery/expo.jpg",
+      title: "Education Expo",
+      category: "campus",
+    },
+    {
+      id: 2,
+      src: "/images/gallery/faculty.jpg",
+      title: "Spoural",
+      category: "events",
+    },
+    {
+      id: 3,
+      src: "/images/gallery/sports.jpg",
+      title: "Boys Cricket Match",
+      category: "sports",
+    },
+    {
+      id: 4,
+      src: "/images/gallery/paper.jpg",
+      title: "Paper Presentation Conference",
+      category: "events",
+    },
+    {
+      id: 5,
+      src: "/images/gallery/spoural.jpg",
+      title: "Cultural Event",
+      category: "cultural",
+    },
+    {
+      id: 6,
+      src: "/images/gallery/project.jpg",
+      title: "Project Presentation",
+      category: "academic",
+    },
+    {
+      id: 7,
+      src: "/images/gallery/hackathon.webp",
+      title: "DoseHack Hackathon",
+      category: "academic",
+    },
+    {
+      id: 8,
+      src: "/images/gallery/workshops.webp",
+      title: "AWS Workshop",
+      category: "workshops",
+    },
     // { id: 9, src: '/images/gallery/gallery9.jpg', title: 'Award Ceremony', category: 'events' }
   ];
 
   const filters = [
-    { key: 'all', label: 'All', icon: faFilter },
-    { key: 'campus', label: 'Campus', icon: faMapMarkerAlt },
-    { key: 'events', label: 'Events', icon: faCalendarAlt },
-    { key: 'academic', label: 'Academic', icon: faClock },
-    { key: 'cultural', label: 'Cultural', icon: faCalendarAlt },
-    { key: 'sports', label: 'Sports', icon: faCalendarAlt },
-    { key: 'workshops', label: 'Workshops', icon: faClock }
+    { key: "all", label: "All", icon: faFilter },
+    { key: "campus", label: "Campus", icon: faMapMarkerAlt },
+    { key: "events", label: "Events", icon: faCalendarAlt },
+    { key: "academic", label: "Academic", icon: faClock },
+    { key: "cultural", label: "Cultural", icon: faCalendarAlt },
+    { key: "sports", label: "Sports", icon: faCalendarAlt },
+    { key: "workshops", label: "Workshops", icon: faClock },
   ];
 
-  const filteredImages = activeFilter === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeFilter);
+  const filteredImages =
+    activeFilter === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeFilter);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-    setCurrentImageIndex(galleryImages.findIndex(img => img.id === image.id));
+    setCurrentImageIndex(galleryImages.findIndex((img) => img.id === image.id));
   };
 
   const closeModal = () => {
@@ -58,7 +99,8 @@ const Gallery = () => {
   };
 
   const prevImage = () => {
-    const prevIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    const prevIndex =
+      (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
     setCurrentImageIndex(prevIndex);
     setSelectedImage(galleryImages[prevIndex]);
   };
@@ -69,12 +111,15 @@ const Gallery = () => {
   // };
 
   return (
-    <section id="gallery" className="py-20 "
-    style={{backgroundColor: '#e1e1e1'}}>
+    <section
+      id="gallery"
+      className="py-20 "
+      style={{ backgroundColor: "#e1e1e1" }}
+    >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,19 +127,20 @@ const Gallery = () => {
           >
             Gallery & Events
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          <motion.p 
+          <motion.p
             className="text-gray-600 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Explore our vibrant campus life through memorable moments and exciting upcoming events
+            Explore our vibrant campus life through memorable moments and
+            exciting upcoming events
           </motion.p>
         </div>
 
@@ -104,7 +150,7 @@ const Gallery = () => {
             <h3 className="text-3xl font-bold text-gray-800 mb-6 lg:mb-0">
               Photo Gallery
             </h3>
-            
+
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2">
               {filters.map((filter) => (
@@ -113,8 +159,8 @@ const Gallery = () => {
                   onClick={() => setActiveFilter(filter.key)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                     activeFilter === filter.key
-                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg transform scale-105'
-                      : 'bg-white text-gray-700 border border-gray-300 hover:border-indigo-400 hover:text-indigo-600 hover:shadow-md'
+                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg transform scale-105"
+                      : "bg-white text-gray-700 border border-gray-300 hover:border-indigo-400 hover:text-indigo-600 hover:shadow-md"
                   }`}
                 >
                   <FontAwesomeIcon icon={filter.icon} className="w-3 h-3" />
@@ -139,16 +185,20 @@ const Gallery = () => {
                   onClick={() => handleImageClick(image)}
                 >
                   <div className="aspect-square">
-                    <img 
-                      src={image.src} 
+                    <img
+                      src={image.src}
                       alt={image.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
-                      <h4 className="text-white font-semibold text-lg">{image.title}</h4>
-                      <p className="text-white/80 text-sm capitalize">{image.category}</p>
+                      <h4 className="text-white font-semibold text-lg">
+                        {image.title}
+                      </h4>
+                      <p className="text-white/80 text-sm capitalize">
+                        {image.category}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -255,7 +305,7 @@ const Gallery = () => {
               >
                 <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5" />
               </button>
-              
+
               <button
                 onClick={nextImage}
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full p-3 transition-all duration-300"
@@ -269,7 +319,7 @@ const Gallery = () => {
                 alt={selectedImage.title}
                 className="w-full h-auto max-h-[60vh] object-contain"
               />
-              
+
               {/* Image Info */}
               <div className="p-6 bg-white/70">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">

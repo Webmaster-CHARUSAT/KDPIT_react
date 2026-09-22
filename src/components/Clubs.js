@@ -125,7 +125,7 @@ const Clubs = () => {
       description: "Cloud computing and AWS certification training",
       color: "#9C27B0", // Purple
       gradient: "from-purple-400 to-purple-600",
-      link: "https://asc.charusat.ac.in/",
+      link: "https://cspit.charusat.ac.in/club/AWS",
     },
     {
       id: "DS",
