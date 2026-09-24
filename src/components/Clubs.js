@@ -158,7 +158,7 @@ const Clubs = () => {
       description: "Public speaking and communication skills",
       color: "#FF9900", // Orange
       gradient: "from-orange-400 to-orange-600",
-      link: "",
+      link: "https://eloquence-xi.vercel.app/",
     },
   ];
 
