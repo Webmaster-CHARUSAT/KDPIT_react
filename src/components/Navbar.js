@@ -40,7 +40,8 @@ const menuStructure = {
     submenu: {
       academicCalendar: {
         label: "Academic Calendar",
-        path: "https://drive.google.com/file/d/1R43bm9OBMy74JAz8SMx_-T4RMSyDhD0R/view?usp=drive_link",
+        path: "/Files/3rd%205th%207th%20Sem_ODD%20SEM%20Academic%20Calendar%202026-27%20%28June%20-%20Dec%29.pdf",
+        external: true,
       },
       btechBooklet: {
         label: "B.Tech Booklet",
@@ -79,7 +80,7 @@ const menuStructure = {
       },
       oldQuestionPaper: {
         label: "Old Question Paper",
-        path: "drive?folderId=1U1hIPybwqdsF9Nn_K6QKom0Kg5yAWCaW&heading=Old%20Question%20Paper",
+        path: "https://drive.google.com/drive/folders/1aYBRcmhJJXvYBq8ojPKlc5AVUqZa6Cpi",
         external: true,
       },
       eMagazine: {
@@ -108,11 +109,11 @@ const menuStructure = {
           },
         },
       },
-      researchLabs: {
-        label: "Research Labs",
-        path: "https://charusat.edu.in/cspit/it/lab.html",
-        external: true,
-      },
+      // researchLabs: {
+      //   label: "Research Labs",
+      //   path: "https://charusat.edu.in/cspit/it/lab.html",
+      //   external: true,
+      // },
     },
   },
   admission: {
